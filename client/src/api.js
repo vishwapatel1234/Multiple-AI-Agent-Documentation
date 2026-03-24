@@ -42,7 +42,15 @@ export const api = {
     downloadPdf: async (id) => {
         const res = await fetch(`${API_BASE_URL}/projects/${id}/pdf`);
         if (!res.ok) throw new Error('Failed to download PDF');
-        return res.blob();
+
+        const blob = await res.blob();
+        const disposition = res.headers.get('Content-Disposition') || '';
+        const match = disposition.match(/filename="?([^"]+)"?/i);
+
+        return {
+            blob,
+            filename: match?.[1] || `project-${id}.pdf`
+        };
     }
 };
 

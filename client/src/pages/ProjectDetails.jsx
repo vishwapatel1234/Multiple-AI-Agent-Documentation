@@ -34,15 +34,15 @@ const ProjectDetails = () => {
     const handleDownload = async () => {
         try {
             setDownloading(true);
-            const blob = await api.downloadPdf(project.id);
+            const { blob, filename } = await api.downloadPdf(project.id);
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `project-${project.id}.pdf`;
+            a.download = filename;
             document.body.appendChild(a);
             a.click();
-            window.URL.revokeObjectURL(url);
             document.body.removeChild(a);
+            window.setTimeout(() => window.URL.revokeObjectURL(url), 1000);
         } catch (err) {
             console.error("Download failed", err);
             alert("Failed to download PDF");
@@ -83,9 +83,9 @@ const ProjectDetails = () => {
                         className="btn btn-primary"
                         style={{ width: '200px' }}
                         onClick={handleDownload}
-                        disabled={downloading}
+                        disabled={downloading || !project?.id}
                     >
-                        {downloading ? 'Downloading...' : 'Export PDF'}
+                        {downloading ? 'Downloading...' : 'Download PDF'}
                     </button>
                 </div>
             </div>
