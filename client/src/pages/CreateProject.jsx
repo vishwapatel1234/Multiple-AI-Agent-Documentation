@@ -1,12 +1,27 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Sparkles, Wand2 } from 'lucide-react';
 import { api } from '../api';
+
+const stepContent = [
+    {
+        title: 'Requirements',
+        text: 'Start with a clear brief so the agent chain has solid context.',
+    },
+    {
+        title: 'Team',
+        text: 'Adjust staffing to match the complexity and delivery scope.',
+    },
+    {
+        title: 'Stack',
+        text: 'Review the chosen platform setup before generating documentation.',
+    },
+];
 
 const CreateProject = () => {
     const navigate = useNavigate();
     const [step, setStep] = useState(1);
     const [loading, setLoading] = useState(false);
-
     const [formData, setFormData] = useState({
         requirements: '',
         team: {
@@ -15,60 +30,60 @@ const CreateProject = () => {
             backend_dev: { count: 1, level: 'senior' },
             ai_engineer: { count: 1, level: 'senior' },
             qa_engineer: { count: 1, level: 'mid' },
-            devops: { count: 1, level: 'senior' }
+            devops: { count: 1, level: 'senior' },
         },
         stack: {
             frontend: 'React',
             backend: 'Node.js',
             database: 'PostgreSQL',
-            cloud: 'AWS'
-        }
+            cloud: 'AWS',
+        },
     });
 
-    const handleReqChange = (e) => setFormData({ ...formData, requirements: e.target.value });
+    const handleReqChange = (event) => setFormData({ ...formData, requirements: event.target.value });
 
     const handleTeamChange = (role, field, value) => {
-        setFormData(prev => ({
+        setFormData((prev) => ({
             ...prev,
             team: {
                 ...prev.team,
                 [role]: {
                     ...prev.team[role],
-                    [field]: value
-                }
-            }
+                    [field]: value,
+                },
+            },
         }));
     };
 
     const handleStackChange = (field, value) => {
-        setFormData(prev => ({
+        setFormData((prev) => ({
             ...prev,
             stack: {
                 ...prev.stack,
-                [field]: value
-            }
+                [field]: value,
+            },
         }));
     };
 
     const handleAutoFill = async () => {
-        if (!formData.requirements) return;
+        if (!formData.requirements) {
+            return;
+        }
+
         setLoading(true);
         try {
             const suggestion = await api.suggestConfiguration(formData.requirements);
             if (suggestion) {
-                setFormData(prev => ({
+                setFormData((prev) => ({
                     ...prev,
                     team: { ...prev.team, ...suggestion.team },
-                    stack: { ...prev.stack, ...suggestion.stack }
+                    stack: { ...prev.stack, ...suggestion.stack },
                 }));
-                // Optional: auto-advance to next step or just notify?
-                // Let's stay on step 1 so they can review, or move to step 2?
-                // Moving to step 2 seems natural to see the results.
                 setStep(2);
             }
-        } catch (err) {
-            console.error("Auto-fill failed", err);
-            alert("Failed to auto-fill configuration.");
+        } catch (error) {
+            console.error('Auto-fill failed', error);
+            alert('Failed to auto-fill configuration.');
         } finally {
             setLoading(false);
         }
@@ -77,14 +92,14 @@ const CreateProject = () => {
     const handleSubmit = async () => {
         setLoading(true);
         try {
-            const res = await api.createProject(formData);
-            if (res.error) {
-                alert(res.error + ": " + (res.details ? res.details.join(', ') : ''));
-            } else {
-                navigate(`/projects/${res.projectId}`);
+            const response = await api.createProject(formData);
+            if (response.error) {
+                alert(`${response.error}: ${response.details ? response.details.join(', ') : ''}`);
+                return;
             }
-        } catch (err) {
-            console.error(err);
+            navigate(`/projects/${response.projectId}`);
+        } catch (error) {
+            console.error(error);
             alert('Failed to generate documentation. See console.');
         } finally {
             setLoading(false);
@@ -93,137 +108,199 @@ const CreateProject = () => {
 
     if (loading) {
         return (
-            <div style={{ textAlign: 'center', padding: '4rem' }}>
-                <div className="spinner" style={{ margin: '0 auto 1rem' }}></div>
-                <h2>Generating Documentation...</h2>
-                <p style={{ color: 'var(--text-secondary)' }}>
-                    AI is analyzing requirements, estimating costs, and planning modules.
-                    <br />This may take up to 60 seconds.
-                </p>
-            </div>
+            <section className="card loading-state">
+                <div className="status-card">
+                    <div className="spinner" />
+                    <div>
+                        <strong>Generating documentation</strong>
+                        <p>The agents are analyzing requirements, researching the stack, and assembling your final document.</p>
+                    </div>
+                </div>
+            </section>
         );
     }
 
-
     return (
-        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-            <h1 className="gradient-text">Create Professional Project Documentation</h1>
-
-            {/* Visual Progress Stepper */}
-            <div className="stepper-container">
-                <div className="stepper-step">
-                    <div className={`step-circle ${step >= 1 ? 'active' : ''} ${step > 1 ? 'completed' : ''}`}>
-                        {step > 1 ? '✓' : '1'}
-                    </div>
-                    <span style={{ fontSize: '0.875rem', color: step === 1 ? 'var(--primary-color)' : 'var(--text-muted)' }}>Requirements</span>
+        <div className="page-stack">
+            <section className="page-hero">
+                <div className="hero-copy">
+                    <span className="hero-kicker">New Project</span>
+                    <h1 className="hero-title">A tidier flow for turning rough briefs into polished documentation.</h1>
+                    <p className="hero-description">
+                        Move step by step, adjust the delivery team, and let the app shape the final project document for you.
+                    </p>
                 </div>
-                <div className={`step-line ${step > 1 ? 'completed' : ''}`}></div>
-                <div className="stepper-step">
-                    <div className={`step-circle ${step >= 2 ? 'active' : ''} ${step > 2 ? 'completed' : ''}`}>
-                        {step > 2 ? '✓' : '2'}
-                    </div>
-                    <span style={{ fontSize: '0.875rem', color: step === 2 ? 'var(--primary-color)' : 'var(--text-muted)' }}>Team</span>
+                <div className="hero-actions">
+                    <button className="btn btn-secondary" onClick={handleAutoFill} disabled={!formData.requirements}>
+                        <Wand2 size={18} />
+                        Auto-Fill with AI
+                    </button>
+                    {step === 3 && (
+                        <button className="btn btn-primary" onClick={handleSubmit}>
+                            <Sparkles size={18} />
+                            Generate Documentation
+                        </button>
+                    )}
                 </div>
-                <div className={`step-line ${step > 2 ? 'completed' : ''}`}></div>
-                <div className="stepper-step">
-                    <div className={`step-circle ${step >= 3 ? 'active' : ''}`}>
-                        3
-                    </div>
-                    <span style={{ fontSize: '0.875rem', color: step === 3 ? 'var(--primary-color)' : 'var(--text-muted)' }}>Tech Stack</span>
-                </div>
-            </div>
+            </section>
 
-            <div className="card animate-fade-in">
-                {step === 1 && (
-                    <div>
-                        <h3>Step 1: Project Requirements</h3>
-                        <div className="input-group">
-                            <label className="input-label">Describe your project goal, features, and constraints.</label>
-                            <textarea
-                                className="input-field"
-                                rows={8}
-                                value={formData.requirements}
-                                onChange={handleReqChange}
-                                placeholder="e.g., A web-based inventory management system for a retail chain..."
-                            />
-                        </div>
-                        <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
-
-                            <button className="btn btn-primary" onClick={() => setStep(2)}>Next: Team Selection</button>
-                            <button
-                                className="btn-ai"
-                                onClick={handleAutoFill}
-                                disabled={loading || !formData.requirements}
-                            >
-                                {loading && step === 1 ? 'Analyzing...' : 'Auto-Fill with AI'}
-                            </button>
-                        </div>
-                    </div>
-                )}
-
-                {step === 2 && (
-                    <div>
-                        <h3>Step 2: Team Selection</h3>
-                        {Object.keys(formData.team).map(role => (
-                            <div key={role} style={{ marginBottom: '1rem', padding: '1rem', backgroundColor: 'var(--bg-primary)', borderRadius: '8px' }}>
-                                <h4 style={{ textTransform: 'capitalize' }}>{role.replace('_', ' ')}</h4>
-                                <div style={{ display: 'flex', gap: '1rem' }}>
-                                    <div style={{ flex: 1 }}>
-                                        <label className="input-label">Count</label>
-                                        <input
-                                            type="number"
-                                            className="input-field"
-                                            value={formData.team[role].count}
-                                            onChange={(e) => handleTeamChange(role, 'count', parseInt(e.target.value))}
-                                            min="0"
-                                        />
-                                    </div>
-                                    <div style={{ flex: 1 }}>
-                                        <label className="input-label">Level</label>
-                                        <select
-                                            className="input-field"
-                                            value={formData.team[role].level}
-                                            onChange={(e) => handleTeamChange(role, 'level', e.target.value)}
-                                        >
-                                            <option value="junior">Junior</option>
-                                            <option value="mid">Mid</option>
-                                            <option value="senior">Senior</option>
-                                        </select>
-                                    </div>
+            <div className="form-shell">
+                <section className="form-section">
+                    {step === 1 && (
+                        <div className="card panel">
+                            <div className="panel-header">
+                                <div>
+                                    <h2 className="panel-title">Step 1. Project Requirements</h2>
+                                    <p className="panel-description">Describe the product goal, critical workflows, users, and constraints.</p>
                                 </div>
                             </div>
-                        ))}
-                        <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
-                            <button className="btn" style={{ backgroundColor: 'var(--bg-card)' }} onClick={() => setStep(1)}>Back</button>
-                            <button className="btn btn-primary" onClick={() => setStep(3)}>Next: Tech Stack</button>
+
+                            <div className="input-group">
+                                <label className="input-label">Project brief</label>
+                                <textarea
+                                    className="input-field"
+                                    value={formData.requirements}
+                                    onChange={handleReqChange}
+                                    placeholder="Example: Build a workflow platform for enterprise support teams with analytics, ticket triage, role-based access, PDF exports, and operational dashboards."
+                                />
+                                <span className="input-hint">The more specific the brief, the more useful the generated documentation will be.</span>
+                            </div>
+
+                            <div className="action-row">
+                                <span className="muted">Need a head start? Use AI auto-fill once your brief is in place.</span>
+                                <button className="btn btn-primary" onClick={() => setStep(2)}>
+                                    Continue to Team
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                )}
+                    )}
 
+                    {step === 2 && (
+                        <div className="card panel">
+                            <div className="panel-header">
+                                <div>
+                                    <h2 className="panel-title">Step 2. Team Selection</h2>
+                                    <p className="panel-description">Tune the delivery team so timelines and cost estimates feel realistic.</p>
+                                </div>
+                            </div>
 
-                {step === 3 && (
-                    <div>
-                        <h3>Step 3: Tech Stack</h3>
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                            {Object.keys(formData.stack).map(techKey => (
-                                <div key={techKey} className="input-group">
-                                    <label className="input-label" style={{ textTransform: 'capitalize' }}>{techKey}</label>
-                                    <input
-                                        className="input-field"
-                                        value={formData.stack[techKey]}
-                                        onChange={(e) => handleStackChange(techKey, e.target.value)}
-                                    />
+                            <div className="field-grid">
+                                {Object.keys(formData.team).map((role) => (
+                                    <div key={role} className="role-card">
+                                        <div className="role-card-header">
+                                            <h3 className="role-title">{role.replaceAll('_', ' ')}</h3>
+                                            <p className="role-subtitle">Staffing input for estimation and planning.</p>
+                                        </div>
+                                        <div className="field-grid two-col">
+                                            <div className="input-group">
+                                                <label className="input-label">Count</label>
+                                                <input
+                                                    type="number"
+                                                    min="0"
+                                                    className="input-field"
+                                                    value={formData.team[role].count}
+                                                    onChange={(event) => handleTeamChange(role, 'count', parseInt(event.target.value, 10))}
+                                                />
+                                            </div>
+                                            <div className="input-group">
+                                                <label className="input-label">Level</label>
+                                                <select
+                                                    className="input-field"
+                                                    value={formData.team[role].level}
+                                                    onChange={(event) => handleTeamChange(role, 'level', event.target.value)}
+                                                >
+                                                    <option value="junior">Junior</option>
+                                                    <option value="mid">Mid</option>
+                                                    <option value="senior">Senior</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <div className="action-row">
+                                <button className="btn btn-ghost" onClick={() => setStep(1)}>Back</button>
+                                <button className="btn btn-primary" onClick={() => setStep(3)}>Continue to Stack</button>
+                            </div>
+                        </div>
+                    )}
+
+                    {step === 3 && (
+                        <div className="card panel">
+                            <div className="panel-header">
+                                <div>
+                                    <h2 className="panel-title">Step 3. Tech Stack</h2>
+                                    <p className="panel-description">Confirm the platform choices that will anchor the final recommendation.</p>
+                                </div>
+                            </div>
+
+                            <div className="field-grid two-col">
+                                {Object.keys(formData.stack).map((techKey) => (
+                                    <div key={techKey} className="input-group">
+                                        <label className="input-label" style={{ textTransform: 'capitalize' }}>{techKey}</label>
+                                        <input
+                                            className="input-field"
+                                            value={formData.stack[techKey]}
+                                            onChange={(event) => handleStackChange(techKey, event.target.value)}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+
+                            <div className="action-row">
+                                <button className="btn btn-ghost" onClick={() => setStep(2)}>Back</button>
+                                <button className="btn btn-primary" onClick={handleSubmit}>
+                                    <Sparkles size={18} />
+                                    Generate Documentation
+                                </button>
+                            </div>
+                        </div>
+                    )}
+                </section>
+
+                <aside className="sticky-side">
+                    <div className="card helper-card">
+                        <div className="panel-header">
+                            <div>
+                                <h2 className="panel-title">Build Flow</h2>
+                                <p className="panel-description">A clearer step-by-step workspace for the agent-driven generation process.</p>
+                            </div>
+                        </div>
+
+                        <div className="stepper">
+                            {stepContent.map((item, index) => (
+                                <div
+                                    key={item.title}
+                                    className={`step-item${step === index + 1 ? ' active' : ''}`}
+                                >
+                                    <div className="step-index">{index + 1}</div>
+                                    <div>
+                                        <div className="step-title">{item.title}</div>
+                                        <div className="step-text">{item.text}</div>
+                                    </div>
                                 </div>
                             ))}
                         </div>
-                        <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
-                            <button className="btn" style={{ backgroundColor: 'var(--bg-card)' }} onClick={() => setStep(2)}>Back</button>
-                            <button className="btn btn-primary" onClick={handleSubmit}>Generate Documentation</button>
+
+                        <div className="helper-list">
+                            <div className="helper-item">
+                                <strong>Best results come from specific briefs</strong>
+                                <span>Include workflows, user types, integrations, compliance needs, and scale expectations.</span>
+                            </div>
+                            <div className="helper-item">
+                                <strong>AI auto-fill is optional</strong>
+                                <span>Use it to speed up staffing and stack choices, then refine the inputs before generating.</span>
+                            </div>
+                            <div className="helper-item">
+                                <strong>Nothing about the backend flow changed</strong>
+                                <span>This refresh focuses on clarity, hierarchy, spacing, and a neater screen rhythm.</span>
+                            </div>
                         </div>
                     </div>
-                )}
+                </aside>
             </div>
-        </div >
+        </div>
     );
 };
 

@@ -1,0 +1,36 @@
+{
+  "generatedAt": "2026-03-24T07:02:23.847Z",
+  "config": {
+    "iterations": 1,
+    "consistencyRuns": 2,
+    "categories": [
+      "consistency"
+    ]
+  },
+  "totals": {
+    "totalResults": 1,
+    "executed": 1,
+    "skipped": 0,
+    "successCount": 1,
+    "failureCount": 0,
+    "successRate": 100,
+    "averageDurationMs": 11222.96
+  },
+  "commonErrors": [],
+  "results": [
+    {
+      "id": "consistency-food-delivery",
+      "category": "consistency",
+      "mode": "consistency",
+      "durationMs": 11222.96,
+      "success": true,
+      "score": 3,
+      "details": {
+        "totalRuns": 2,
+        "similarityScore": 0.8,
+        "consistencyRate": 0.8
+      },
+      "error": null
+    }
+  ]
+}

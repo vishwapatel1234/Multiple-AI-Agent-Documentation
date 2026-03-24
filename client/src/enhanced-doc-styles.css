@@ -1,74 +1,75 @@
-/* ===========================
-   ENHANCED DOCUMENTATION VIEWER
-   =========================== */
-
 .enhanced-doc-viewer {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    align-items: stretch;
+    gap: 18px;
+    width: 100%;
 }
 
-/* Collapsible Section Styles */
 .collapsible-section {
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    background: var(--bg-card);
-    backdrop-filter: blur(10px);
+    display: block;
+    width: 100%;
     overflow: hidden;
-    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    background: var(--bg-elevated);
+    box-shadow: var(--shadow-sm);
+    transition: 180ms ease;
 }
 
 .collapsible-section:hover {
-    box-shadow: var(--shadow-md);
     transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
 .section-header {
+    -webkit-appearance: none;
+    appearance: none;
     width: 100%;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 1.25rem 1.5rem;
+    justify-content: space-between;
+    gap: 14px;
+    box-sizing: border-box;
+    padding: 20px 22px;
+    border: 0;
     background: transparent;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s ease;
     color: var(--text-primary);
-    font-family: var(--font-family);
+    cursor: pointer;
+    text-align: left;
 }
 
 .section-header:hover {
-    background: var(--bg-secondary);
+    background: color-mix(in srgb, var(--primary-color) 5%, var(--bg-elevated));
 }
 
-.section-header .section-icon {
+.section-icon {
     color: var(--primary-color);
     flex-shrink: 0;
 }
 
 .section-header h2 {
-    margin: 0;
-    font-size: 1.25rem;
-    font-weight: 600;
     flex: 1;
-    text-align: left;
+    font-size: 1.2rem;
+    margin: 0;
 }
 
-.section-header .expand-icon {
+.expand-icon {
     color: var(--text-muted);
-    transition: transform 0.2s ease;
     flex-shrink: 0;
 }
 
 .section-content {
-    padding: 0 1.5rem 1.5rem 1.5rem;
-    animation: slideDown 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 22px 22px;
+    animation: section-slide 180ms ease;
 }
 
-@keyframes slideDown {
+@keyframes section-slide {
     from {
         opacity: 0;
-        transform: translateY(-10px);
+        transform: translateY(-6px);
     }
 
     to {
@@ -77,93 +78,83 @@
     }
 }
 
-/* Architecture Visual Styles */
 .architecture-visual {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 2rem;
-    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
-    border-radius: 12px;
-    margin-bottom: 1.5rem;
+    gap: 18px;
+    padding: 22px;
+    margin-bottom: 18px;
+    border: 1px solid var(--border-color);
+    border-radius: 22px;
+    background:
+        linear-gradient(135deg, color-mix(in srgb, var(--primary-color) 10%, transparent), transparent 55%),
+        color-mix(in srgb, var(--bg-elevated) 86%, white);
 }
 
 .architecture-layer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    width: 100%;
-    max-width: 900px;
+    gap: 12px;
 }
 
 .arch-title {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--text-secondary);
+    font-size: 0.76rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+}
+
+.arch-component-group {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
 }
 
 .arch-component {
+    min-width: 180px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
-    padding: 1.5rem 2rem;
-    background: var(--bg-card);
-    border: 2px solid var(--border-color);
-    border-radius: 12px;
-    box-shadow: var(--shadow-md);
-    transition: all 0.3s ease;
-    min-width: 180px;
-}
-
-.arch-component:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--primary-color);
+    gap: 8px;
+    padding: 18px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    background: rgba(255, 255, 255, 0.4);
+    text-align: center;
 }
 
 .arch-component svg {
     color: var(--primary-color);
 }
 
-.component-label {
-    font-weight: 600;
-    font-size: 1rem;
+.component-label,
+.component-label-sm {
+    font-weight: 700;
     color: var(--text-primary);
-    text-align: center;
 }
 
 .component-label-sm {
-    font-weight: 600;
-    font-size: 0.875rem;
-    color: var(--text-primary);
-    text-align: center;
+    font-size: 0.92rem;
 }
 
 .component-detail {
-    font-size: 0.75rem;
+    font-size: 0.82rem;
     color: var(--text-muted);
-    text-align: center;
 }
 
-/* Component Type Variations */
 .user-component {
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05));
-    border-color: rgba(59, 130, 246, 0.3);
+    background: color-mix(in srgb, var(--primary-color) 10%, var(--bg-elevated));
 }
 
 .core-component {
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.05));
-    border-color: rgba(139, 92, 246, 0.3);
+    background: color-mix(in srgb, var(--secondary-color) 14%, var(--bg-elevated));
 }
 
 .agent-component {
-    background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(236, 72, 153, 0.05));
-    border-color: rgba(236, 72, 153, 0.3);
+    background: color-mix(in srgb, var(--accent-color) 12%, var(--bg-elevated));
 }
 
 .agent-component svg {
@@ -171,186 +162,140 @@
 }
 
 .api-component {
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
-    border-color: rgba(16, 185, 129, 0.3);
+    background: color-mix(in srgb, var(--success-color) 10%, var(--bg-elevated));
 }
 
 .api-component svg {
     color: var(--success-color);
 }
 
-/* Component Group Layout */
-.arch-component-group {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 1rem;
-    width: 100%;
-    max-width: 900px;
-}
-
-/* Flow Arrows */
 .flow-arrow {
-    font-size: 2rem;
+    align-self: center;
     color: var(--primary-color);
-    font-weight: bold;
-    animation: pulse 2s ease-in-out infinite;
+    font-size: 1.8rem;
+    font-weight: 700;
 }
 
-@keyframes pulse {
-
-    0%,
-    100% {
-        opacity: 0.6;
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: 1;
-        transform: scale(1.1);
-    }
-}
-
-/* Enhanced Markdown Content Styles */
 .enhanced-markdown {
     color: var(--text-primary);
-    line-height: 1.7;
+}
+
+.enhanced-markdown > :first-child {
+    margin-top: 0;
 }
 
 .enhanced-markdown h1,
 .enhanced-markdown h2,
 .enhanced-markdown h3,
 .enhanced-markdown h4 {
-    color: var(--text-primary);
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
-    font-weight: 600;
+    margin: 1.25em 0 0.5em;
+    line-height: 1.2;
 }
 
 .enhanced-markdown h1 {
-    font-size: 1.875rem;
-    border-bottom: 2px solid var(--border-color);
-    padding-bottom: 0.5rem;
+    font-size: 1.8rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .enhanced-markdown h2 {
-    font-size: 1.5rem;
+    font-size: 1.45rem;
 }
 
 .enhanced-markdown h3 {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
 }
 
-.enhanced-markdown p {
-    margin-bottom: 1em;
+.enhanced-markdown p,
+.enhanced-markdown ul,
+.enhanced-markdown ol,
+.enhanced-markdown blockquote,
+.enhanced-markdown table,
+.enhanced-markdown pre {
+    margin: 0 0 1rem;
 }
 
 .enhanced-markdown ul,
 .enhanced-markdown ol {
-    margin-left: 1.5em;
-    margin-bottom: 1em;
+    padding-left: 1.4rem;
 }
 
-.enhanced-markdown li {
-    margin-bottom: 0.5em;
+.enhanced-markdown li + li {
+    margin-top: 0.35rem;
 }
 
 .enhanced-markdown code {
-    background: var(--bg-secondary);
-    color: var(--accent-color);
-    padding: 0.2em 0.4em;
-    border-radius: 4px;
-    font-size: 0.9em;
-    font-family: 'Monaco', 'Courier New', monospace;
+    padding: 0.18rem 0.42rem;
+    border-radius: 8px;
+    background: var(--bg-muted);
+    color: var(--primary-color);
+    font-family: "SFMono-Regular", Consolas, monospace;
+    font-size: 0.92em;
 }
 
 .enhanced-markdown pre {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 1rem;
     overflow-x: auto;
-    margin-bottom: 1em;
+    padding: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    background: color-mix(in srgb, var(--bg-muted) 72%, transparent);
 }
 
 .enhanced-markdown pre code {
-    background: transparent;
     padding: 0;
-    color: var(--text-primary);
+    background: transparent;
+    color: inherit;
 }
 
 .enhanced-markdown blockquote {
-    border-left: 4px solid var(--primary-color);
-    padding-left: 1rem;
-    margin-left: 0;
+    padding: 14px 18px;
+    border-left: 4px solid var(--secondary-color);
+    border-radius: 0 16px 16px 0;
     color: var(--text-secondary);
-    font-style: italic;
+    background: color-mix(in srgb, var(--secondary-color) 10%, transparent);
 }
 
 .enhanced-markdown table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 1em;
+    overflow: hidden;
+    border-radius: 18px;
 }
 
 .enhanced-markdown th,
 .enhanced-markdown td {
-    padding: 0.75rem;
-    border: 1px solid var(--border-color);
+    padding: 14px 16px;
     text-align: left;
+    border: 1px solid var(--border-color);
 }
 
 .enhanced-markdown th {
-    background: var(--bg-secondary);
-    font-weight: 600;
+    background: color-mix(in srgb, var(--bg-muted) 70%, transparent);
 }
 
 .enhanced-markdown a {
     color: var(--primary-color);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s ease;
 }
 
-.enhanced-markdown a:hover {
-    border-bottom-color: var(--primary-color);
+.doc-placeholder {
+    padding: 40px;
+    text-align: center;
+    color: var(--text-muted);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
+    .section-header,
+    .section-content,
     .architecture-visual {
-        padding: 1rem;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .arch-component {
+        min-width: 0;
     }
 
     .arch-component-group {
         grid-template-columns: 1fr;
     }
-
-    .arch-component {
-        min-width: unset;
-        padding: 1rem 1.5rem;
-    }
-
-    .section-header {
-        padding: 1rem;
-    }
-
-    .section-header h2 {
-        font-size: 1.125rem;
-    }
-
-    .enhanced-markdown h1 {
-        font-size: 1.5rem;
-    }
-
-    .enhanced-markdown h2 {
-        font-size: 1.25rem;
-    }
-}
-
-/* Placeholder State */
-.doc-placeholder {
-    padding: 3rem;
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 1.125rem;
 }

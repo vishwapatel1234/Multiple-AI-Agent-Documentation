@@ -153,12 +153,6 @@ const EnhancedDocViewer = ({ content }) => {
         sections.push(currentSection);
     }
 
-    // Check if architecture section contains ASCII diagram
-    const hasArchitectureSection = sections.some(s =>
-        s.title.toLowerCase().includes('architecture') ||
-        s.title.toLowerCase().includes('system design')
-    );
-
     return (
         <div className="enhanced-doc-viewer">
             {sections.map((section, index) => {

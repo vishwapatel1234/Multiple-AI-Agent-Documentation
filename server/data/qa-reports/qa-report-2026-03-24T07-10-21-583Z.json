@@ -1,0 +1,1602 @@
+{
+  "generatedAt": "2026-03-24T07:10:21.581Z",
+  "config": {
+    "iterations": 3,
+    "consistencyRuns": 5,
+    "categories": null
+  },
+  "totals": {
+    "totalResults": 30,
+    "executed": 24,
+    "skipped": 6,
+    "successCount": 10,
+    "failureCount": 14,
+    "successRate": 41.67,
+    "averageDurationMs": 11457.82
+  },
+  "commonErrors": [
+    {
+      "message": "Project type did not match expectation",
+      "count": 1
+    },
+    {
+      "message": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3-flash\nPlease retry in 46.118978971s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-3-flash\"},\"quotaValue\":\"5\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"46s\"}]",
+      "count": 1
+    },
+    {
+      "message": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3-flash\nPlease retry in 45.442183364s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-3-flash\"},\"quotaValue\":\"5\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"45s\"}]",
+      "count": 1
+    },
+    {
+      "message": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3-flash\nPlease retry in 44.754878203s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-3-flash\"},\"quotaValue\":\"5\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"44s\"}]",
+      "count": 1
+    },
+    {
+      "message": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3-flash\nPlease retry in 44.172799069s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-3-flash\"},\"quotaValue\":\"5\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"44s\"}]",
+      "count": 1
+    },
+    {
+      "message": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3-flash\nPlease retry in 43.566374543s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"model\":\"gemini-3-flash\",\"location\":\"global\"},\"quotaValue\":\"5\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"43s\"}]",
+      "count": 1
+    },
+    {
+      "message": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3-flash\nPlease retry in 42.98623356s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"model\":\"gemini-3-flash\",\"location\":\"global\"},\"quotaValue\":\"5\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"42s\"}]",
+      "count": 1
+    },
+    {
+      "message": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3-flash\nPlease retry in 42.304514522s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-3-flash\"},\"quotaValue\":\"5\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"42s\"}]",
+      "count": 1
+    },
+    {
+      "message": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3-flash\nPlease retry in 41.678937091s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-3-flash\"},\"quotaValue\":\"5\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"41s\"}]",
+      "count": 1
+    },
+    {
+      "message": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3-flash\nPlease retry in 41.015422469s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-3-flash\"},\"quotaValue\":\"5\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"41s\"}]",
+      "count": 1
+    },
+    {
+      "message": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3-flash\nPlease retry in 40.409687824s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-3-flash\"},\"quotaValue\":\"5\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"40s\"}]",
+      "count": 1
+    },
+    {
+      "message": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3-flash\nPlease retry in 39.685421185s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-3-flash\"},\"quotaValue\":\"5\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"39s\"}]",
+      "count": 1
+    },
+    {
+      "message": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3-flash\nPlease retry in 39.039652271s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-3-flash\"},\"quotaValue\":\"5\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"39s\"}]",
+      "count": 1
+    },
+    {
+      "message": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3-flash\nPlease retry in 38.466791578s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-3-flash\"},\"quotaValue\":\"5\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"38s\"}]",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "id": "functional-food-delivery",
+      "category": "functional",
+      "mode": "pipeline",
+      "durationMs": 136727.49,
+      "success": true,
+      "score": 6,
+      "details": {
+        "requirementAnalysis": {
+          "summary": [
+            "Development of a comprehensive food delivery application.",
+            "The application will cater to customers, restaurants, and administrators.",
+            "Core functionalities include user management, restaurant operations, real-time order tracking, payment processing, and a feedback system."
+          ],
+          "project_type": "Food Delivery Mobile Application Development",
+          "explicit_requirements": [
+            "User accounts",
+            "Restaurant onboarding (for adding and managing restaurants)",
+            "Live delivery tracking",
+            "Payments functionality",
+            "Ratings and review system",
+            "Admin dashboard"
+          ],
+          "assumptions": [
+            "The application will consist of a customer-facing interface, a restaurant-facing interface, and an administrator interface (dashboard).",
+            "A backend system will be developed to support all application features and data management.",
+            "Live delivery tracking implies the necessity for a mechanism for delivery personnel to update their status/location, likely through a dedicated interface or app."
+          ],
+          "missing_information": [
+            "Target platforms for customer, restaurant, and admin interfaces (e.g., iOS, Android, Web).",
+            "Detailed functionalities for 'User accounts' (e.g., registration, profile management, order history).",
+            "Specific processes for 'Restaurant onboarding' (e.g., required documents, approval workflow, menu management).",
+            "Detailed requirements for 'Live delivery tracking' (e.g., mapping service integration, push notifications, driver app details).",
+            "Specific payment methods to be supported and preferred payment gateway integrations.",
+            "Detailed scope for 'Ratings' (e.g., rating restaurants, food items, delivery drivers; moderation process).",
+            "Specific features and reporting capabilities required for the 'Admin dashboard'.",
+            "Explicit requirement for a dedicated delivery driver application/interface.",
+            "Monetization strategy (e.g., commission structure, subscription models).",
+            "Geographic scope and multi-language support.",
+            "Non-functional requirements (e.g., performance, security, scalability).",
+            "Timeline and budget expectations."
+          ]
+        },
+        "research": {
+          "tech_stack_options": [
+            {
+              "name": "JavaScript Full-Stack (React Native, Node.js)",
+              "frontend": [
+                "React Native (iOS & Android for Customer, Restaurant, Driver apps)",
+                "React.js (Web for Admin Dashboard)"
+              ],
+              "backend": [
+                "Node.js (Express.js or NestJS)"
+              ],
+              "database": [
+                "PostgreSQL (Primary relational database)",
+                "Redis (for caching, real-time data, session management)"
+              ],
+              "ai_ml": [
+                "Python (for dedicated AI/ML microservices or API integrations)",
+                "Node.js ML libraries (e.g., TensorFlow.js for simpler use cases)"
+              ],
+              "cloud": [
+                "AWS (Amazon Web Services)",
+                "Google Cloud Platform (GCP)"
+              ],
+              "pros": [
+                "Cross-platform mobile development with React Native, reducing development time and cost for iOS and Android.",
+                "Full-stack JavaScript allows for a unified developer skillset across frontend and backend, improving team efficiency.",
+                "Node.js is highly efficient for I/O-bound tasks and real-time features (like live tracking) due to its event-driven, non-blocking architecture.",
+                "Large and active community with extensive libraries and tools available.",
+                "Scalable for handling high traffic and concurrent users typical of food delivery apps."
+              ],
+              "cons": [
+                "React Native might have some performance limitations compared to fully native apps in very complex UI/UX scenarios (unlikely for this project).",
+                "Potential for 'callback hell' in pure Express.js without proper structuring or using a framework like NestJS.",
+                "While improving, Node.js ML ecosystem is not as mature or comprehensive as Python's for heavy AI/ML tasks."
+              ]
+            },
+            {
+              "name": "Native Mobile & Enterprise Java/Kotlin Backend",
+              "frontend": [
+                "Swift/Kotlin (Native iOS for Customer, Restaurant, Driver apps)",
+                "Kotlin/Java (Native Android for Customer, Restaurant, Driver apps)",
+                "React.js/Angular/Vue.js (Web for Admin Dashboard)"
+              ],
+              "backend": [
+                "Java (Spring Boot)",
+                "Kotlin (Spring Boot or Ktor)"
+              ],
+              "database": [
+                "PostgreSQL/MySQL (Robust relational database)",
+                "Redis (for caching, real-time data)"
+              ],
+              "ai_ml": [
+                "Python (via dedicated AI/ML microservices or APIs)",
+                "JVM-based ML libraries (e.g., Deeplearning4j for specific needs)"
+              ],
+              "cloud": [
+                "AWS (Amazon Web Services)",
+                "Azure (Microsoft Azure)"
+              ],
+              "pros": [
+                "Optimal performance, look, and feel for mobile applications due to native development.",
+                "Spring Boot provides a highly robust, secure, and scalable enterprise-grade backend.",
+                "Strong typing in Java/Kotlin leads to fewer runtime errors and better maintainability for large codebases.",
+                "Large pool of experienced Java/Kotlin and native mobile developers."
+              ],
+              "cons": [
+                "Significantly higher development cost and time due to maintaining separate codebases for iOS and Android.",
+                "Potentially slower iteration cycles for mobile features compared to cross-platform frameworks.",
+                "Setting up and managing real-time communication (WebSockets) might require more explicit configuration than in Node.js."
+              ]
+            },
+            {
+              "name": "Python Backend & Flutter Cross-Platform",
+              "frontend": [
+                "Flutter (iOS & Android for Customer, Restaurant, Driver apps)",
+                "React.js/Angular/Vue.js (Web for Admin Dashboard) or Django Admin"
+              ],
+              "backend": [
+                "Python (Django or Flask/FastAPI)"
+              ],
+              "database": [
+                "PostgreSQL (Relational database)",
+                "Redis (for caching, real-time data)"
+              ],
+              "ai_ml": [
+                "Python (Primary choice for AI/ML with libraries like TensorFlow, PyTorch, Scikit-learn)"
+              ],
+              "cloud": [
+                "Google Cloud Platform (GCP)",
+                "AWS (Amazon Web Services)"
+              ],
+              "pros": [
+                "Flutter offers excellent cross-platform UI development with a single codebase, resulting in visually appealing and performant native-compiled apps.",
+                "Python backend (Django) offers 'batteries-included' features, speeding up development with an ORM, admin panel, and robust security features.",
+                "Python is the industry standard for AI/ML, making future integration of recommendation engines, demand prediction, etc., very straightforward.",
+                "High developer velocity for both frontend (Flutter's hot reload) and backend (Python's readability)."
+              ],
+              "cons": [
+                "Flutter's ecosystem, while rapidly growing, is younger than React Native or native platforms.",
+                "Python, while capable, is generally not considered as performant as Node.js or Go for extreme real-time, high-concurrency scenarios.",
+                "Deployment of Python web applications (e.g., Gunicorn/uWSGI with Nginx) can be slightly more involved than some other stacks."
+              ]
+            }
+          ],
+          "recommended_stack": "JavaScript Full-Stack (React Native, Node.js)",
+          "scalability_notes": [
+            "**Horizontal Scaling**: Design the backend applications to be stateless, allowing for easy deployment of multiple instances behind a load balancer to handle increased user traffic and order volumes.",
+            "**Database Optimization**: Utilize read replicas for heavy read operations, especially for customer-facing data. Implement caching (e.g., Redis) for frequently accessed data like restaurant menus, popular items, and user sessions. Consider database sharding/partitioning as data grows extensively.",
+            "**Asynchronous Processing & Message Queues**: Employ message queues (e.g., RabbitMQ, Kafka, SQS) for non-critical, time-consuming tasks like order processing, notifications, payment confirmations, and analytics. This offloads work from the main application servers and improves responsiveness.",
+            "**Real-time Infrastructure**: Leverage WebSockets (e.g., Socket.IO for Node.js) for live order tracking, driver location updates, and real-time notifications, ensuring low-latency communication.",
+            "**Microservices Architecture**: As the application evolves and complexity increases, consider breaking down the monolithic backend into smaller, independent microservices (e.g., User Service, Order Service, Restaurant Service, Payment Service). This allows for independent scaling, deployment, and development of different components.",
+            "**Content Delivery Network (CDN)**: Use a CDN for static assets (e.g., restaurant images, menu item photos) to reduce load on origin servers, improve global content delivery speed, and enhance user experience.",
+            "**Cloud Services & Serverless**: Leverage managed cloud services (e.g., AWS RDS, GCP Cloud SQL for databases; AWS Lambda, GCP Cloud Functions for serverless tasks; Kubernetes for container orchestration) to abstract infrastructure management, simplify scaling, and optimize resource usage.",
+            "**Monitoring and Alerting**: Implement comprehensive monitoring (e.g., Prometheus, Grafana, CloudWatch) and alerting systems to proactively identify performance bottlenecks, resource utilization issues, and potential outages, enabling quick resolution."
+          ]
+        },
+        "planning": {
+          "duration": "8-12 months",
+          "team": [
+            {
+              "role": "Project Manager",
+              "count": 1
+            },
+            {
+              "role": "Business Analyst",
+              "count": 1
+            },
+            {
+              "role": "UI/UX Designer",
+              "count": 1
+            },
+            {
+              "role": "Senior Software Engineer (Lead Backend, Lead Mobile, Architect)",
+              "count": 3
+            },
+            {
+              "role": "Mid-Level Software Engineer (Backend, Mobile, Admin Frontend)",
+              "count": 5
+            },
+            {
+              "role": "QA Engineer",
+              "count": 2
+            },
+            {
+              "role": "DevOps Engineer",
+              "count": 1
+            }
+          ],
+          "cost_estimation_inr": {
+            "minimum": "₹53,33,000",
+            "maximum": "₹1,06,00,000"
+          },
+          "phase_breakdown": [
+            {
+              "phase": "Phase 1: Discovery & Planning",
+              "duration": "4-6 weeks",
+              "description": "Detailed requirements gathering (functional & non-functional) for customer, restaurant, driver apps and admin panel. Technical architecture design, system flow diagrams, detailed project plan, and resource allocation. Focus on defining the minimum viable product (MVP) scope and future enhancements."
+            },
+            {
+              "phase": "Phase 2: UI/UX Design",
+              "duration": "6-8 weeks",
+              "description": "Creation of wireframes, prototypes, and high-fidelity mockups for all three mobile applications (customer, restaurant, driver) and the web-based administrator dashboard. Development of a consistent UI kit and style guide. User flow mapping and usability testing."
+            },
+            {
+              "phase": "Phase 3: Development",
+              "duration": "24-36 weeks",
+              "description": "Concurrent development of backend APIs (Node.js/Express.js/NestJS), mobile applications (React Native for iOS & Android), and the admin dashboard (React.js). This includes user management, restaurant onboarding, menu management, order processing, real-time tracking logic, payment gateway integration, ratings/reviews, and notification systems. Database (PostgreSQL) and caching (Redis) implementation."
+            },
+            {
+              "phase": "Phase 4: Testing & Quality Assurance",
+              "duration": "12-16 weeks",
+              "description": "Comprehensive testing including unit, integration, system, performance, security, and user acceptance testing (UAT). Bug identification, reporting, and regression testing across all platforms and functionalities. Ensuring app stability, responsiveness, and data integrity."
+            },
+            {
+              "phase": "Phase 5: Deployment & Go-Live",
+              "duration": "2-4 weeks",
+              "description": "Setting up cloud infrastructure (AWS/GCP), configuring CI/CD pipelines, deploying backend services, and submitting mobile applications to respective app stores (Apple App Store, Google Play Store). Final system configurations, monitoring setup, and initial data seeding (if applicable)."
+            }
+          ],
+          "cost_risk_factors": [
+            "**Scope Creep & Undefined Requirements**: The most significant risk. Lack of detailed functional and non-functional requirements can lead to extensive reworks and delays.",
+            "**Third-Party API Integrations**: Complexity, costs, and potential issues with integrating payment gateways, mapping services, SMS/email services, and push notification providers.",
+            "**Performance & Scalability**: Achieving robust real-time tracking and handling high concurrent user load might require significant infrastructure and optimization efforts beyond initial estimates.",
+            "**Security & Compliance**: Implementing advanced security measures and ensuring compliance with Indian data privacy (e.g., DPDP Act), payment regulations, and food safety standards.",
+            "**Platform-Specific Requirements**: Despite React Native's cross-platform nature, specific native module development or OS version compatibility issues could arise.",
+            "**Team Availability & Attrition**: Difficulty in retaining skilled developers or finding replacements can impact project timeline and consistency.",
+            "**Infrastructure & Software Licenses**: The provided cost is primarily for human resources. Cloud hosting (AWS/GCP), specific third-party licenses (e.g., advanced mapping APIs), and domain costs are additional.",
+            "**Post-Launch Support & Maintenance**: This estimation covers the initial project delivery. Ongoing support, bug fixes, updates, and future feature enhancements will incur additional, separate costs.",
+            "**Unforeseen Technical Challenges**: Any unexpected complexities in development, integrations, or infrastructure setup."
+          ]
+        },
+        "modules": {
+          "modules": [
+            {
+              "module_name": "User Management",
+              "description": "Handles all user-related functionalities including registration, login, profile management, and authentication for Customers, Restaurants, Delivery Drivers, and Administrators.",
+              "features": [
+                "User Registration (Customer, Restaurant, Driver, Admin)",
+                "User Login/Logout",
+                "Profile Management (view, edit personal details)",
+                "Password Reset and Account Recovery",
+                "Authentication and Authorization (Role-Based Access Control)",
+                "Account Deactivation/Deletion"
+              ],
+              "dependencies": []
+            },
+            {
+              "module_name": "Restaurant Management",
+              "description": "Provides a comprehensive set of tools for restaurants to manage their presence on the platform, including onboarding, menu management, and order processing.",
+              "features": [
+                "Restaurant Onboarding and Profile Setup",
+                "Menu Management (add, edit, delete dishes, categories, pricing)",
+                "Dish Availability and Special Offers Management",
+                "Order Acceptance/Rejection (from restaurant side)",
+                "Restaurant Operating Hours Management",
+                "Restaurant Status Management (online/offline)"
+              ],
+              "dependencies": [
+                "User Management"
+              ]
+            },
+            {
+              "module_name": "Order Management",
+              "description": "Manages the entire lifecycle of an order from customer placement to fulfillment, including cart, checkout, tracking, and history.",
+              "features": [
+                "Customer Cart Management",
+                "Order Creation and Placement",
+                "Order History (for customers, restaurants, admins)",
+                "Real-time Order Status Updates (e.g., pending, preparing, ready for pickup, out for delivery, delivered)",
+                "Order Cancellation Mechanism",
+                "Order Details View"
+              ],
+              "dependencies": [
+                "User Management",
+                "Restaurant Management",
+                "Payment Processing",
+                "Delivery Management"
+              ]
+            },
+            {
+              "module_name": "Payment Processing",
+              "description": "Facilitates secure payment transactions for orders and manages transaction history and refunds.",
+              "features": [
+                "Integration with Payment Gateways",
+                "Secure Online Payment Processing (credit/debit cards, digital wallets)",
+                "Transaction History and Receipts",
+                "Refund Management",
+                "Payment Method Management (saving payment details)"
+              ],
+              "dependencies": [
+                "User Management",
+                "Order Management"
+              ]
+            },
+            {
+              "module_name": "Delivery Management",
+              "description": "Oversees the logistics of food delivery, including driver onboarding, order assignment, and real-time tracking.",
+              "features": [
+                "Delivery Driver Onboarding and Profile Management",
+                "Order Assignment to Drivers (manual/automatic)",
+                "Real-time GPS Tracking of Delivery Drivers",
+                "Delivery Status Updates by Drivers (e.g., picked up, en route, delivered)",
+                "Push Notifications for Delivery Status to Customers",
+                "Delivery Zone Management (optional)"
+              ],
+              "dependencies": [
+                "User Management",
+                "Order Management"
+              ]
+            },
+            {
+              "module_name": "Ratings & Feedback",
+              "description": "Enables users to provide ratings and reviews for restaurants, food items, and delivery services, and manages the feedback lifecycle.",
+              "features": [
+                "Submit Ratings (1-5 stars) for Restaurants, Dishes, and Drivers",
+                "Write Reviews and Comments",
+                "View Aggregate Ratings and Reviews",
+                "Review Moderation (for administrators)",
+                "Reporting of Inappropriate Reviews"
+              ],
+              "dependencies": [
+                "User Management",
+                "Order Management",
+                "Restaurant Management",
+                "Delivery Management"
+              ]
+            },
+            {
+              "module_name": "Admin & Analytics Dashboard",
+              "description": "A centralized control panel for administrators to manage the entire platform, monitor operations, and access key performance indicators and reports.",
+              "features": [
+                "User Management (CRUD operations for all user types)",
+                "Restaurant Management (approval, content moderation, status changes)",
+                "Order Monitoring and Management (view, edit status, resolve issues)",
+                "Reporting and Analytics (sales, popular items, delivery performance, user activity)",
+                "Content Management (promotions, announcements, system messages)",
+                "System Configuration and Settings Management",
+                "Dispute Resolution and Customer Support Tools"
+              ],
+              "dependencies": [
+                "User Management",
+                "Restaurant Management",
+                "Order Management",
+                "Payment Processing",
+                "Delivery Management",
+                "Ratings & Feedback"
+              ]
+            }
+          ]
+        },
+        "finalDocPreview": "# Professional Software Project Documentation: Enterprise-Grade Food Delivery Application\n\n---\n\n## 1. Project Overview\n\nThis document outlines the development of a comprehensive, enterprise-grade food delivery mobile application designed to serve customers, restaurants, and administrators. The platform aims to provide a seamless and efficient experience for ordering, managing, and delivering food. The core functionalities will encompass robust user management, intuitive restaurant operations, re"
+      },
+      "error": null
+    },
+    {
+      "id": "functional-ecommerce",
+      "category": "functional",
+      "mode": "pipeline",
+      "durationMs": 38773.67,
+      "success": true,
+      "score": 6,
+      "details": {
+        "requirementAnalysis": {
+          "summary": [
+            "The client wants to develop an e-commerce web platform.",
+            "Key features include catalog search, shopping carts, checkout functionality, order tracking, seller management, and analytics."
+          ],
+          "project_type": "E-commerce Web Platform Development",
+          "explicit_requirements": [
+            "E-commerce web platform",
+            "Catalog search functionality",
+            "Shopping cart functionality",
+            "Checkout process",
+            "Order tracking system",
+            "Seller management module",
+            "Analytics dashboard"
+          ],
+          "assumptions": [
+            "The platform will support multiple sellers.",
+            "A robust search mechanism is required for the product catalog.",
+            "Secure payment gateway integration will be necessary.",
+            "User accounts for both buyers and sellers will be needed.",
+            "Data for analytics will be collected and stored."
+          ],
+          "missing_information": [
+            "Specific technologies or tech stack preferences.",
+            "Scalability requirements (e.g., expected number of users, products, transactions).",
+            "Integration points with existing systems (e.g., ERP, CRM, accounting software).",
+            "Detailed requirements for seller management (e.g., seller onboarding, commission structures, product listing process).",
+            "Specific metrics and reporting needs for the analytics dashboard.",
+            "User interface (UI) and user experience (UX) design guidelines.",
+            "Security and compliance requirements (e.g., PCI DSS).",
+            "Budget and timeline constraints.",
+            "Deployment environment (e.g., cloud, on-premise)."
+          ]
+        },
+        "research": {
+          "tech_stack_options": [
+            {
+              "name": "Modern JavaScript Full-Stack (MERN/MEVN)",
+              "frontend": [
+                "React.js",
+                "Vue.js",
+                "Angular"
+              ],
+              "backend": [
+                "Node.js (Express.js)",
+                "NestJS"
+              ],
+              "database": [
+                "MongoDB",
+                "PostgreSQL"
+              ],
+              "ai_ml": [
+                "TensorFlow.js",
+                "Scikit-learn (via API)"
+              ],
+              "cloud": [
+                "AWS",
+                "Google Cloud Platform",
+                "Azure"
+              ],
+              "pros": [
+                "Large developer community and extensive libraries",
+                "Fast development cycles",
+                "Good for real-time features and SPAs",
+                "Scalable microservices architecture possible"
+              ],
+              "cons": [
+                "Can become complex with large codebases",
+                "Performance tuning might be required for very high loads",
+                "JavaScript's dynamic typing can lead to runtime errors"
+              ]
+            },
+            {
+              "name": "Python/Django + React",
+              "frontend": [
+                "React.js"
+              ],
+              "backend": [
+                "Django",
+                "Django REST Framework"
+              ],
+              "database": [
+                "PostgreSQL",
+                "MySQL"
+              ],
+              "ai_ml": [
+                "TensorFlow",
+                "PyTorch",
+                "Scikit-learn",
+                "Pandas",
+                "NumPy"
+              ],
+              "cloud": [
+                "AWS",
+                "Google Cloud Platform",
+                "Azure"
+              ],
+              "pros": [
+                "Python's readability and rapid development",
+                "Django's 'batteries-included' approach (ORM, admin panel)",
+                "Strong ecosystem for AI/ML",
+                "Mature and robust framework"
+              ],
+              "cons": [
+                "Can be more resource-intensive than Node.js",
+                "Learning curve for Django's ORM and conventions",
+                "Frontend and backend development are separate concerns"
+              ]
+            },
+            {
+              "name": "Ruby on Rails + Vue.js",
+              "frontend": [
+                "Vue.js",
+                "StimulusJS"
+              ],
+              "backend": [
+                "Ruby on Rails"
+              ],
+              "database": [
+                "PostgreSQL",
+                "MySQL"
+              ],
+              "ai_ml": [
+                "SciRuby",
+                "Python integration via API"
+              ],
+              "cloud": [
+                "AWS",
+                "Google Cloud Platform",
+                "Azure"
+              ],
+              "pros": [
+                "Extremely fast development speed (convention over configuration)",
+                "Large number of gems (libraries)",
+                "Good for startups and rapid prototyping",
+                "Active community"
+              ],
+              "cons": [
+                "Performance can be a concern under very high load without careful optimization",
+                "Less suitable for very complex, low-level performance requirements",
+                "Community might be smaller than JS or Python"
+              ]
+            },
+            {
+              "name": "Java/Spring Boot + Angular",
+              "frontend": [
+                "Angular"
+              ],
+              "backend": [
+                "Spring Boot"
+              ],
+              "database": [
+                "PostgreSQL",
+                "MySQL",
+                "Oracle"
+              ],
+              "ai_ml": [
+                "Deeplearning4j",
+                "Weka",
+                "Python integration via API"
+              ],
+              "cloud": [
+                "AWS",
+                "Google Cloud Platform",
+                "Azure"
+              ],
+              "pros": [
+                "Enterprise-grade, highly scalable and performant",
+                "Strong type safety reduces runtime errors",
+                "Vast ecosystem and tooling",
+                "Excellent for large, complex applications"
+              ],
+              "cons": [
+                "Longer development times compared to scripting languages",
+                "Steeper learning curve",
+                "Can be more verbose"
+              ]
+            }
+          ],
+          "recommended_stack": "Python/Django + React",
+          "scalability_notes": [
+            "For scalability, a microservices architecture should be considered, breaking down functionalities like catalog, cart, orders, and sellers into independent services. This allows for independent scaling of each service based on demand.",
+            "Leveraging a managed cloud database service (e.g., AWS RDS, Google Cloud SQL) with read replicas and sharding capabilities will be crucial for handling large volumes of data and concurrent transactions.",
+            "Implementing robust caching mechanisms (e.g., Redis, Memcached) for frequently accessed data (product catalogs, user sessions) will significantly improve response times and reduce database load.",
+            "Utilizing asynchronous task queues (e.g., Celery with RabbitMQ/Redis) for background processes like order processing, email notifications, and analytics data aggregation is essential to prevent blocking the main application thread.",
+            "Content Delivery Networks (CDNs) should be employed to serve static assets (images, CSS, JS) closer to users, reducing latency and server load.",
+            "Load balancing across multiple application instances will distribute traffic and ensure high availability.",
+            "The choice of database is critical for scalability. PostgreSQL offers excellent support for complex queries and scalability features, while MongoDB can be more flexible for evolving data schemas common in e-commerce."
+          ]
+        },
+        "planning": {
+          "duration": "6-9 months",
+          "team": [
+            {
+              "role": "Project Manager",
+              "count": 1
+            },
+            {
+              "role": "UI/UX Designer",
+              "count": 1
+            },
+            {
+              "role": "Backend Developers (Senior)",
+              "count": 1
+            },
+            {
+              "role": "Backend Developers (Medium)",
+              "count": 2
+            },
+            {
+              "role": "Frontend Developers (Medium)",
+              "count": 2
+            },
+            {
+              "role": "DevOps Engineer",
+              "count": 1
+            },
+            {
+              "role": "QA Engineer",
+              "count": 1
+            }
+          ],
+          "cost_estimation_inr": {
+            "minimum": "₹45.5 Lakhs",
+            "maximum": "₹73.75 Lakhs"
+          },
+          "phase_breakdown": [
+            {
+              "phase": "Discovery & Planning",
+              "duration": "2-4 weeks",
+              "description": "Detailed requirement gathering, technical architecture design, tech stack finalization, UI/UX wireframing, and project roadmap creation."
+            },
+            {
+              "phase": "UI/UX Design",
+              "duration": "3-5 weeks",
+              "description": "Creating high-fidelity mockups, prototypes, and design assets based on gathered requirements."
+            },
+            {
+              "phase": "Development",
+              "duration": "4-6 months",
+              "description": "Iterative development of frontend and backend features, including catalog, cart, checkout, order tracking, seller management, and analytics. Includes API integrations and database setup."
+            },
+            {
+              "phase": "Testing & QA",
+              "duration": "4-6 weeks",
+              "description": "Comprehensive testing including unit, integration, system, performance, and security testing. Bug fixing and refinement."
+            },
+            {
+              "phase": "Deployment & Launch",
+              "duration": "1-2 weeks",
+              "description": "Setting up production environment, deployment, final checks, and go-live."
+            },
+            {
+              "phase": "Post-Launch Support & Iteration",
+              "duration": "Ongoing (initial 1 month included)",
+              "description": "Monitoring, bug fixing, performance optimization, and planning for future iterations based on initial feedback and analytics."
+            }
+          ],
+          "cost_risk_factors": [
+            "Scope creep: Unforeseen feature requests or changes in requirements during development.",
+            "Technical complexity: Difficulty in implementing specific features or integrations (e.g., advanced search, complex analytics).",
+            "Third-party integrations: Issues with external APIs or services (e.g., payment gateways, shipping providers).",
+            "Scalability challenges: Underestimating resource needs for high traffic, leading to performance issues and requiring re-architecture.",
+            "Unclear requirements: Ambiguity in functional or non-functional requirements leading to rework.",
+            "Team velocity fluctuations: Slower than expected development speed due to team dynamics or unforeseen blockers."
+          ]
+        },
+        "modules": {
+          "modules": [
+            {
+              "module_name": "User & Identity Management",
+              "description": "Manages user accounts, authentication, authorization, and profiles for different user types (buyers, sellers, administrators).",
+              "features": [
+                "User registration (buyer, seller)",
+                "User login and authentication (SSO, MFA potential)",
+                "Profile management (personal details, addresses)",
+                "Role-based access control (RBAC)",
+                "Password management (reset, change)",
+                "Account activation and verification"
+              ],
+              "dependencies": []
+            },
+            {
+              "module_name": "Product Catalog Management",
+              "description": "Handles the creation, storage, and retrieval of product information, including categories, attributes, and inventory levels.",
+              "features": [
+                "Product listing creation and editing",
+                "Category and sub-category management",
+                "Product attributes and variations (size, color, etc.)",
+                "Inventory management and stock level tracking",
+                "Product image and media management",
+                "Product approval workflow (for sellers)"
+              ],
+              "dependencies": [
+                "User & Identity Management"
+              ]
+            },
+            {
+              "module_name": "Search & Discovery",
+              "description": "Provides robust search capabilities, filtering, and sorting to help users find products efficiently.",
+              "features": [
+                "Full-text keyword search",
+                "Category-based browsing",
+                "Advanced filtering (price, brand, attributes, seller)",
+                "Sorting options (relevance, price, new arrivals)",
+                "Search suggestions and auto-completion",
+                "Product recommendation engine (optional, future)"
+              ],
+              "dependencies": [
+                "Product Catalog Management"
+              ]
+            },
+            {
+              "module_name": "Shopping Cart & Wishlist",
+              "description": "Enables users to add products to a shopping cart for purchase and save items for later in a wishlist.",
+              "features": [
+                "Add/remove items from cart",
+                "Update item quantities in cart",
+                "Cart persistence (for logged-in users)",
+                "Wishlist functionality",
+                "Display of cart summary (subtotal, shipping estimate)"
+              ],
+              "dependencies": [
+                "User & Identity Management",
+                "Product Catalog Management"
+              ]
+            },
+            {
+              "module_name": "Order Processing & Checkout",
+              "description": "Manages the entire checkout flow, including shipping information, payment processing, and order finalization.",
+              "features": [
+                "Multi-step checkout process",
+                "Shipping address management",
+                "Shipping method selection",
+                "Secure payment gateway integration (credit card, digital wallets)",
+                "Order total calculation (taxes, shipping fees)",
+                "Discount and coupon code application",
+                "Order confirmation and receipt generation"
+              ],
+              "dependencies": [
+                "User & Identity Management",
+                "Shopping Cart & Wishlist",
+                "Product Catalog Management"
+              ]
+            },
+            {
+              "module_name": "Order Management & Tracking",
+              "description": "Provides functionality for viewing, tracking, and managing orders for buyers, sellers, and administrators.",
+              "features": [
+                "Order history for buyers",
+                "Order status updates (pending, processing, shipped, delivered)",
+                "Real-time order tracking (integration with shipping carriers)",
+                "Order cancellation and return requests",
+                "Seller order fulfillment dashboard",
+                "Admin order overview and management"
+              ],
+              "dependencies": [
+                "User & Identity Management",
+                "Order Processing & Checkout",
+                "Product Catalog Management"
+              ]
+            },
+            {
+              "module_name": "Seller Management & Dashboard",
+              "description": "Offers a dedicated portal for sellers to manage their store, products, orders, and sales performance.",
+              "features": [
+                "Seller store setup and profile management",
+                "Product listing and inventory management for own products",
+                "Order fulfillment and shipping management",
+                "Sales performance metrics and reports",
+                "Payout management and transaction history",
+                "Communication tools with buyers (optional)"
+              ],
+              "dependencies": [
+                "User & Identity Management",
+                "Product Catalog Management",
+                "Order Management & Tracking",
+                "Analytics & Reporting"
+              ]
+            },
+            {
+              "module_name": "Analytics & Reporting",
+              "description": "Collects, processes, and visualizes data across the platform to provide insights for business decisions.",
+              "features": [
+                "Sales reports (revenue, orders, average order value)",
+                "Product performance analytics (top sellers, views, conversions)",
+                "User behavior analytics (traffic, bounce rate, cart abandonment)",
+                "Seller performance reports",
+                "Customizable dashboards",
+                "Data export capabilities"
+              ],
+              "dependencies": [
+                "User & Identity Management",
+                "Product Catalog Management",
+                "Order Management & Tracking",
+                "Order Processing & Checkout"
+              ]
+            },
+            {
+              "module_name": "Notification Service",
+              "description": "Handles sending automated notifications to users based on various platform events.",
+              "features": [
+                "Email notifications (order confirmation, shipping updates, account changes)",
+                "SMS notifications (optional, for critical updates)",
+                "In-app notifications",
+                "Notification templates management"
+              ],
+              "dependencies": [
+                "User & Identity Management",
+                "Order Management & Tracking",
+                "Order Processing & Checkout",
+                "Seller Management & Dashboard"
+              ]
+            }
+          ]
+        },
+        "finalDocPreview": "# Software Requirements Specification: Enterprise E-commerce Orchestration Platform\n\n## 1. Project Overview\nThis project involves the development of a high-performance, multi-seller e-commerce ecosystem designed for scalability and intelligence. The platform integrates traditional retail functionalities (catalog, cart, checkout) with an advanced AI-driven background orchestration layer to handle seller onboarding, market intelligence, and automated analytics.\n\n## 2. Client Requirements Summary\n*"
+      },
+      "error": null
+    },
+    {
+      "id": "edge-empty-input",
+      "category": "edge",
+      "mode": "validation",
+      "durationMs": 0.73,
+      "success": true,
+      "score": 1,
+      "details": {
+        "valid": false,
+        "errors": [
+          "Project requirements are too short. Please provide more details."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-random-text",
+      "category": "edge",
+      "mode": "analysis",
+      "durationMs": 6049.05,
+      "success": true,
+      "score": 3,
+      "details": {
+        "summary": [
+          "The client has provided a highly disorganized and non-specific input containing significant gibberish.",
+          "The request indicates a state of extreme indecision regarding the project's medium (App, AI, or nothing)."
+        ],
+        "project_type": "Discovery / Ideation Phase",
+        "explicit_requirements": [
+          "Exploration of a potential application",
+          "Exploration of potential Artificial Intelligence integration"
+        ],
+        "assumptions": [
+          "The initial character strings ('asdkjashdkajshd', etc.) are non-functional placeholder text or typos.",
+          "The client is seeking professional consultation to define a value proposition from a 'random idea'."
+        ],
+        "missing_information": [
+          "Core business problem or objective",
+          "Target audience and user needs",
+          "Budget constraints and expected timeline",
+          "Desired functionality and key features",
+          "Confirmation of project feasibility and commitment"
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-mixed-language",
+      "category": "edge",
+      "mode": "analysis",
+      "durationMs": 6521.5,
+      "success": false,
+      "score": 3,
+      "details": {
+        "summary": [
+          "Development of a comprehensive Hospital Management System (HMS) intended to streamline clinical workflows and administrative tasks while maintaining high security standards."
+        ],
+        "project_type": "Healthcare Management Software Development",
+        "explicit_requirements": [
+          "Patient records management",
+          "Doctor scheduling system",
+          "Billing module",
+          "HIPAA-compliant security architecture"
+        ],
+        "assumptions": [
+          "The application will require Role-Based Access Control (RBAC) for doctors, patients, and administrators.",
+          "Data encryption at rest and in transit is a prerequisite for HIPAA compliance.",
+          "The client requires a centralized database accessible by various hospital departments.",
+          "The 'HIPAA style' implies adherence to US healthcare privacy standards regardless of the client's physical location."
+        ],
+        "missing_information": [
+          "Target platforms (e.g., Web, iOS, Android).",
+          "Integration needs with third-party systems such as laboratory LIMS, pharmacy modules, or insurance providers.",
+          "Number of users and expected data volume (scalability requirements).",
+          "Specific reporting and analytics requirements.",
+          "Preferred payment gateway for the billing module."
+        ]
+      },
+      "error": "Project type did not match expectation"
+    },
+    {
+      "id": "edge-typos",
+      "category": "edge",
+      "mode": "analysis",
+      "durationMs": 6155.42,
+      "success": true,
+      "score": 3,
+      "details": {
+        "summary": [
+          "Development of a custom CRM platform tailored for sales teams to streamline lead tracking and team management."
+        ],
+        "project_type": "Custom Software Development / CRM",
+        "explicit_requirements": [
+          "Lead management system",
+          "Follow-up tracking and scheduling",
+          "Data visualization dashboards",
+          "Role-based access control (RBAC)"
+        ],
+        "assumptions": [
+          "The platform will be web-based for accessibility.",
+          "User authentication is required alongside authorization.",
+          "English is the primary language for the UI.",
+          "The sales team requires a centralized database for lead history."
+        ],
+        "missing_information": [
+          "Specific lead data fields and workflow stages.",
+          "Types of KPIs and metrics required for the dashboards.",
+          "Third-party integrations (e.g., email, calendar, or telephony).",
+          "Expected number of users and specific roles (e.g., Sales Rep, Manager, Admin).",
+          "Data migration requirements from existing spreadsheets or tools.",
+          "Budget, timeline, and hosting preferences."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-very-long",
+      "category": "edge",
+      "mode": "analysis",
+      "durationMs": 3282.95,
+      "success": true,
+      "score": 3,
+      "details": {
+        "summary": [
+          "Develop an enterprise operations platform for a logistics company.",
+          "The platform needs to encompass a wide range of functionalities including shipment planning, route optimization, warehouse operations, vendor management, billing, analytics, and mobile access.",
+          "Key technical requirements include high concurrency, disaster recovery, data retention, SSO, configurable permissions, API integrations, and phased rollout.",
+          "Additional features like audit logs, document uploads, SLA monitoring, alerting, and region-wise reporting are also necessary."
+        ],
+        "project_type": "Enterprise Operations Platform Development",
+        "explicit_requirements": [
+          "Shipment planning",
+          "Route optimization",
+          "Warehouse operations",
+          "Vendor management",
+          "Billing workflows",
+          "Analytics dashboards",
+          "Mobile field access",
+          "Audit logs",
+          "Document uploads",
+          "Single Sign-On (SSO)",
+          "Configurable permissions",
+          "API integrations",
+          "Service Level Agreement (SLA) monitoring",
+          "Alerting system",
+          "Region-wise reporting",
+          "High concurrency support",
+          "Disaster recovery capabilities",
+          "Data retention policies implementation",
+          "Phased rollout strategy support"
+        ],
+        "assumptions": [
+          "The logistics company has existing operational processes that need to be digitized or improved.",
+          "The company has a defined user base with different roles and access needs.",
+          "The company has existing IT infrastructure or cloud strategy.",
+          "The company will provide necessary data and access for integrations.",
+          "The company has defined data retention periods and security compliance needs."
+        ],
+        "missing_information": [
+          "Specific details about the logistics company's current operations and pain points.",
+          "Defined scope and priorities for each module (e.g., shipment planning vs. vendor management).",
+          "User roles and detailed permission matrix.",
+          "Specific requirements for analytics dashboards (KPIs, visualizations, data sources).",
+          "Technical specifications for API integrations (which systems, data formats, frequency).",
+          "Performance metrics for high concurrency (e.g., number of concurrent users, transactions per second).",
+          "Disaster recovery objectives (RTO/RPO).",
+          "Detailed data retention periods for different data types.",
+          "Specific security and compliance requirements (e.g., GDPR, HIPAA if applicable).",
+          "Budget and timeline constraints.",
+          "Technology stack preferences or constraints.",
+          "Details about the 'mobile field access' requirements (offline capabilities, specific devices).",
+          "Definition of 'region-wise reporting' and specific regions to be supported.",
+          "Details on the alerting mechanism (triggers, recipients, notification channels).",
+          "Vendor management specifics (e.g., types of vendors, contract management needs)."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "routing-gdpr-placeholder",
+      "category": "routing",
+      "mode": "routing",
+      "durationMs": 0.29,
+      "success": false,
+      "skipped": true,
+      "score": 0,
+      "details": {
+        "expectedRoute": "compliance_core"
+      },
+      "error": "Router/core layer is not implemented in this codebase yet"
+    },
+    {
+      "id": "routing-architecture-placeholder",
+      "category": "routing",
+      "mode": "routing",
+      "durationMs": 0.01,
+      "success": false,
+      "skipped": true,
+      "score": 0,
+      "details": {
+        "expectedRoute": "architecture_core"
+      },
+      "error": "Router/core layer is not implemented in this codebase yet"
+    },
+    {
+      "id": "consistency-food-delivery",
+      "category": "consistency",
+      "mode": "consistency",
+      "durationMs": 11452.25,
+      "success": true,
+      "score": 3,
+      "details": {
+        "totalRuns": 5,
+        "similarityScore": 1,
+        "consistencyRate": 1
+      },
+      "error": null
+    },
+    {
+      "id": "functional-food-delivery",
+      "category": "functional",
+      "mode": "pipeline",
+      "durationMs": 42159.9,
+      "success": true,
+      "score": 6,
+      "details": {
+        "requirementAnalysis": {
+          "summary": [
+            "The client wants to build a food delivery application.",
+            "The application should include features such as user accounts, restaurant onboarding, live delivery tracking, payment processing, a rating system, and an admin dashboard."
+          ],
+          "project_type": "Mobile Application Development",
+          "explicit_requirements": [
+            "User accounts (registration, login, profile management)",
+            "Restaurant onboarding (restaurant registration, menu management, operational hours)",
+            "Live delivery tracking (real-time updates for customers and restaurants)",
+            "Payment processing (integration with payment gateways)",
+            "Ratings and reviews system (for users to rate restaurants and dishes)",
+            "Admin dashboard (for managing users, restaurants, orders, and viewing analytics)"
+          ],
+          "assumptions": [
+            "The client has a clear understanding of the target audience.",
+            "The client will provide necessary branding guidelines and assets.",
+            "The client is aware of the need for backend infrastructure and database management.",
+            "The client understands the legal and compliance requirements for a food delivery service."
+          ],
+          "missing_information": [
+            "Specific platforms targeted (iOS, Android, Web)?",
+            "Details on payment gateway preferences or requirements.",
+            "Any specific design or UI/UX preferences?",
+            "What are the key performance indicators (KPIs) for success?",
+            "Are there any existing systems or APIs that need integration?",
+            "What is the desired timeline for development and launch?",
+            "What is the budget allocated for this project?",
+            "Specific features for restaurant onboarding (e.g., document verification)?",
+            "Details on the scope and functionality of the admin dashboard (e.g., specific reports, user roles for admin).",
+            "Any specific requirements for the rating system (e.g., star ratings, text reviews, photo uploads)?"
+          ]
+        },
+        "research": {
+          "tech_stack_options": [
+            {
+              "name": "React Native + Node.js + PostgreSQL + AWS",
+              "frontend": [
+                "React Native"
+              ],
+              "backend": [
+                "Node.js (Express.js)"
+              ],
+              "database": [
+                "PostgreSQL"
+              ],
+              "ai_ml": [],
+              "cloud": [
+                "AWS (EC2, RDS, S3, CloudWatch, SNS/SQS for notifications)"
+              ],
+              "pros": [
+                "Cross-platform development with React Native reduces development time and cost.",
+                "Node.js is performant for I/O-bound operations common in web applications.",
+                "PostgreSQL is a robust, scalable, and feature-rich relational database.",
+                "AWS provides a comprehensive suite of scalable cloud services.",
+                "Large community support for all technologies."
+              ],
+              "cons": [
+                "React Native can have performance limitations for highly complex UIs compared to native.",
+                "Managing infrastructure on AWS requires expertise.",
+                "Real-time tracking might require additional services like WebSockets or specialized libraries."
+              ]
+            },
+            {
+              "name": "Flutter + Dart + Firebase",
+              "frontend": [
+                "Flutter"
+              ],
+              "backend": [
+                "Firebase Functions (Node.js, Python, Go, Java)"
+              ],
+              "database": [
+                "Cloud Firestore (NoSQL)",
+                "Realtime Database"
+              ],
+              "ai_ml": [
+                "Firebase ML Kit"
+              ],
+              "cloud": [
+                "Google Cloud Platform (Firebase)"
+              ],
+              "pros": [
+                "Flutter offers high-performance, beautiful UIs with a single codebase for iOS and Android.",
+                "Firebase provides a comprehensive backend-as-a-service (BaaS) including authentication, database, hosting, and functions.",
+                "Rapid development and deployment.",
+                "Built-in real-time capabilities for the database are advantageous for live tracking."
+              ],
+              "cons": [
+                "Flutter's ecosystem is younger than React Native's.",
+                "Firebase's pricing can become expensive at scale.",
+                "Reliance on Firebase might lead to vendor lock-in.",
+                "Less flexibility compared to managing your own backend infrastructure."
+              ]
+            },
+            {
+              "name": "Native iOS (Swift) + Native Android (Kotlin) + Django + MySQL + DigitalOcean",
+              "frontend": [
+                "Swift (iOS)",
+                "Kotlin (Android)"
+              ],
+              "backend": [
+                "Django (Python)"
+              ],
+              "database": [
+                "MySQL"
+              ],
+              "ai_ml": [],
+              "cloud": [
+                "DigitalOcean (Droplets, Managed Databases, Spaces)"
+              ],
+              "pros": [
+                "Best possible performance and access to native device features.",
+                "Django is a mature, secure, and feature-rich Python web framework.",
+                "MySQL is a widely used and reliable relational database.",
+                "DigitalOcean can be more cost-effective and simpler to manage for certain scales than AWS/GCP."
+              ],
+              "cons": [
+                "Requires separate development teams and codebases for iOS and Android, increasing development time and cost.",
+                "Potentially longer development cycles.",
+                "Requires more infrastructure management effort."
+              ]
+            }
+          ],
+          "recommended_stack": "React Native + Node.js (Express.js) + PostgreSQL + AWS",
+          "scalability_notes": [
+            "For real-time delivery tracking, consider using WebSockets (e.g., Socket.IO with Node.js) or a managed service like AWS IoT Core or Firebase Realtime Database/Firestore for push notifications.",
+            "As the user base and order volume grow, ensure the database is properly indexed and consider read replicas or sharding for PostgreSQL.",
+            "Leverage AWS services like EC2 Auto Scaling, RDS read replicas, and S3 for object storage to handle increasing load.",
+            "For payment processing, choose a gateway that scales well and handles high transaction volumes.",
+            "Implement caching strategies (e.g., Redis) for frequently accessed data to improve performance.",
+            "Consider a microservices architecture for future scalability if specific components (e.g., user management, order processing, delivery tracking) become bottlenecks or require independent scaling."
+          ]
+        },
+        "planning": {
+          "duration": "6 Months",
+          "team": [
+            {
+              "role": "Senior Full-Stack Architect / Tech Lead",
+              "count": 1
+            },
+            {
+              "role": "Medium-Level Mobile Developers (React Native)",
+              "count": 2
+            },
+            {
+              "role": "Junior Backend Developer / QA",
+              "count": 1
+            }
+          ],
+          "cost_estimation_inr": {
+            "minimum": "₹12.00 Lakhs",
+            "maximum": "₹16.00 Lakhs"
+          },
+          "phase_breakdown": [
+            {
+              "phase": "Discovery & UI/UX Design",
+              "duration": "4 Weeks",
+              "description": "User journey mapping, wireframing, and high-fidelity prototype design for three apps (User, Restaurant, Driver)."
+            },
+            {
+              "phase": "Backend Development & DB Setup",
+              "duration": "6 Weeks",
+              "description": "Node.js API development, PostgreSQL database schema design, and server setup on AWS."
+            },
+            {
+              "phase": "Mobile App Core Features",
+              "duration": "8 Weeks",
+              "description": "Cross-platform development for restaurant listings, menu management, and user ordering system."
+            },
+            {
+              "phase": "Integration & Real-time Tracking",
+              "duration": "4 Weeks",
+              "description": "Payment gateway integration (Razorpay/Paytm), Google Maps API for live tracking, and WebSocket implementation."
+            },
+            {
+              "phase": "Testing & Deployment",
+              "duration": "4 Weeks",
+              "description": "UAT, Bug fixes, security auditing, and App Store/Play Store submission."
+            }
+          ],
+          "cost_risk_factors": [
+            "Google Maps API Pricing: High usage of real-time tracking can lead to variable monthly costs.",
+            "Third-party API dependencies: Costs for SMS gateways and Payment Gateway transaction fees.",
+            "Scope Creep: Additional features like AI-based recommendations or loyalty programs during development.",
+            "Cloud Infrastructure: AWS scaling costs if traffic spikes occur immediately after launch."
+          ]
+        },
+        "modules": {
+          "modules": [
+            {
+              "module_name": "Authentication and Identity Management",
+              "description": "Handles secure user registration, login, and profile management for customers, restaurant owners, and delivery staff.",
+              "features": [
+                "User registration and login (Email/Social)",
+                "Role-based access control (Customer, Restaurant, Admin, Driver)",
+                "Profile management and address book",
+                "Password recovery and multi-factor authentication"
+              ],
+              "dependencies": []
+            },
+            {
+              "module_name": "Restaurant Management System",
+              "description": "A portal for restaurant owners to manage their digital storefront and menu offerings.",
+              "features": [
+                "Restaurant onboarding and document verification",
+                "Menu management (Categories, Items, Modifiers)",
+                "Operational hours and availability toggle",
+                "Order management interface for kitchen staff"
+              ],
+              "dependencies": [
+                "Authentication and Identity Management"
+              ]
+            },
+            {
+              "module_name": "Order and Cart Management",
+              "description": "Orchestrates the selection of food items, cart logic, and order lifecycle management.",
+              "features": [
+                "Digital menu browsing and search",
+                "Shopping cart functionality",
+                "Order placement and history",
+                "Order status state machine (Pending, Preparing, Out for Delivery)"
+              ],
+              "dependencies": [
+                "Restaurant Management System",
+                "Authentication and Identity Management"
+              ]
+            },
+            {
+              "module_name": "Payment Processing Integration",
+              "description": "Facilitates secure financial transactions between customers and the platform.",
+              "features": [
+                "Payment gateway integration (Stripe/PayPal/Cards)",
+                "Transaction history and digital receipts",
+                "Refund processing workflow",
+                "Secure storage of payment methods (Tokenization)"
+              ],
+              "dependencies": [
+                "Order and Cart Management"
+              ]
+            },
+            {
+              "module_name": "Real-time Tracking and Logistics",
+              "description": "Provides live location updates for orders using GPS and real-time communication protocols.",
+              "features": [
+                "Driver assignment and dispatch logic",
+                "Live GPS tracking for customers",
+                "Push notifications for order updates",
+                "Estimated Time of Arrival (ETA) calculation"
+              ],
+              "dependencies": [
+                "Order and Cart Management"
+              ]
+            },
+            {
+              "module_name": "Ratings and Reviews System",
+              "description": "Enables quality control through user-generated feedback for restaurants and delivery drivers.",
+              "features": [
+                "Star-based rating system",
+                "Written text reviews",
+                "Photo uploads for dishes",
+                "Restaurant response management"
+              ],
+              "dependencies": [
+                "Order and Cart Management",
+                "Authentication and Identity Management"
+              ]
+            },
+            {
+              "module_name": "Admin Dashboard and Analytics",
+              "description": "A centralized management console for platform administrators to monitor health and business metrics.",
+              "features": [
+                "User and Restaurant account moderation",
+                "Global order monitoring and intervention",
+                "Sales analytics and financial reporting",
+                "Promotion and discount code management"
+              ],
+              "dependencies": [
+                "Authentication and Identity Management",
+                "Restaurant Management System",
+                "Order and Cart Management",
+                "Payment Processing Integration"
+              ]
+            }
+          ]
+        },
+        "finalDocPreview": "# Project Documentation: Enterprise Food Delivery Ecosystem\n\n## 1. Project Overview\nThis project aims to develop a robust, enterprise-grade food delivery platform connecting three primary stakeholders: Customers, Restaurant Partners, and Delivery Agents. The system leverages a multi-agent orchestration layer to handle complex asynchronous tasks such as real-time logistics optimization, automated restaurant onboarding, and intelligent sentiment analysis of reviews.\n\n## 2. Client Requirements Summ"
+      },
+      "error": null
+    },
+    {
+      "id": "functional-ecommerce",
+      "category": "functional",
+      "mode": "pipeline",
+      "durationMs": 16243.91,
+      "success": false,
+      "skipped": false,
+      "score": 0,
+      "error": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3-flash\nPlease retry in 46.118978971s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-3-flash\"},\"quotaValue\":\"5\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"46s\"}]",
+      "details": null
+    },
+    {
+      "id": "edge-empty-input",
+      "category": "edge",
+      "mode": "validation",
+      "durationMs": 0.05,
+      "success": true,
+      "score": 1,
+      "details": {
+        "valid": false,
+        "errors": [
+          "Project requirements are too short. Please provide more details."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-random-text",
+      "category": "edge",
+      "mode": "analysis",
+      "durationMs": 638.97,
+      "success": false,
+      "skipped": false,
+      "score": 0,
+      "error": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3-flash\nPlease retry in 45.442183364s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-3-flash\"},\"quotaValue\":\"5\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"45s\"}]",
+      "details": null
+    },
+    {
+      "id": "edge-mixed-language",
+      "category": "edge",
+      "mode": "analysis",
+      "durationMs": 681.28,
+      "success": false,
+      "skipped": false,
+      "score": 0,
+      "error": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3-flash\nPlease retry in 44.754878203s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-3-flash\"},\"quotaValue\":\"5\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"44s\"}]",
+      "details": null
+    },
+    {
+      "id": "edge-typos",
+      "category": "edge",
+      "mode": "analysis",
+      "durationMs": 588.32,
+      "success": false,
+      "skipped": false,
+      "score": 0,
+      "error": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3-flash\nPlease retry in 44.172799069s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-3-flash\"},\"quotaValue\":\"5\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"44s\"}]",
+      "details": null
+    },
+    {
+      "id": "edge-very-long",
+      "category": "edge",
+      "mode": "analysis",
+      "durationMs": 599.66,
+      "success": false,
+      "skipped": false,
+      "score": 0,
+      "error": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3-flash\nPlease retry in 43.566374543s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"model\":\"gemini-3-flash\",\"location\":\"global\"},\"quotaValue\":\"5\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"43s\"}]",
+      "details": null
+    },
+    {
+      "id": "routing-gdpr-placeholder",
+      "category": "routing",
+      "mode": "routing",
+      "durationMs": 0.03,
+      "success": false,
+      "skipped": true,
+      "score": 0,
+      "details": {
+        "expectedRoute": "compliance_core"
+      },
+      "error": "Router/core layer is not implemented in this codebase yet"
+    },
+    {
+      "id": "routing-architecture-placeholder",
+      "category": "routing",
+      "mode": "routing",
+      "durationMs": 0.01,
+      "success": false,
+      "skipped": true,
+      "score": 0,
+      "details": {
+        "expectedRoute": "architecture_core"
+      },
+      "error": "Router/core layer is not implemented in this codebase yet"
+    },
+    {
+      "id": "consistency-food-delivery",
+      "category": "consistency",
+      "mode": "consistency",
+      "durationMs": 636.06,
+      "success": false,
+      "skipped": false,
+      "score": 0,
+      "error": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3-flash\nPlease retry in 42.98623356s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"model\":\"gemini-3-flash\",\"location\":\"global\"},\"quotaValue\":\"5\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"42s\"}]",
+      "details": null
+    },
+    {
+      "id": "functional-food-delivery",
+      "category": "functional",
+      "mode": "pipeline",
+      "durationMs": 626.52,
+      "success": false,
+      "skipped": false,
+      "score": 0,
+      "error": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3-flash\nPlease retry in 42.304514522s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-3-flash\"},\"quotaValue\":\"5\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"42s\"}]",
+      "details": null
+    },
+    {
+      "id": "functional-ecommerce",
+      "category": "functional",
+      "mode": "pipeline",
+      "durationMs": 621.5,
+      "success": false,
+      "skipped": false,
+      "score": 0,
+      "error": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3-flash\nPlease retry in 41.678937091s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-3-flash\"},\"quotaValue\":\"5\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"41s\"}]",
+      "details": null
+    },
+    {
+      "id": "edge-empty-input",
+      "category": "edge",
+      "mode": "validation",
+      "durationMs": 0.06,
+      "success": true,
+      "score": 1,
+      "details": {
+        "valid": false,
+        "errors": [
+          "Project requirements are too short. Please provide more details."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-random-text",
+      "category": "edge",
+      "mode": "analysis",
+      "durationMs": 668.65,
+      "success": false,
+      "skipped": false,
+      "score": 0,
+      "error": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3-flash\nPlease retry in 41.015422469s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-3-flash\"},\"quotaValue\":\"5\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"41s\"}]",
+      "details": null
+    },
+    {
+      "id": "edge-mixed-language",
+      "category": "edge",
+      "mode": "analysis",
+      "durationMs": 603.58,
+      "success": false,
+      "skipped": false,
+      "score": 0,
+      "error": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3-flash\nPlease retry in 40.409687824s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-3-flash\"},\"quotaValue\":\"5\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"40s\"}]",
+      "details": null
+    },
+    {
+      "id": "edge-typos",
+      "category": "edge",
+      "mode": "analysis",
+      "durationMs": 725.5,
+      "success": false,
+      "skipped": false,
+      "score": 0,
+      "error": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3-flash\nPlease retry in 39.685421185s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-3-flash\"},\"quotaValue\":\"5\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"39s\"}]",
+      "details": null
+    },
+    {
+      "id": "edge-very-long",
+      "category": "edge",
+      "mode": "analysis",
+      "durationMs": 639.86,
+      "success": false,
+      "skipped": false,
+      "score": 0,
+      "error": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3-flash\nPlease retry in 39.039652271s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-3-flash\"},\"quotaValue\":\"5\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"39s\"}]",
+      "details": null
+    },
+    {
+      "id": "routing-gdpr-placeholder",
+      "category": "routing",
+      "mode": "routing",
+      "durationMs": 0.02,
+      "success": false,
+      "skipped": true,
+      "score": 0,
+      "details": {
+        "expectedRoute": "compliance_core"
+      },
+      "error": "Router/core layer is not implemented in this codebase yet"
+    },
+    {
+      "id": "routing-architecture-placeholder",
+      "category": "routing",
+      "mode": "routing",
+      "durationMs": 0.01,
+      "success": false,
+      "skipped": true,
+      "score": 0,
+      "details": {
+        "expectedRoute": "architecture_core"
+      },
+      "error": "Router/core layer is not implemented in this codebase yet"
+    },
+    {
+      "id": "consistency-food-delivery",
+      "category": "consistency",
+      "mode": "consistency",
+      "durationMs": 590.79,
+      "success": false,
+      "skipped": false,
+      "score": 0,
+      "error": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3-flash\nPlease retry in 38.466791578s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-3-flash\"},\"quotaValue\":\"5\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"38s\"}]",
+      "details": null
+    }
+  ]
+}

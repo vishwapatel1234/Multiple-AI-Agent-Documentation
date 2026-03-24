@@ -1,0 +1,48 @@
+{
+  "generatedAt": "2026-03-24T06:59:27.973Z",
+  "config": {
+    "iterations": 1,
+    "consistencyRuns": 5,
+    "categories": [
+      "routing"
+    ]
+  },
+  "totals": {
+    "totalResults": 2,
+    "executed": 0,
+    "skipped": 2,
+    "successCount": 0,
+    "failureCount": 0,
+    "successRate": 0,
+    "averageDurationMs": 0
+  },
+  "commonErrors": [],
+  "results": [
+    {
+      "id": "routing-gdpr-placeholder",
+      "category": "routing",
+      "mode": "routing",
+      "durationMs": 0.16,
+      "success": false,
+      "skipped": true,
+      "score": 0,
+      "details": {
+        "expectedRoute": "compliance_core"
+      },
+      "error": "Router/core layer is not implemented in this codebase yet"
+    },
+    {
+      "id": "routing-architecture-placeholder",
+      "category": "routing",
+      "mode": "routing",
+      "durationMs": 0,
+      "success": false,
+      "skipped": true,
+      "score": 0,
+      "details": {
+        "expectedRoute": "architecture_core"
+      },
+      "error": "Router/core layer is not implemented in this codebase yet"
+    }
+  ]
+}

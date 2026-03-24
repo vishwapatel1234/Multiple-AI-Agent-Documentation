@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "qa": "node qa_runner.js"
   },
   "keywords": [],
   "author": "",
@@ -16,9 +17,9 @@
     "cors": "^2.8.6",
     "dotenv": "^17.2.4",
     "express": "^5.2.1",
-    "html-pdf-node": "^1.0.8",
     "marked": "^17.0.1",
     "openai": "^6.19.0",
+    "puppeteer": "^24.39.0",
     "uuid": "^13.0.0",
     "zod": "^4.3.6"
   },

@@ -1,4 +1,4 @@
-const htmlPdf = require('html-pdf-node');
+const puppeteer = require('puppeteer');
 const marked = require('marked');
 
 /**
@@ -31,16 +31,22 @@ async function generatePdfFromMarkdown(markdownContent) {
     </html>
   `;
 
-  // 3. Generate PDF
-  const options = { format: 'A4', printBackground: true };
-  const file = { content: fullHtml };
-
+  let browser;
   try {
-    const pdfBuffer = await htmlPdf.generatePdf(file, options);
+    // 3. Generate PDF using direct puppeteer
+    browser = await puppeteer.launch({
+      headless: "new",
+      args: ['--no-sandbox', '--disable-setuid-sandbox']
+    });
+    const page = await browser.newPage();
+    await page.setContent(fullHtml, { waitUntil: 'networkidle0' });
+    const pdfBuffer = await page.pdf({ format: 'A4', printBackground: true });
     return pdfBuffer;
   } catch (error) {
     console.error("PDF Generation Error:", error);
     throw new Error("Failed to generate PDF");
+  } finally {
+    if (browser) await browser.close();
   }
 }
 

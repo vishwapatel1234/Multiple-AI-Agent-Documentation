@@ -1,0 +1,1963 @@
+{
+  "generatedAt": "2026-03-24T09:43:08.142Z",
+  "config": {
+    "mode": "real",
+    "iterations": 3,
+    "consistencyRuns": 5,
+    "categories": null,
+    "delayMs": 8000,
+    "iterationCooldownMs": 15000,
+    "retries": 3
+  },
+  "totals": {
+    "totalResults": 33,
+    "executed": 33,
+    "skipped": 0,
+    "successCount": 33,
+    "failureCount": 0,
+    "errorCount": 0,
+    "successRate": 100,
+    "averageDurationMs": 21066.53
+  },
+  "commonErrors": [],
+  "results": [
+    {
+      "id": "functional-food-delivery",
+      "category": "functional",
+      "mode": "pipeline",
+      "qaMode": "real",
+      "durationMs": 36049.69,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "requirementAnalysis": {
+          "summary": [
+            "The client requires the development of a comprehensive food delivery application platform."
+          ],
+          "project_type": "Food Delivery Application Development",
+          "explicit_requirements": [
+            "User accounts (for customers)",
+            "Restaurant onboarding (process for restaurants to join the platform)",
+            "Live delivery tracking (for orders)",
+            "Payment integration (for transactions)",
+            "Ratings and reviews system (for restaurants and potentially drivers)",
+            "Admin dashboard (for platform management)"
+          ],
+          "assumptions": [
+            "The app is expected to include distinct interfaces for customers, restaurants, and potentially delivery drivers.",
+            "Payment functionality will require integration with a payment gateway.",
+            "Live delivery tracking will involve location services and mapping integration.",
+            "The platform will support multiple restaurants and multiple end-users.",
+            "An underlying backend system is implied to manage all data and logic."
+          ],
+          "missing_information": [
+            "Target platforms (e.g., iOS, Android, Web) and their specific requirements.",
+            "Detailed feature breakdown for each core module (e.g., user profiles, menu management, order management, payment methods, admin reporting).",
+            "Specific payment gateways or methods to be integrated.",
+            "Geographical scope or target market for the application.",
+            "Monetization strategy (e.g., commission-based, subscription, delivery fees).",
+            "Requirements for driver management (e.g., separate driver app, driver onboarding, driver tracking).",
+            "Non-functional requirements (e.g., performance, security, scalability, accessibility).",
+            "Timeline and budget expectations.",
+            "Specific compliance requirements (e.g., data privacy regulations).",
+            "Branding guidelines or design preferences."
+          ]
+        },
+        "modules": {
+          "modules": [
+            {
+              "module_name": "User & Authentication Module",
+              "description": "Manages all user types (customers, restaurants, drivers, admins), their accounts, authentication, and profiles.",
+              "features": [
+                "Customer Account Registration & Login",
+                "Restaurant Onboarding & Profile Setup",
+                "Driver Onboarding & Profile Setup (implied)",
+                "Admin Account Management",
+                "User Profile Management (update details, passwords)",
+                "Password Reset & Recovery"
+              ],
+              "dependencies": []
+            },
+            {
+              "module_name": "Restaurant Management Module",
+              "description": "Handles restaurant-specific functionalities, including menu management, availability, and order reception.",
+              "features": [
+                "Restaurant Profile Management",
+                "Menu Creation and Management (add, edit, delete items, categories)",
+                "Item Availability Toggle",
+                "Operating Hours & Special Availability Settings",
+                "Order Receiving and Acceptance Interface",
+                "Revenue & Payout Tracking (basic)"
+              ],
+              "dependencies": [
+                "User & Authentication Module",
+                "Order Management Module"
+              ]
+            },
+            {
+              "module_name": "Order Management Module",
+              "description": "Manages the entire lifecycle of an order, from placement by the customer to delivery confirmation.",
+              "features": [
+                "Customer Order Placement (browsing restaurants, adding items to cart)",
+                "Order Confirmation & Status Updates (placed, accepted, prepared, out for delivery, delivered)",
+                "Order History & Details (customer, restaurant, admin view)",
+                "Order Cancellation & Modification (within defined rules)",
+                "Order Assignment to Drivers"
+              ],
+              "dependencies": [
+                "User & Authentication Module",
+                "Restaurant Management Module",
+                "Payment Module",
+                "Delivery Management Module",
+                "Notifications Module"
+              ]
+            },
+            {
+              "module_name": "Payment Module",
+              "description": "Integrates with payment gateways to process secure transactions for orders and manage refunds.",
+              "features": [
+                "Payment Gateway Integration (e.g., Stripe, PayPal)",
+                "Secure Transaction Processing (credit/debit cards, digital wallets)",
+                "Order Total Calculation",
+                "Refund Processing",
+                "Transaction History",
+                "Payout Management (to restaurants/drivers)"
+              ],
+              "dependencies": [
+                "User & Authentication Module",
+                "Order Management Module"
+              ]
+            },
+            {
+              "module_name": "Delivery Management Module",
+              "description": "Manages delivery drivers, assigns orders, and facilitates real-time tracking of deliveries.",
+              "features": [
+                "Driver Availability & Status Management",
+                "Algorithmic Order Assignment to Drivers",
+                "Live Delivery Tracking (for customers, restaurants, admin)",
+                "Route Optimization (basic, implied for efficiency)",
+                "Driver App Interface (order details, navigation, status updates)",
+                "Proof of Delivery"
+              ],
+              "dependencies": [
+                "User & Authentication Module",
+                "Order Management Module",
+                "Notifications Module"
+              ]
+            },
+            {
+              "module_name": "Ratings & Reviews Module",
+              "description": "Enables users to rate and review restaurants and potentially delivery drivers, fostering quality feedback.",
+              "features": [
+                "Submit Ratings & Reviews for Restaurants",
+                "Submit Ratings & Reviews for Drivers (optional, but good practice)",
+                "View Aggregated Ratings & Individual Reviews",
+                "Reporting of Inappropriate Reviews",
+                "Review Moderation (admin)"
+              ],
+              "dependencies": [
+                "User & Authentication Module",
+                "Order Management Module"
+              ]
+            },
+            {
+              "module_name": "Notifications Module",
+              "description": "Handles various types of notifications to users, restaurants, and drivers via push, email, or SMS.",
+              "features": [
+                "Order Status Notifications (customer, restaurant, driver)",
+                "Promotional & Marketing Notifications",
+                "System Alerts & Announcements",
+                "Push Notifications Integration",
+                "Email & SMS Integration"
+              ],
+              "dependencies": [
+                "User & Authentication Module",
+                "Order Management Module",
+                "Delivery Management Module"
+              ]
+            },
+            {
+              "module_name": "Admin Dashboard Module",
+              "description": "Provides a comprehensive interface for platform administrators to manage users, restaurants, orders, and monitor system performance.",
+              "features": [
+                "User Management (create, edit, suspend accounts)",
+                "Restaurant Management (approve onboarding, manage details, suspend)",
+                "Driver Management (approve onboarding, manage details, suspend)",
+                "Order Monitoring & Intervention",
+                "Payment & Transaction Oversight",
+                "Reporting & Analytics (sales, popular items, delivery performance)",
+                "Content Management (promotions, banners, FAQs)",
+                "Review Moderation"
+              ],
+              "dependencies": [
+                "User & Authentication Module",
+                "Restaurant Management Module",
+                "Order Management Module",
+                "Payment Module",
+                "Delivery Management Module",
+                "Ratings & Reviews Module",
+                "Notifications Module"
+              ]
+            }
+          ]
+        },
+        "mode": "real",
+        "executedSteps": [
+          "Requirement Analysis",
+          "Module Breakdown"
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "functional-ecommerce",
+      "category": "functional",
+      "mode": "pipeline",
+      "qaMode": "real",
+      "durationMs": 36437.42,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "requirementAnalysis": {
+          "summary": [
+            "The client requires the development of a comprehensive e-commerce web platform."
+          ],
+          "project_type": "E-commerce Platform Development",
+          "explicit_requirements": [
+            "E-commerce web platform",
+            "Catalog search functionality",
+            "Shopping cart management",
+            "Checkout process",
+            "Order tracking system",
+            "Seller management module",
+            "Analytics dashboard/reporting"
+          ],
+          "assumptions": [
+            "The platform will require a database to store product, user, order, and seller data.",
+            "Payment gateway integration will be necessary for the checkout process.",
+            "User authentication and authorization will be implemented for various roles (e.g., buyers, sellers, administrators).",
+            "The platform will be accessible via standard web browsers.",
+            "Basic security measures will be implemented to protect user and transaction data."
+          ],
+          "missing_information": [
+            "Target audience and business model (e.g., B2B, B2C, C2C)?",
+            "Specific budget and timeline for the project?",
+            "Preferred technology stack or framework?",
+            "Detailed UI/UX design requirements and branding guidelines?",
+            "Specific analytics metrics and reporting needs?",
+            "Requirements for shipping, taxes, and return/refund processes?",
+            "Any third-party integrations (e.g., ERP, CRM, marketing automation, existing inventory systems)?",
+            "Scalability and performance requirements (e.g., number of concurrent users, transactions per second)?",
+            "Maintenance, hosting, and support plan requirements post-launch?",
+            "Localization and multilingual support requirements?",
+            "Mobile responsiveness or dedicated mobile application requirements?"
+          ]
+        },
+        "modules": {
+          "modules": [
+            {
+              "module_name": "User & Authentication Management",
+              "description": "Handles user registration, login, profile management, and role-based access control for different user types (buyers, sellers, administrators).",
+              "features": [
+                "User Registration",
+                "Login/Logout functionality",
+                "User Profile Management (view, edit)",
+                "Password Reset/Recovery",
+                "Role-based Access Control (Buyer, Seller, Administrator)",
+                "Session/Token Management"
+              ],
+              "dependencies": []
+            },
+            {
+              "module_name": "Product Catalog & Search",
+              "description": "Manages product listings, categories, product details, and provides comprehensive search and filtering capabilities for buyers.",
+              "features": [
+                "Product Listing Display",
+                "Product Detail Pages",
+                "Category Management (browse by category)",
+                "Advanced Product Search (keywords, filters, sorting)",
+                "Product Availability/Inventory Display"
+              ],
+              "dependencies": [
+                "User & Authentication Management (for seller product submission)",
+                "Seller Management (for product creation/update)"
+              ]
+            },
+            {
+              "module_name": "Shopping Cart Management",
+              "description": "Allows users to add, remove, and update items in their shopping cart before proceeding to checkout.",
+              "features": [
+                "Add Product to Cart",
+                "Remove Product from Cart",
+                "Update Item Quantity in Cart",
+                "View Cart Contents",
+                "Cart Persistence (e.g., across sessions for logged-in users)"
+              ],
+              "dependencies": [
+                "User & Authentication Management",
+                "Product Catalog & Search"
+              ]
+            },
+            {
+              "module_name": "Order & Checkout Management",
+              "description": "Manages the entire checkout process, from order creation to final placement, and provides order tracking functionality for buyers.",
+              "features": [
+                "Multi-step Checkout Process (shipping, billing, review)",
+                "Order Creation and Placement",
+                "Order Status Updates",
+                "Order History for Buyers",
+                "Order Tracking (status updates, shipping information integration - future)"
+              ],
+              "dependencies": [
+                "User & Authentication Management",
+                "Shopping Cart Management",
+                "Payment Processing"
+              ]
+            },
+            {
+              "module_name": "Payment Processing",
+              "description": "Integrates with external payment gateways to securely process transactions during the checkout phase.",
+              "features": [
+                "Payment Method Selection",
+                "Payment Gateway Integration (e.g., Stripe, PayPal)",
+                "Secure Transaction Processing",
+                "Payment Status Updates",
+                "Refund Management (future consideration)"
+              ],
+              "dependencies": [
+                "Order & Checkout Management"
+              ]
+            },
+            {
+              "module_name": "Seller Management",
+              "description": "Provides a dedicated interface and functionalities for sellers to manage their products, inventory, and view their orders.",
+              "features": [
+                "Seller Registration/Onboarding",
+                "Product Listing Creation/Editing",
+                "Inventory Management for Seller Products",
+                "View Seller-specific Orders",
+                "Seller Profile Management"
+              ],
+              "dependencies": [
+                "User & Authentication Management",
+                "Product Catalog & Search",
+                "Order & Checkout Management"
+              ]
+            },
+            {
+              "module_name": "Administration & Platform Management",
+              "description": "A back-office module for platform administrators to manage users, sellers, categories, orders, and overall platform settings.",
+              "features": [
+                "User Management (CRUD operations)",
+                "Seller Management (approval, suspension)",
+                "Product Review and Moderation",
+                "Category and Content Management",
+                "Overall Order Oversight and Management",
+                "Platform Configuration Settings"
+              ],
+              "dependencies": [
+                "User & Authentication Management",
+                "Seller Management",
+                "Product Catalog & Search",
+                "Order & Checkout Management"
+              ]
+            },
+            {
+              "module_name": "Analytics & Reporting",
+              "description": "Generates reports and dashboards to provide insights into platform performance, sales, user behavior, and seller activities.",
+              "features": [
+                "Sales and Revenue Reports",
+                "User Activity and Engagement Reports",
+                "Product Performance Reports",
+                "Seller Performance Metrics",
+                "Customizable Dashboards (for admin/sellers)"
+              ],
+              "dependencies": [
+                "Order & Checkout Management",
+                "Product Catalog & Search",
+                "User & Authentication Management",
+                "Seller Management"
+              ]
+            }
+          ]
+        },
+        "mode": "real",
+        "executedSteps": [
+          "Requirement Analysis",
+          "Module Breakdown"
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-empty-input",
+      "category": "edge",
+      "mode": "validation",
+      "qaMode": "real",
+      "durationMs": 1.32,
+      "status": "PASS",
+      "success": true,
+      "score": 1,
+      "details": {
+        "valid": false,
+        "errors": [
+          "Project requirements are too short. Please provide more details."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-random-text",
+      "category": "edge",
+      "mode": "analysis",
+      "qaMode": "real",
+      "durationMs": 14659.07,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "summary": [
+          "The client has a very vague, unformed 'random idea'.",
+          "There is a potential interest in developing an 'app' or an 'AI' solution.",
+          "The client expresses high uncertainty about the project's direction, even stating 'maybe nothing'."
+        ],
+        "project_type": "Highly Ambiguous - Requires Initial Discovery & Ideation",
+        "explicit_requirements": [],
+        "assumptions": [
+          "The non-English/non-recognizable characters are noise or typos and do not convey specific meaning.",
+          "The client is in a very early brainstorming phase and lacks clear objectives or a defined scope.",
+          "The client may be seeking assistance in clarifying their vision and exploring potential solutions."
+        ],
+        "missing_information": [
+          "What specific problem is the client trying to solve?",
+          "What are the ultimate goals or desired outcomes of this 'random idea'?",
+          "What kind of 'app' or 'AI' solution is being considered (e.g., purpose, features, target users)?",
+          "Is there any underlying business context or motivation for this idea?",
+          "What is the desired timeline, budget, or available resources for this potential project?"
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-mixed-language",
+      "category": "edge",
+      "mode": "analysis",
+      "qaMode": "real",
+      "durationMs": 15763.14,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "summary": [
+          "Development of a hospital management application."
+        ],
+        "project_type": "Software Development",
+        "explicit_requirements": [
+          "Patient records management",
+          "Doctor scheduling system",
+          "Billing system functionality",
+          "Implementation of HIPAA-style security protocols"
+        ],
+        "assumptions": [
+          "The client requires a new digital system to manage core hospital operations.",
+          "The application will handle sensitive patient health information and must ensure high data privacy and security.",
+          "The system is intended for use by hospital staff including doctors, administrators, and billing personnel."
+        ],
+        "missing_information": [
+          "Specific platform requirements (e.g., web, mobile, desktop).",
+          "Detailed scope regarding other hospital functionalities (e.g., inventory, pharmacy, lab integration).",
+          "Specific geographical compliance requirements if not strictly HIPAA (e.g., local data protection laws).",
+          "User authentication and authorization levels for different roles.",
+          "Reporting and analytics requirements.",
+          "Non-functional requirements such as performance, scalability, and usability.",
+          "Target users beyond doctors and patients (e.g., nurses, administrative staff).",
+          "Integration with existing systems."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-typos",
+      "category": "edge",
+      "mode": "analysis",
+      "qaMode": "real",
+      "durationMs": 14330.73,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "summary": [
+          "The client requires the development of a new CRM platform specifically designed for their sales team."
+        ],
+        "project_type": "CRM Platform Development",
+        "explicit_requirements": [
+          "Lead management functionality",
+          "Follow-up tracking and management",
+          "Interactive dashboards for reporting",
+          "Role-based access control (RBAC)",
+          "Platform to be utilized by the sales team"
+        ],
+        "assumptions": [
+          "The client is looking for a custom-built CRM solution rather than an off-the-shelf product or integration.",
+          "The 'sales team' refers to internal sales personnel who will be primary users.",
+          "Follow-up functionality includes scheduling, reminders, and activity logging.",
+          "Dashboards will require visualization of key sales metrics and performance indicators."
+        ],
+        "missing_information": [
+          "Specific business goals and objectives for implementing the CRM.",
+          "Detailed user roles and their respective permissions for role-based access.",
+          "Expected key performance indicators (KPIs) and metrics for dashboards.",
+          "Integration requirements with existing systems (e.g., email, ERP, marketing automation).",
+          "Number of users and expected peak load.",
+          "Timeline and budget constraints.",
+          "Any specific technology preferences or hosting requirements (cloud/on-premise).",
+          "Detailed workflows for lead management and follow-up processes.",
+          "Reporting requirements beyond dashboards (e.g., custom reports, export options).",
+          "Data migration strategy (if any existing data needs to be moved).",
+          "Future scalability requirements."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-very-long",
+      "category": "edge",
+      "mode": "analysis",
+      "qaMode": "real",
+      "durationMs": 14809.29,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "summary": [
+          "Develop an enterprise operations platform for a logistics company.",
+          "The platform will cover core logistics operations, administrative functions, and technical infrastructure requirements."
+        ],
+        "project_type": "Enterprise Operations Platform Development",
+        "explicit_requirements": [
+          "Shipment planning support",
+          "Route optimization",
+          "Warehouse operations management",
+          "Vendor management",
+          "Billing workflows",
+          "Analytics dashboards",
+          "Mobile field access",
+          "Audit logs",
+          "Document uploads functionality",
+          "Single Sign-On (SSO)",
+          "Configurable permissions",
+          "API integrations",
+          "SLA monitoring",
+          "Alerting system",
+          "Region-wise reporting",
+          "High concurrency support",
+          "Disaster recovery capabilities",
+          "Data retention policies implementation",
+          "Phased rollout strategy"
+        ],
+        "assumptions": [
+          "The platform will be a web-based application, potentially with native mobile components for field access.",
+          "The logistics company operates in multiple regions, necessitating region-wise reporting and potentially multi-language support (though not explicitly stated).",
+          "The system needs to handle a significant volume of transactions and data given the 'enterprise' and 'high concurrency' requirements.",
+          "API integrations will likely be with various internal and external systems relevant to logistics (e.g., carriers, payment gateways, ERPs)."
+        ],
+        "missing_information": [
+          "Specific regions/countries of operation and associated regulatory requirements.",
+          "Target user groups and estimated number of users.",
+          "Existing systems landscape and specific integration partners.",
+          "Detailed non-functional requirements (e.g., performance metrics, RTO/RPO for disaster recovery).",
+          "Budget, timeline, and project phases breakdown.",
+          "User experience (UX) and user interface (UI) design preferences.",
+          "Data migration strategy from existing systems (if any).",
+          "Specific security compliance standards beyond SSO and configurable permissions.",
+          "Maintenance and support requirements post-launch."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "routing-gdpr-placeholder",
+      "category": "routing",
+      "mode": "routing",
+      "qaMode": "real",
+      "durationMs": 0.51,
+      "status": "PASS",
+      "success": true,
+      "skipped": false,
+      "score": 2,
+      "details": {
+        "expectedRoute": "compliance_core",
+        "detectedRoute": "compliance_core",
+        "evaluator": "qa-contract-router"
+      },
+      "error": null
+    },
+    {
+      "id": "routing-architecture-placeholder",
+      "category": "routing",
+      "mode": "routing",
+      "qaMode": "real",
+      "durationMs": 0.03,
+      "status": "PASS",
+      "success": true,
+      "skipped": false,
+      "score": 2,
+      "details": {
+        "expectedRoute": "architecture_core",
+        "detectedRoute": "architecture_core",
+        "evaluator": "qa-contract-router"
+      },
+      "error": null
+    },
+    {
+      "id": "consistency-food-delivery",
+      "category": "consistency",
+      "mode": "consistency",
+      "qaMode": "real",
+      "durationMs": 77758.05,
+      "status": "PASS",
+      "success": true,
+      "score": 3,
+      "details": {
+        "totalRuns": 5,
+        "similarityScore": 0.85,
+        "consistencyRate": 0.85
+      },
+      "error": null
+    },
+    {
+      "id": "suggestion-basic",
+      "category": "functional",
+      "mode": "suggestion",
+      "qaMode": "real",
+      "durationMs": 25425.95,
+      "status": "PASS",
+      "success": true,
+      "score": 2,
+      "details": {
+        "team": {
+          "roles": [
+            {
+              "role": "Tech Lead / Full-stack Engineer",
+              "responsibilities": [
+                "Define technical architecture and strategy",
+                "Implement core backend services (APIs, authentication, reporting logic)",
+                "Design and manage databases",
+                "Set up initial DevOps, CI/CD pipelines, and infrastructure",
+                "Provide technical guidance and ensure code quality"
+              ]
+            },
+            {
+              "role": "Frontend Engineer",
+              "responsibilities": [
+                "Develop the interactive analytics dashboard UI",
+                "Implement data visualizations and charting components",
+                "Integrate with backend APIs and manage frontend state",
+                "Ensure responsive design and optimal frontend performance"
+              ]
+            },
+            {
+              "role": "Product Designer (UI/UX Focus)",
+              "responsibilities": [
+                "Conduct user research and define user flows for the dashboard",
+                "Create wireframes, prototypes, and high-fidelity mockups",
+                "Design intuitive dashboard layouts and data presentation",
+                "Ensure a seamless and effective user experience"
+              ]
+            }
+          ],
+          "notes": "This lean starter team focuses on core technical execution and critical user experience. Product management responsibilities will likely be shared among founders and the Tech Lead initially to maintain agility."
+        },
+        "stack": {
+          "frontend": {
+            "framework": "React (with Next.js)",
+            "styling": "Tailwind CSS",
+            "charting_library": "Recharts / Nivo",
+            "notes": "Next.js provides an excellent developer experience, server-side rendering (SSR), and API routes, enabling a full-stack approach from a single codebase. Tailwind CSS facilitates rapid and consistent UI development. Recharts or Nivo offer robust and flexible data visualization components for interactive dashboards."
+          },
+          "backend": {
+            "language_framework": "TypeScript (Node.js with NestJS)",
+            "authentication": "JWT (NextAuth.js if integrated with Next.js or Passport.js)",
+            "api_type": "RESTful API",
+            "notes": "NestJS provides a robust, modular, and scalable architecture built with TypeScript, promoting maintainability and enterprise readiness. JSON Web Tokens (JWT) enable secure, stateless authentication. Node.js's non-blocking I/O is well-suited for API services."
+          },
+          "database": {
+            "primary_database": "PostgreSQL",
+            "analytical_extensions": "TimescaleDB (PostgreSQL extension for time-series data)",
+            "caching": "Redis",
+            "notes": "PostgreSQL is a powerful, reliable relational database for user data, configurations, and core application data. TimescaleDB, as a PostgreSQL extension, provides efficient storage and querying capabilities for time-series analytics data. Redis is used for high-performance caching and session management."
+          },
+          "infrastructure_devops": {
+            "cloud_provider": "AWS (Amazon Web Services)",
+            "containerization": "Docker",
+            "ci_cd": "GitHub Actions",
+            "deployment": "AWS ECS Fargate (for backend), Vercel (for Next.js frontend)",
+            "monitoring_logging": "AWS CloudWatch, Prometheus/Grafana (for deeper insights later)",
+            "notes": "AWS offers a comprehensive suite of services for scalability, reliability, and security. Docker ensures consistent environments across development and production. GitHub Actions automates CI/CD workflows. ECS Fargate provides serverless container orchestration, simplifying deployment for the backend, while Vercel is ideal for Next.js applications, offering seamless deployment and global CDN."
+          },
+          "development_tools": {
+            "version_control": "Git / GitHub",
+            "ide": "VS Code"
+          },
+          "notes": "This stack leverages modern, widely adopted technologies, ensuring good community support, ample talent availability, and a balance between rapid development and future scalability for a SaaS analytics product."
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "functional-food-delivery",
+      "category": "functional",
+      "mode": "pipeline",
+      "qaMode": "real",
+      "durationMs": 43864.78,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "requirementAnalysis": {
+          "summary": [
+            "Development of a comprehensive food delivery mobile application."
+          ],
+          "project_type": "Mobile Application Development",
+          "explicit_requirements": [
+            "User accounts (for customers)",
+            "Restaurant onboarding (for partners)",
+            "Live delivery tracking",
+            "Payment processing",
+            "Ratings and reviews system",
+            "Admin dashboard"
+          ],
+          "assumptions": [
+            "The application will cater to at least three main user types: customers (placing orders), restaurants (managing orders and menus), and potentially drivers (for deliveries).",
+            "A backend system will be required to manage users, restaurants, orders, payments, and other business logic.",
+            "Payments will involve integration with third-party payment gateways.",
+            "Live delivery tracking implies GPS integration and real-time updates for customers and potentially drivers.",
+            "The admin dashboard will be used for overall platform management, including user, restaurant, and order oversight."
+          ],
+          "missing_information": [
+            "Target platforms for the mobile application (iOS, Android, or both)?",
+            "Specific features required for user accounts (e.g., profile management, order history, address book, login/registration methods).",
+            "Detailed functionalities for restaurant onboarding (e.g., menu management, order management, availability settings, financials).",
+            "Specific features for live delivery tracking (e.g., driver app, customer map view, notification types).",
+            "Preferred payment methods and integration details (e.g., credit card, cash on delivery, specific payment gateway).",
+            "Scope of the ratings system (e.g., rating restaurants, drivers, specific dishes).",
+            "Detailed requirements for the admin dashboard (e.g., analytics, content management, promotions, dispute resolution).",
+            "Geographical scope of the service.",
+            "Monetization strategy for the platform (e.g., commission, subscription, delivery fees).",
+            "Any specific branding guidelines or UI/UX preferences."
+          ]
+        },
+        "modules": {
+          "modules": [
+            {
+              "module_name": "User & Authentication",
+              "description": "Manages all user accounts (Customer, Restaurant, Driver, Admin), their profiles, and authentication mechanisms across the platform.",
+              "features": [
+                "User registration (customer, restaurant, driver)",
+                "Login/Logout functionality",
+                "Profile management (personal details, addresses, preferences)",
+                "Password recovery/reset",
+                "Role-based access control for different user types"
+              ],
+              "dependencies": [
+                "Core Backend Services"
+              ]
+            },
+            {
+              "module_name": "Restaurant & Menu Management",
+              "description": "Handles the onboarding, profile management, menu creation, and operational settings for restaurants.",
+              "features": [
+                "Restaurant registration/onboarding workflow",
+                "Restaurant profile management (contact info, address, branding)",
+                "Menu item creation, editing, and deletion",
+                "Category management for menu items",
+                "Price management and discount application",
+                "Restaurant availability settings (opening hours, holidays)",
+                "Order receiving and management interface for restaurants"
+              ],
+              "dependencies": [
+                "User & Authentication",
+                "Core Backend Services"
+              ]
+            },
+            {
+              "module_name": "Order Processing",
+              "description": "Manages the entire lifecycle of an order, from customer placement to restaurant acceptance and preparation.",
+              "features": [
+                "Shopping cart functionality",
+                "Order placement by customers",
+                "Order modification/cancellation (within defined windows)",
+                "Order history for customers and restaurants",
+                "Real-time order status updates (e.g., pending, accepted, preparing, ready for pickup)"
+              ],
+              "dependencies": [
+                "User & Authentication",
+                "Restaurant & Menu Management",
+                "Core Backend Services"
+              ]
+            },
+            {
+              "module_name": "Delivery & Logistics",
+              "description": "Facilitates the assignment, tracking, and management of deliveries, including driver operations and real-time updates.",
+              "features": [
+                "Driver registration and profile management",
+                "Driver availability and status management",
+                "Automated/Manual order assignment to drivers",
+                "Real-time GPS tracking of drivers",
+                "Customer-facing delivery tracking map",
+                "Notifications for delivery status (customer, driver)",
+                "Route optimization for efficient deliveries"
+              ],
+              "dependencies": [
+                "User & Authentication",
+                "Order Processing",
+                "Notifications & Communication",
+                "Core Backend Services"
+              ]
+            },
+            {
+              "module_name": "Payment & Wallet",
+              "description": "Manages all payment transactions, including processing customer payments, handling refunds, and potentially managing an in-app wallet.",
+              "features": [
+                "Integration with third-party payment gateways",
+                "Credit/debit card processing",
+                "Cash on Delivery (COD) option",
+                "In-app wallet/prepaid balance functionality",
+                "Payment history and transaction records",
+                "Refund processing and management"
+              ],
+              "dependencies": [
+                "User & Authentication",
+                "Order Processing",
+                "Core Backend Services"
+              ]
+            },
+            {
+              "module_name": "Ratings & Reviews",
+              "description": "Enables users to provide feedback on restaurants, dishes, and delivery drivers through ratings and written reviews.",
+              "features": [
+                "Submission of ratings (e.g., 1-5 stars)",
+                "Writing and submitting textual reviews",
+                "Viewing aggregated ratings and individual reviews",
+                "Reporting inappropriate content in reviews"
+              ],
+              "dependencies": [
+                "User & Authentication",
+                "Order Processing",
+                "Restaurant & Menu Management",
+                "Delivery & Logistics",
+                "Core Backend Services"
+              ]
+            },
+            {
+              "module_name": "Notifications & Communication",
+              "description": "Handles all real-time alerts and communication channels for various user types related to orders, delivery, and platform updates.",
+              "features": [
+                "Push notifications (order status, delivery updates, promotions)",
+                "Email notifications (account-related, marketing)",
+                "SMS notifications (optional, for critical alerts)",
+                "In-app messaging/chat (customer-restaurant, customer-driver support)"
+              ],
+              "dependencies": [
+                "User & Authentication",
+                "Order Processing",
+                "Delivery & Logistics",
+                "Core Backend Services"
+              ]
+            },
+            {
+              "module_name": "Admin & Analytics Dashboard",
+              "description": "Provides a comprehensive web-based interface for platform administrators to manage the entire ecosystem, oversee operations, and access business insights.",
+              "features": [
+                "User management (create, edit, block, delete)",
+                "Restaurant management (onboarding approval, profile editing, status control)",
+                "Order oversight and management (tracking, intervention)",
+                "Payment reconciliation and dispute resolution",
+                "Promotions and discount code management",
+                "Content management (FAQs, terms & conditions)",
+                "Analytics and reporting (sales, popular items, delivery performance, user behavior)"
+              ],
+              "dependencies": [
+                "User & Authentication",
+                "Restaurant & Menu Management",
+                "Order Processing",
+                "Delivery & Logistics",
+                "Payment & Wallet",
+                "Ratings & Reviews",
+                "Core Backend Services"
+              ]
+            },
+            {
+              "module_name": "Core Backend Services",
+              "description": "Provides the foundational APIs, database management, and infrastructure components that all other modules rely on to function.",
+              "features": [
+                "Centralized database management (users, restaurants, orders, payments, etc.)",
+                "API Gateway for secure and scalable communication",
+                "Data storage and retrieval services",
+                "Caching mechanisms for performance",
+                "Logging and monitoring services",
+                "Geolocation services (underlying for mapping and location-based features)",
+                "Real-time communication infrastructure (e.g., WebSockets for live updates)"
+              ],
+              "dependencies": []
+            }
+          ]
+        },
+        "mode": "real",
+        "executedSteps": [
+          "Requirement Analysis",
+          "Module Breakdown"
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "functional-ecommerce",
+      "category": "functional",
+      "mode": "pipeline",
+      "qaMode": "real",
+      "durationMs": 37287.6,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "requirementAnalysis": {
+          "summary": [
+            "The client requires the development of an e-commerce web platform."
+          ],
+          "project_type": "e-commerce web platform development",
+          "explicit_requirements": [
+            "Catalog search functionality",
+            "Shopping cart management",
+            "Checkout process",
+            "Order tracking system",
+            "Seller management module",
+            "Analytics dashboard/reporting"
+          ],
+          "assumptions": [
+            "The platform will be accessible via web browsers.",
+            "A database will be required to store product, order, user, and seller information.",
+            "User authentication and authorization will be necessary for both customers and sellers.",
+            "Payment gateway integration will be required for the checkout process."
+          ],
+          "missing_information": [
+            "Specific target audience or market.",
+            "Desired design and user experience (UX) guidelines.",
+            "Scalability requirements (e.g., expected number of users, products, transactions).",
+            "Specific technologies or frameworks preferred/required.",
+            "Integration needs with third-party services (e.g., shipping carriers, ERP systems, marketing tools).",
+            "Detailed breakdown of features within 'seller management' and 'analytics'.",
+            "Monetization strategy (e.g., commission model, subscription).",
+            "Budget and timeline for project completion.",
+            "Security and compliance requirements (e.g., PCI DSS, GDPR).",
+            "Hosting strategy and infrastructure requirements."
+          ]
+        },
+        "modules": {
+          "modules": [
+            {
+              "module_name": "User Management & Authentication",
+              "description": "Handles all aspects of user accounts, including registration, login, profile management, and role-based access control for customers, sellers, and administrators.",
+              "features": [
+                "User registration (customer, seller)",
+                "Login and logout functionality",
+                "Password management (reset, change)",
+                "User profile creation and management",
+                "Role-based access control (RBAC)",
+                "Session management"
+              ],
+              "dependencies": []
+            },
+            {
+              "module_name": "Product Catalog & Search",
+              "description": "Manages product information, categories, and provides comprehensive functionality for customers to search, browse, and view product details.",
+              "features": [
+                "Product listing display",
+                "Product detail pages",
+                "Category and sub-category browsing",
+                "Keyword search functionality",
+                "Filtering and sorting options (price, category, brand, etc.)",
+                "Product ratings and reviews display",
+                "Inventory level display (availability)"
+              ],
+              "dependencies": [
+                "User Management & Authentication (for seller product submission/updates)"
+              ]
+            },
+            {
+              "module_name": "Shopping Cart",
+              "description": "Enables customers to add products to a temporary cart, modify quantities, and manage items they intend to purchase before initiating the checkout process.",
+              "features": [
+                "Add product to cart",
+                "Update product quantity in cart",
+                "Remove product from cart",
+                "View cart contents",
+                "Cart persistence (for logged-in users)",
+                "Display of subtotal and estimated shipping (if applicable)"
+              ],
+              "dependencies": [
+                "Product Catalog & Search"
+              ]
+            },
+            {
+              "module_name": "Order & Checkout Processing",
+              "description": "Manages the multi-step checkout flow, from shipping and billing information capture to payment initiation and order confirmation.",
+              "features": [
+                "Multi-step checkout flow",
+                "Shipping address management",
+                "Billing address management",
+                "Order summary generation",
+                "Application of discount/promotion codes",
+                "Initiate payment process",
+                "Order confirmation and receipt generation"
+              ],
+              "dependencies": [
+                "Shopping Cart",
+                "User Management & Authentication",
+                "Payment Processing"
+              ]
+            },
+            {
+              "module_name": "Payment Processing",
+              "description": "Integrates with external payment gateways to securely handle financial transactions, including payment authorization and capture.",
+              "features": [
+                "Integration with various payment gateways",
+                "Secure payment transaction processing",
+                "Payment authorization and capture",
+                "Refund initiation and processing (from admin/seller side)"
+              ],
+              "dependencies": [
+                "Order & Checkout Processing"
+              ]
+            },
+            {
+              "module_name": "Order Management",
+              "description": "Provides functionalities for customers to track their orders and for sellers/administrators to view, update, and manage order statuses and details.",
+              "features": [
+                "Customer order history view",
+                "Real-time order status tracking (for customers)",
+                "Seller-specific order list view",
+                "Update order status (processing, shipped, delivered, cancelled) by seller/admin",
+                "View detailed order information (products, customer info, shipping)",
+                "Generate shipping labels (optional)"
+              ],
+              "dependencies": [
+                "User Management & Authentication",
+                "Order & Checkout Processing",
+                "Product Catalog & Search"
+              ]
+            },
+            {
+              "module_name": "Seller Management",
+              "description": "Empowers sellers to manage their presence on the platform, including product listings, inventory, and viewing their sales and orders.",
+              "features": [
+                "Seller registration and onboarding process",
+                "Product listing management (add, edit, delete products)",
+                "Inventory management for seller's products",
+                "View and manage seller-specific orders",
+                "Seller profile and store information management",
+                "Basic sales reporting for sellers"
+              ],
+              "dependencies": [
+                "User Management & Authentication",
+                "Product Catalog & Search",
+                "Order Management"
+              ]
+            },
+            {
+              "module_name": "Admin & Analytics Dashboard",
+              "description": "Offers administrative tools for overall platform management, content moderation, user/seller oversight, and provides comprehensive analytics and reporting.",
+              "features": [
+                "Comprehensive user management (admin view)",
+                "Product and category management (admin override)",
+                "Order management (admin override, refunds)",
+                "Seller management and approval",
+                "Platform configuration settings",
+                "Sales and revenue analytics dashboard",
+                "Traffic and user behavior reporting",
+                "System health and performance monitoring"
+              ],
+              "dependencies": [
+                "User Management & Authentication",
+                "Product Catalog & Search",
+                "Order Management",
+                "Seller Management",
+                "Payment Processing"
+              ]
+            }
+          ]
+        },
+        "mode": "real",
+        "executedSteps": [
+          "Requirement Analysis",
+          "Module Breakdown"
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-empty-input",
+      "category": "edge",
+      "mode": "validation",
+      "qaMode": "real",
+      "durationMs": 0.03,
+      "status": "PASS",
+      "success": true,
+      "score": 1,
+      "details": {
+        "valid": false,
+        "errors": [
+          "Project requirements are too short. Please provide more details."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-random-text",
+      "category": "edge",
+      "mode": "analysis",
+      "qaMode": "real",
+      "durationMs": 14629.2,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "summary": [
+          "The client has a very nascent and undefined idea.",
+          "Potential areas of interest include developing an application or leveraging Artificial Intelligence.",
+          "There is significant uncertainty regarding the nature and even existence of a concrete project."
+        ],
+        "project_type": "Uncertain / Idea Exploration",
+        "explicit_requirements": [],
+        "assumptions": [
+          "The non-sensical parts of the text ('asdkjashdkajshd qweoiu zxcmn') are noise, typos, or placeholder text without specific meaning.",
+          "The client is exploring potential project avenues rather than stating a concrete need or requirement."
+        ],
+        "missing_information": [
+          "What is the core problem or opportunity this 'random idea' aims to address?",
+          "What are the client's goals or objectives for this idea?",
+          "What specific functionality, if any, is envisioned for an 'app' or 'AI' solution?",
+          "Who are the target users or beneficiaries?",
+          "What is the desired outcome or success metric?",
+          "Is there a budget or timeline associated with exploring this idea?",
+          "Confirmation if a project (app/AI) is desired or if this is merely brainstorming with no immediate intent for development."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-mixed-language",
+      "category": "edge",
+      "mode": "analysis",
+      "qaMode": "real",
+      "durationMs": 14667.11,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "summary": [
+          "Develop a hospital management application.",
+          "The application needs to cover core hospital operations.",
+          "Data security and privacy are critical, following healthcare standards."
+        ],
+        "project_type": "Hospital Management System (HMS) Development",
+        "explicit_requirements": [
+          "Patient records management",
+          "Doctor scheduling functionality",
+          "Billing system",
+          "Security compliant with HIPAA-style standards"
+        ],
+        "assumptions": [
+          "The application is intended for a healthcare facility (e.g., hospital, clinic).",
+          "The 'HIPAA style security' implies a need for robust data privacy and compliance with relevant healthcare regulations, even if not exclusively HIPAA.",
+          "The project involves custom software development."
+        ],
+        "missing_information": [
+          "Target users (e.g., doctors, nurses, administrative staff, patients)?",
+          "Desired platform(s) (e.g., web-based, mobile iOS/Android, desktop)?",
+          "Specific scope and features required within 'patient records', 'doctor scheduling', and 'billing'.",
+          "Detailed compliance requirements beyond 'HIPAA style' (e.g., specific regional regulations, actual HIPAA compliance).",
+          "Integration needs with existing systems (e.g., EMR, lab systems, financial software).",
+          "Reporting requirements.",
+          "User authentication and authorization levels.",
+          "Budget and timeline expectations."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-typos",
+      "category": "edge",
+      "mode": "analysis",
+      "qaMode": "real",
+      "durationMs": 15222.75,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "summary": [
+          "Development of a custom CRM platform tailored for sales team operations.",
+          "Core functionality includes managing leads, tracking follow-up activities, and providing data visualization via dashboards.",
+          "The system requires security through role-based access control."
+        ],
+        "project_type": "CRM Software Development",
+        "explicit_requirements": [
+          "Lead management system",
+          "Follow-up tracking and scheduling",
+          "Analytical dashboards",
+          "Role-based access control (RBAC)"
+        ],
+        "assumptions": [
+          "The platform will be a web-based application.",
+          "A centralized database will store lead and user activity data.",
+          "Standard user authentication (login/password) is required."
+        ],
+        "missing_information": [
+          "Specific technology stack or infrastructure preferences.",
+          "Integration requirements (e.g., email, calendar, or external marketing tools).",
+          "Number of users and specific definitions for roles.",
+          "Desired KPIs and metrics for the dashboards.",
+          "Timeline and budget constraints."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-very-long",
+      "category": "edge",
+      "mode": "analysis",
+      "qaMode": "real",
+      "durationMs": 15628.36,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "summary": [
+          "Development of a comprehensive, end-to-end enterprise operations platform for the logistics industry.",
+          "The platform aims to digitize supply chain processes, from shipment planning and warehouse management to billing and analytics.",
+          "The system focuses on scalability, security via SSO and audit logs, and operational efficiency through route optimization and real-time monitoring."
+        ],
+        "project_type": "Enterprise Resource Planning (ERP) / Supply Chain Management (SCM) Development",
+        "explicit_requirements": [
+          "Shipment planning and route optimization",
+          "Warehouse operations and vendor management",
+          "Billing workflows and analytics dashboards",
+          "Mobile field access for staff",
+          "Audit logs and document uploads",
+          "Single Sign-On (SSO) and configurable permissions",
+          "API integrations and SLA monitoring",
+          "Alerting system and region-wise reporting",
+          "Support for high concurrency",
+          "Disaster recovery and data retention policies",
+          "Phased rollout strategy"
+        ],
+        "assumptions": [
+          "The platform will be cloud-based to support mobile access and multi-regional reporting.",
+          "Data security and compliance (e.g., GDPR, SOC2) are critical given the audit logs and billing requirements.",
+          "The system will need to interface with external maps/GPS providers for route optimization.",
+          "The billing system will integrate with existing financial or accounting software."
+        ],
+        "missing_information": [
+          "Specific volume of 'high concurrency' (estimated concurrent users and transactions per second).",
+          "Identity of existing legacy systems or third-party APIs that require integration.",
+          "Preferred technology stack or hosting environment constraints.",
+          "Budgetary constraints and desired timeline for the phased rollout.",
+          "Target geographic regions and specific regulatory/compliance requirements (e.g., VAT/GST logic for billing)."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "routing-gdpr-placeholder",
+      "category": "routing",
+      "mode": "routing",
+      "qaMode": "real",
+      "durationMs": 0.02,
+      "status": "PASS",
+      "success": true,
+      "skipped": false,
+      "score": 2,
+      "details": {
+        "expectedRoute": "compliance_core",
+        "detectedRoute": "compliance_core",
+        "evaluator": "qa-contract-router"
+      },
+      "error": null
+    },
+    {
+      "id": "routing-architecture-placeholder",
+      "category": "routing",
+      "mode": "routing",
+      "qaMode": "real",
+      "durationMs": 0.01,
+      "status": "PASS",
+      "success": true,
+      "skipped": false,
+      "score": 2,
+      "details": {
+        "expectedRoute": "architecture_core",
+        "detectedRoute": "architecture_core",
+        "evaluator": "qa-contract-router"
+      },
+      "error": null
+    },
+    {
+      "id": "consistency-food-delivery",
+      "category": "consistency",
+      "mode": "consistency",
+      "qaMode": "real",
+      "durationMs": 78887.42,
+      "status": "PASS",
+      "success": true,
+      "score": 3,
+      "details": {
+        "totalRuns": 5,
+        "similarityScore": 0.8,
+        "consistencyRate": 0.8
+      },
+      "error": null
+    },
+    {
+      "id": "suggestion-basic",
+      "category": "functional",
+      "mode": "suggestion",
+      "qaMode": "real",
+      "durationMs": 14967.9,
+      "status": "PASS",
+      "success": true,
+      "score": 2,
+      "details": {
+        "team": {
+          "Product Manager": "1x - Strategy, roadmap, and user story definition",
+          "UI/UX Designer": "1x - Specialized in data visualization and dashboard layouts",
+          "Full-stack Developer": "2x - Focusing on Next.js/TypeScript and API integration",
+          "Data Engineer": "1x - Part-time or Lead focus on data pipeline and aggregation"
+        },
+        "stack": {
+          "Frontend": "Next.js 14, React, Tailwind CSS",
+          "Charts": "Tremor, Recharts",
+          "Backend": "Node.js (Next.js Server Actions & API Routes)",
+          "Database": "PostgreSQL (Supabase or Neon)",
+          "Authentication": "Clerk or NextAuth.js",
+          "Data_Processing": "Python (FastAPI) for heavy analytical computations if required",
+          "Caching": "Redis (Upstash)",
+          "Hosting": "Vercel",
+          "Monitoring": "Sentry, PostHog"
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "functional-food-delivery",
+      "category": "functional",
+      "mode": "pipeline",
+      "qaMode": "real",
+      "durationMs": 32831.06,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "requirementAnalysis": {
+          "summary": [
+            "Development of a full-stack food delivery ecosystem connecting customers, restaurants, and couriers.",
+            "Implementation of a marketplace model with end-to-end order lifecycle management and administrative oversight."
+          ],
+          "project_type": "On-demand Food Delivery Platform",
+          "explicit_requirements": [
+            "User account registration and management",
+            "Restaurant onboarding and menu management portal",
+            "Real-time delivery tracking using GPS",
+            "Secure payment processing integration",
+            "Rating and review system for feedback",
+            "Centralized admin dashboard for system monitoring"
+          ],
+          "assumptions": [
+            "The platform requires three distinct user interfaces: Customer App, Restaurant App/Portal, and Delivery Driver App.",
+            "A third-party mapping service API (e.g., Google Maps or Mapbox) will be utilized for live tracking.",
+            "The application will be developed for both iOS and Android mobile platforms.",
+            "Cloud-based infrastructure will be used to handle high-frequency real-time data updates."
+          ],
+          "missing_information": [
+            "Preferred technology stack (e.g., React Native, Flutter, Swift/Kotlin).",
+            "Specific geographic regions for launch and multi-currency/multi-language requirements.",
+            "Preferred payment gateway providers (e.g., Stripe, PayPal, Razorpay).",
+            "Marketing and push notification requirements.",
+            "In-app communication features (e.g., chat between customer and driver).",
+            "Estimated project timeline and budget constraints."
+          ]
+        },
+        "modules": {
+          "modules": [
+            {
+              "module_name": "Identity and Access Management (IAM)",
+              "description": "Handles authentication, authorization, and profile management for Customers, Restaurant Owners, and Delivery Partners.",
+              "features": [
+                "User registration and verification",
+                "Role-Based Access Control (RBAC)",
+                "Social login integration",
+                "Profile and preference management",
+                "Secure session handling"
+              ],
+              "dependencies": []
+            },
+            {
+              "module_name": "Restaurant & Menu Management",
+              "description": "A portal for restaurant owners to manage their business presence, digital menus, and operating hours.",
+              "features": [
+                "Restaurant onboarding and documentation",
+                "Menu CRUD operations (Category, Item, Modifiers)",
+                "Real-time item availability toggle",
+                "Pricing and discount management",
+                "Opening/Closing schedule configuration"
+              ],
+              "dependencies": [
+                "Identity and Access Management (IAM)"
+              ]
+            },
+            {
+              "module_name": "Order Management System (OMS)",
+              "description": "The central engine managing the lifecycle of an order from placement to fulfillment.",
+              "features": [
+                "Shopping cart functionality",
+                "Real-time order state machine (Pending, Accepted, Preparing, Dispatched, Delivered)",
+                "Automated order routing to restaurants",
+                "Order history and digital receipts",
+                "Cancellation and refund logic"
+              ],
+              "dependencies": [
+                "Restaurant & Menu Management",
+                "Identity and Access Management (IAM)"
+              ]
+            },
+            {
+              "module_name": "Payment Gateway Integration",
+              "description": "Processes secure financial transactions and manages the flow of funds between stakeholders.",
+              "features": [
+                "PCI-DSS compliant payment processing",
+                "Multi-method support (Credit Card, Digital Wallets)",
+                "Automatic payout calculation for restaurants and drivers",
+                "Transaction logging and auditing",
+                "Refund processing"
+              ],
+              "dependencies": [
+                "Order Management System (OMS)"
+              ]
+            },
+            {
+              "module_name": "Logistics & Real-time Tracking",
+              "description": "Orchestrates delivery dispatching and provides live GPS tracking using third-party mapping services.",
+              "features": [
+                "Driver dispatch and auto-assignment logic",
+                "Live GPS location updates for couriers",
+                "Google Maps/Mapbox API integration",
+                "Route optimization for delivery routes",
+                "Estimated Time of Arrival (ETA) calculation"
+              ],
+              "dependencies": [
+                "Order Management System (OMS)",
+                "Identity and Access Management (IAM)"
+              ]
+            },
+            {
+              "module_name": "Notification & Messaging Service",
+              "description": "Ensures all stakeholders are informed of critical events via push notifications or SMS.",
+              "features": [
+                "Cross-platform push notifications (Firebase/APNs)",
+                "Automated SMS alerts for order updates",
+                "In-app system alerts",
+                "Event-driven messaging architecture"
+              ],
+              "dependencies": [
+                "Order Management System (OMS)",
+                "Logistics & Real-time Tracking"
+              ]
+            },
+            {
+              "module_name": "Review & Rating Engine",
+              "description": "Collects and aggregates feedback from customers regarding their delivery and dining experience.",
+              "features": [
+                "Star rating system for food quality and delivery speed",
+                "Textual reviews and photo uploads",
+                "Sentiment analysis and moderation",
+                "Average score calculation for restaurants and drivers"
+              ],
+              "dependencies": [
+                "Order Management System (OMS)"
+              ]
+            },
+            {
+              "module_name": "Centralized Admin Dashboard",
+              "description": "A high-level oversight tool for platform operators to monitor system health and business performance.",
+              "features": [
+                "Real-time system monitoring and health checks",
+                "User and restaurant moderation",
+                "Financial reporting and business analytics",
+                "Dispute resolution and customer support tools",
+                "Promotion and banner management"
+              ],
+              "dependencies": [
+                "Identity and Access Management (IAM)",
+                "Order Management System (OMS)",
+                "Payment Gateway Integration"
+              ]
+            }
+          ]
+        },
+        "mode": "real",
+        "executedSteps": [
+          "Requirement Analysis",
+          "Module Breakdown"
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "functional-ecommerce",
+      "category": "functional",
+      "mode": "pipeline",
+      "qaMode": "real",
+      "durationMs": 34617.33,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "requirementAnalysis": {
+          "summary": [
+            "Development of a comprehensive e-commerce marketplace platform providing end-to-end shopping experiences for users and management tools for sellers."
+          ],
+          "project_type": "E-commerce / Multi-vendor Marketplace",
+          "explicit_requirements": [
+            "Product catalog with search functionality",
+            "Shopping cart system",
+            "Secure checkout process",
+            "Order tracking system",
+            "Seller management module",
+            "Analytics and reporting dashboard"
+          ],
+          "assumptions": [
+            "A multi-tenant or role-based access control (RBAC) system is required for buyers, sellers, and admins.",
+            "The platform will require integration with a third-party payment gateway.",
+            "The 'web platform' implies a responsive design for mobile and desktop browsers.",
+            "A centralized database will manage inventory, user data, and transaction logs."
+          ],
+          "missing_information": [
+            "Preferred technology stack (e.g., MERN, PHP/Laravel, or a CMS like Magento/Shopify).",
+            "Target market details for localization (currency, language, tax rules).",
+            "Specific shipping/logistics provider integrations for tracking.",
+            "Payment processing preferences (Stripe, PayPal, etc.).",
+            "Project timeline and budget constraints.",
+            "Compliance requirements (e.g., GDPR, PCI-DSS)."
+          ]
+        },
+        "modules": {
+          "modules": [
+            {
+              "module_name": "Identity and Access Management (IAM)",
+              "description": "Handles user authentication, authorization, and profile management for buyers, sellers, and administrators using Role-Based Access Control (RBAC).",
+              "features": [
+                "User registration and login",
+                "Role-Based Access Control (RBAC)",
+                "Password recovery and multi-factor authentication",
+                "Profile management",
+                "Session management"
+              ],
+              "dependencies": [
+                "Database Layer"
+              ]
+            },
+            {
+              "module_name": "Product Catalog Service",
+              "description": "Manages product data, categorization, and searchable listings for the marketplace.",
+              "features": [
+                "Product listing and detail pages",
+                "Advanced search with filtering and sorting",
+                "Category and taxonomy management",
+                "Inventory status tracking",
+                "Image and media management"
+              ],
+              "dependencies": [
+                "Seller Management Module",
+                "Database Layer"
+              ]
+            },
+            {
+              "module_name": "Shopping Cart and Checkout",
+              "description": "Coordinates the selection of products and the transition into a finalized purchase agreement.",
+              "features": [
+                "Persistent shopping cart",
+                "Real-time tax and shipping calculation",
+                "Coupon and discount code application",
+                "Guest and registered user checkout flows"
+              ],
+              "dependencies": [
+                "Product Catalog Service",
+                "Identity and Access Management (IAM)"
+              ]
+            },
+            {
+              "module_name": "Payment Integration Engine",
+              "description": "Facilitates secure financial transactions between buyers and the platform via third-party providers.",
+              "features": [
+                "PCI-compliant payment processing",
+                "Support for multiple payment methods (Credit Card, PayPal, etc.)",
+                "Transaction logging and auditing",
+                "Refund and chargeback processing"
+              ],
+              "dependencies": [
+                "Shopping Cart and Checkout"
+              ]
+            },
+            {
+              "module_name": "Order Management System (OMS)",
+              "description": "Tracks the lifecycle of an order from placement to delivery and handles post-purchase status updates.",
+              "features": [
+                "Order status tracking (Pending, Shipped, Delivered)",
+                "Automated invoice generation",
+                "Shipment tracking integration",
+                "Order history for users and sellers"
+              ],
+              "dependencies": [
+                "Payment Integration Engine",
+                "Identity and Access Management (IAM)"
+              ]
+            },
+            {
+              "module_name": "Seller Management Module",
+              "description": "Provides tools for vendors to manage their storefronts, products, and fulfillment processes.",
+              "features": [
+                "Seller onboarding and verification",
+                "Vendor-specific inventory management",
+                "Storefront customization tools",
+                "Payout management and settlement requests"
+              ],
+              "dependencies": [
+                "Identity and Access Management (IAM)"
+              ]
+            },
+            {
+              "module_name": "Analytics and Reporting Dashboard",
+              "description": "Aggregates data to provide insights into sales performance, user behavior, and platform health.",
+              "features": [
+                "Sales and revenue reports",
+                "Seller performance metrics",
+                "User engagement and conversion tracking",
+                "Exportable data reports (CSV/PDF)"
+              ],
+              "dependencies": [
+                "Order Management System (OMS)",
+                "Product Catalog Service",
+                "Database Layer"
+              ]
+            },
+            {
+              "module_name": "Notification and Messaging Service",
+              "description": "Manages transactional and promotional communication across multiple channels.",
+              "features": [
+                "Email notifications for order updates",
+                "SMS alerts for shipping",
+                "In-app notifications",
+                "Seller-buyer messaging system"
+              ],
+              "dependencies": [
+                "Order Management System (OMS)",
+                "Identity and Access Management (IAM)"
+              ]
+            }
+          ]
+        },
+        "mode": "real",
+        "executedSteps": [
+          "Requirement Analysis",
+          "Module Breakdown"
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-empty-input",
+      "category": "edge",
+      "mode": "validation",
+      "qaMode": "real",
+      "durationMs": 0.07,
+      "status": "PASS",
+      "success": true,
+      "score": 1,
+      "details": {
+        "valid": false,
+        "errors": [
+          "Project requirements are too short. Please provide more details."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-random-text",
+      "category": "edge",
+      "mode": "analysis",
+      "qaMode": "real",
+      "durationMs": 15265.02,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "summary": [
+          "The client is in a very early, speculative ideation phase with no defined scope.",
+          "The proposal oscillates between a software application, an AI-driven solution, or no project at all."
+        ],
+        "project_type": "Exploratory / Undefined",
+        "explicit_requirements": [
+          "Potential software application development",
+          "Potential AI integration"
+        ],
+        "assumptions": [
+          "The initial character string 'asdkjashdkajshd qweoiu zxcmn' is non-semantic noise or keyboard mashing.",
+          "The client does not yet have a business case or clear problem statement."
+        ],
+        "missing_information": [
+          "Primary business objective or problem to solve",
+          "Target audience and platform preferences",
+          "Specific functional requirements for the 'app' component",
+          "Use case for AI functionality",
+          "Feasibility constraints and budget"
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-mixed-language",
+      "category": "edge",
+      "mode": "analysis",
+      "qaMode": "real",
+      "durationMs": 15230.73,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "summary": [
+          "The client wants to build a comprehensive Hospital Management Application to digitize clinical and administrative operations.",
+          "Key focus areas include patient data management, staff scheduling, financial transactions, and high-level security compliance."
+        ],
+        "project_type": "Hospital Management System (HMS) / Healthcare Software Development",
+        "explicit_requirements": [
+          "Digital patient records management",
+          "Doctor scheduling and appointment management",
+          "Billing and financial module",
+          "HIPAA-compliant security standards"
+        ],
+        "assumptions": [
+          "The application requires Role-Based Access Control (RBAC) to distinguish between doctors, patients, and admin staff.",
+          "Data must be encrypted both at rest and in transit to meet 'HIPAA style' requirements.",
+          "The application will likely be a web-based platform or a cross-platform mobile app.",
+          "English will be the primary language for the UI, despite the Hinglish request."
+        ],
+        "missing_information": [
+          "Platform preference (Web, Android, iOS).",
+          "Specifics on billing: whether it needs insurance claim processing or just simple invoicing.",
+          "Geographic location of deployment (to confirm if local data residency laws apply in addition to HIPAA).",
+          "Integration needs with external labs, pharmacies, or hardware (e.g., IoT medical devices).",
+          "Scaling requirements: number of concurrent users and expected data volume."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-typos",
+      "category": "edge",
+      "mode": "analysis",
+      "qaMode": "real",
+      "durationMs": 17288.48,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "summary": [
+          "Develop a Customer Relationship Management (CRM) platform specifically tailored for a sales team."
+        ],
+        "project_type": "CRM Development",
+        "explicit_requirements": [
+          "Lead Management functionality",
+          "Follow-up tracking and management",
+          "Interactive Dashboards for sales insights",
+          "Role-Based Access Control"
+        ],
+        "assumptions": [
+          "The CRM platform will be a web-based application.",
+          "The platform will include functionalities for creating, tracking, and assigning leads.",
+          "Follow-ups will involve scheduling, logging interactions, and potentially reminders.",
+          "Dashboards will provide visual representations of key sales metrics and performance indicators.",
+          "User management for the sales team will be part of the platform."
+        ],
+        "missing_information": [
+          "Detailed scope of lead management features (e.g., lead scoring, routing, qualification stages).",
+          "Specific metrics and customization requirements for the dashboards.",
+          "Integration requirements with existing systems (e.g., email, calendar, ERP, marketing automation).",
+          "Number of sales team members and specific roles/permissions needed beyond general 'role-based access'.",
+          "Timeline and budget expectations for the project.",
+          "Data migration strategy from any existing systems.",
+          "Non-functional requirements such as performance, scalability, security policies (beyond RBA), and mobile access.",
+          "Training and ongoing support requirements."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-very-long",
+      "category": "edge",
+      "mode": "analysis",
+      "qaMode": "real",
+      "durationMs": 16448.1,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "summary": [
+          "Development of a high-concurrency enterprise logistics operations platform designed to manage the end-to-end lifecycle of shipments, warehousing, and vendor relations.",
+          "The system will integrate advanced planning tools, financial workflows, and real-time monitoring with a focus on scalability and security."
+        ],
+        "project_type": "Logistics Management System (LMS) / Enterprise Resource Planning (ERP)",
+        "explicit_requirements": [
+          "Shipment planning and route optimization capabilities",
+          "Warehouse operations and vendor management modules",
+          "Billing workflows and financial reporting",
+          "Analytics dashboards with region-wise reporting",
+          "Mobile access for field operations",
+          "Security features: Audit logs, Single Sign-On (SSO), and Role-Based Access Control (RBAC)",
+          "API integrations and document upload functionality",
+          "Operational monitoring: SLA tracking and automated alerting",
+          "Non-functional: High concurrency support, disaster recovery, and data retention policies",
+          "Deployment strategy: Phased rollout"
+        ],
+        "assumptions": [
+          "The system will be cloud-hosted to facilitate disaster recovery and high availability requirements.",
+          "Mobile access requires cross-platform compatibility (iOS and Android).",
+          "API integrations include external telematics, GPS providers, and existing accounting software.",
+          "The phased rollout will be organized by either geographical region or specific functional modules."
+        ],
+        "missing_information": [
+          "Specific volume metrics for 'high concurrency' (e.g., peak transactions per second).",
+          "Preferred technology stack or infrastructure provider (e.g., AWS, Azure, GCP).",
+          "Regulatory compliance requirements (e.g., GDPR, local transport authority standards).",
+          "Details on legacy data migration needs from existing systems.",
+          "Specific languages or localizations required for regional reporting."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "routing-gdpr-placeholder",
+      "category": "routing",
+      "mode": "routing",
+      "qaMode": "real",
+      "durationMs": 0.05,
+      "status": "PASS",
+      "success": true,
+      "skipped": false,
+      "score": 2,
+      "details": {
+        "expectedRoute": "compliance_core",
+        "detectedRoute": "compliance_core",
+        "evaluator": "qa-contract-router"
+      },
+      "error": null
+    },
+    {
+      "id": "routing-architecture-placeholder",
+      "category": "routing",
+      "mode": "routing",
+      "qaMode": "real",
+      "durationMs": 0.25,
+      "status": "PASS",
+      "success": true,
+      "skipped": false,
+      "score": 2,
+      "details": {
+        "expectedRoute": "architecture_core",
+        "detectedRoute": "architecture_core",
+        "evaluator": "qa-contract-router"
+      },
+      "error": null
+    },
+    {
+      "id": "consistency-food-delivery",
+      "category": "consistency",
+      "mode": "consistency",
+      "qaMode": "real",
+      "durationMs": 76845.31,
+      "status": "PASS",
+      "success": true,
+      "score": 3,
+      "details": {
+        "totalRuns": 5,
+        "similarityScore": 0.8,
+        "consistencyRate": 0.8
+      },
+      "error": null
+    },
+    {
+      "id": "suggestion-basic",
+      "category": "functional",
+      "mode": "suggestion",
+      "qaMode": "real",
+      "durationMs": 16278.8,
+      "status": "PASS",
+      "success": true,
+      "score": 2,
+      "details": {
+        "team": {
+          "structure": [
+            {
+              "role": "Lead Full-Stack Engineer",
+              "responsibilities": "System architecture, API design, database schema management, and DevOps.",
+              "quantity": 1
+            },
+            {
+              "role": "Frontend Engineer",
+              "responsibilities": "UI/UX implementation, data visualization components, and client-side performance.",
+              "quantity": 1
+            },
+            {
+              "role": "Product Designer",
+              "responsibilities": "User research, high-fidelity wireframes, and dashboard usability testing.",
+              "quantity": 1
+            }
+          ],
+          "total_headcount": 3
+        },
+        "stack": {
+          "frontend": {
+            "framework": "Next.js",
+            "styling": "Tailwind CSS",
+            "ui_library": "Radix UI / Shadcn UI",
+            "visualizations": "Tremor or Recharts"
+          },
+          "backend": {
+            "language": "TypeScript",
+            "runtime": "Node.js",
+            "orm": "Prisma",
+            "api_protocol": "tRPC or REST"
+          },
+          "database": {
+            "primary": "PostgreSQL",
+            "caching": "Redis"
+          },
+          "authentication": {
+            "solution": "Clerk or NextAuth.js",
+            "features": "RBAC, Multi-tenancy, OAuth"
+          },
+          "reporting": {
+            "engines": "Puppeteer for PDF generation, Papa Parse for CSV",
+            "background_jobs": "Inngest or BullMQ"
+          },
+          "infrastructure": {
+            "hosting": "Vercel",
+            "database_managed": "Supabase or Neon",
+            "monitoring": "Sentry"
+          }
+        }
+      },
+      "error": null
+    }
+  ]
+}

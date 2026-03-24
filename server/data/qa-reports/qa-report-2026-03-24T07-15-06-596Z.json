@@ -1,0 +1,366 @@
+{
+  "generatedAt": "2026-03-24T07:15:06.593Z",
+  "config": {
+    "mode": "real",
+    "iterations": 1,
+    "consistencyRuns": 2,
+    "categories": [
+      "functional"
+    ],
+    "delayMs": 2000,
+    "iterationCooldownMs": 5000,
+    "retries": 3
+  },
+  "totals": {
+    "totalResults": 3,
+    "executed": 3,
+    "skipped": 0,
+    "successCount": 2,
+    "failureCount": 1,
+    "successRate": 66.67,
+    "averageDurationMs": 16502.1
+  },
+  "commonErrors": [
+    {
+      "message": "Project type did not match expectation",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "id": "functional-food-delivery",
+      "category": "functional",
+      "mode": "pipeline",
+      "qaMode": "real",
+      "durationMs": 21554.19,
+      "success": false,
+      "score": 3,
+      "details": {
+        "requirementAnalysis": {
+          "summary": [
+            "Development of a multi-sided food delivery platform connecting customers, restaurants, and couriers.",
+            "The scope covers the end-to-end lifecycle of food ordering, from restaurant onboarding to final delivery and administrative oversight."
+          ],
+          "project_type": "On-Demand Food Delivery Marketplace",
+          "explicit_requirements": [
+            "User account registration and management",
+            "Restaurant onboarding and management interface",
+            "Real-time delivery tracking functionality",
+            "Integrated payment processing",
+            "Rating and review system for users",
+            "Centralized admin dashboard for platform management"
+          ],
+          "assumptions": [
+            "The solution requires three distinct user interfaces: Customer app, Delivery Driver app, and Restaurant Manager portal.",
+            "Real-time tracking will utilize third-party GPS services like Google Maps or Mapbox.",
+            "Payments will be handled via a third-party gateway (e.g., Stripe, Braintree, or PayPal).",
+            "The admin dashboard will manage disputes, platform fees, and content moderation."
+          ],
+          "missing_information": [
+            "What are the target platforms (iOS, Android, and/or Web)?",
+            "What is the delivery model (internal restaurant drivers or a freelance courier fleet)?",
+            "Which geographical regions and currencies need to be supported?",
+            "Are there specific requirements for menu management (e.g., inventory tracking, dynamic pricing)?",
+            "What are the notification requirements (Push, SMS, Email)?",
+            "Are there specific regulatory or data privacy requirements (e.g., GDPR, CCPA)?"
+          ]
+        },
+        "modules": {
+          "modules": [
+            {
+              "module_name": "Identity and Access Management (IAM)",
+              "description": "Handles authentication, authorization, and profile management for customers, restaurant managers, couriers, and administrators.",
+              "features": [
+                "Multi-role user registration and login",
+                "OAuth2/OpenID Connect integration",
+                "Profile management for all user types",
+                "Role-based access control (RBAC)"
+              ],
+              "dependencies": []
+            },
+            {
+              "module_name": "Restaurant and Catalog Management",
+              "description": "Allows restaurants to manage their digital presence, menus, and operating parameters.",
+              "features": [
+                "Restaurant onboarding and verification",
+                "Menu management (Categories, Items, Modifiers)",
+                "Operating hours and availability status",
+                "Inventory management/Item availability toggles"
+              ],
+              "dependencies": [
+                "Identity and Access Management (IAM)"
+              ]
+            },
+            {
+              "module_name": "Order Management System (OMS)",
+              "description": "The central engine orchestrating the lifecycle of an order from creation to completion.",
+              "features": [
+                "Shopping cart functionality",
+                "Order status state machine (Pending, Confirmed, Preparing, Ready, Completed)",
+                "Order history for all stakeholders",
+                "Kitchen display interface for restaurants"
+              ],
+              "dependencies": [
+                "Restaurant and Catalog Management",
+                "Identity and Access Management (IAM)"
+              ]
+            },
+            {
+              "module_name": "Payment and Settlement Engine",
+              "description": "Integrates with third-party gateways to process customer payments and manage platform fee distributions.",
+              "features": [
+                "Third-party payment gateway integration (Stripe/Braintree)",
+                "Secure payment tokenization",
+                "Platform fee and tax calculation",
+                "Invoice generation"
+              ],
+              "dependencies": [
+                "Order Management System (OMS)"
+              ]
+            },
+            {
+              "module_name": "Logistics and Courier Dispatch",
+              "description": "Manages the courier fleet, real-time location tracking, and delivery assignment logic.",
+              "features": [
+                "Real-time GPS tracking via Mapbox/Google Maps",
+                "Automated courier dispatch and assignment",
+                "Delivery route optimization",
+                "Driver availability and earnings tracking"
+              ],
+              "dependencies": [
+                "Order Management System (OMS)",
+                "Identity and Access Management (IAM)"
+              ]
+            },
+            {
+              "module_name": "Rating and Review System",
+              "description": "A feedback loop for customers to evaluate restaurants and delivery performance.",
+              "features": [
+                "Star ratings for orders",
+                "Written reviews for restaurants",
+                "Courier performance feedback",
+                "Review moderation interface"
+              ],
+              "dependencies": [
+                "Order Management System (OMS)",
+                "Identity and Access Management (IAM)"
+              ]
+            },
+            {
+              "module_name": "Notification and Messaging Service",
+              "description": "Handles transactional and marketing communications via multiple channels.",
+              "features": [
+                "Push notifications for order status updates",
+                "SMS alerts for delivery arrivals",
+                "Email receipts and marketing campaigns",
+                "In-app messaging for support"
+              ],
+              "dependencies": [
+                "Order Management System (OMS)",
+                "Logistics and Courier Dispatch"
+              ]
+            },
+            {
+              "module_name": "Centralized Admin Dashboard",
+              "description": "An overarching management interface for platform administrators to monitor health and resolve issues.",
+              "features": [
+                "System-wide analytics and reporting",
+                "Dispute and refund management",
+                "Platform-wide configuration (Fees, Currencies, Regions)",
+                "Content moderation and user management"
+              ],
+              "dependencies": [
+                "Order Management System (OMS)",
+                "Payment and Settlement Engine",
+                "Logistics and Courier Dispatch"
+              ]
+            }
+          ]
+        },
+        "mode": "real",
+        "executedSteps": [
+          "Requirement Analysis",
+          "Module Breakdown"
+        ]
+      },
+      "error": "Project type did not match expectation"
+    },
+    {
+      "id": "functional-ecommerce",
+      "category": "functional",
+      "mode": "pipeline",
+      "qaMode": "real",
+      "durationMs": 19504.49,
+      "success": true,
+      "score": 4,
+      "details": {
+        "requirementAnalysis": {
+          "summary": [
+            "Development of a comprehensive e-commerce web platform supporting customer-facing shopping experiences.",
+            "Provision for seller-side management and data-driven insights through analytics.",
+            "Implementation of core transactional workflows from search to order fulfillment."
+          ],
+          "project_type": "E-commerce Marketplace Platform",
+          "explicit_requirements": [
+            "Catalog search functionality",
+            "Shopping cart system",
+            "Checkout process",
+            "Order tracking capabilities",
+            "Seller management module",
+            "Analytics dashboard"
+          ],
+          "assumptions": [
+            "The platform is intended to be a multi-vendor marketplace given the 'seller management' requirement.",
+            "A secure payment gateway integration will be necessary for the checkout process.",
+            "The platform requires a tiered user permission system (Customers, Sellers, and System Administrators).",
+            "The 'analytics' requirement includes both sales reports for sellers and platform-wide metrics for owners."
+          ],
+          "missing_information": [
+            "Specific technology stack preferences (e.g., MEAN, MERN, Shopify, Magento).",
+            "Target geographic regions for tax calculation and currency support.",
+            "Integration requirements for third-party logistics (3PL) or shipping carriers.",
+            "Required security certifications or compliance standards (e.g., PCI-DSS, GDPR).",
+            "Scale expectations (expected SKU count and concurrent user traffic).",
+            "Mobile application requirements (iOS/Android) in addition to the web platform."
+          ]
+        },
+        "modules": {
+          "modules": [
+            {
+              "module_name": "Authentication and Identity Service",
+              "description": "Centralized service for managing user identities, authentication protocols, and Role-Based Access Control (RBAC) across Customers, Sellers, and Administrators.",
+              "features": [
+                "User registration and verification",
+                "Multi-factor authentication (MFA)",
+                "Role-based access management",
+                "Profile management and account settings"
+              ],
+              "dependencies": []
+            },
+            {
+              "module_name": "Product Catalog and Search Engine",
+              "description": "Manages multi-vendor product listings and provides high-performance search and filtering capabilities.",
+              "features": [
+                "Product SKU management",
+                "Category and attribute classification",
+                "Full-text search with ElasticSearch/Algolia integration",
+                "Inventory level tracking"
+              ],
+              "dependencies": [
+                "Authentication and Identity Service"
+              ]
+            },
+            {
+              "module_name": "Checkout and Payment Gateway",
+              "description": "Handles the secure transition from shopping cart to completed transaction, including payment processing and tax calculation.",
+              "features": [
+                "Shopping cart persistence",
+                "Secure payment gateway integration (PCI-DSS compliant)",
+                "Coupon and discount engine",
+                "Tax and currency calculation"
+              ],
+              "dependencies": [
+                "Product Catalog and Search Engine",
+                "Authentication and Identity Service"
+              ]
+            },
+            {
+              "module_name": "Order Management System (OMS)",
+              "description": "Coordinates the lifecycle of an order from creation to delivery, providing visibility to both customers and sellers.",
+              "features": [
+                "Order status workflow management",
+                "Real-time shipment tracking",
+                "Invoice generation",
+                "Return and refund processing"
+              ],
+              "dependencies": [
+                "Checkout and Payment Gateway"
+              ]
+            },
+            {
+              "module_name": "Seller Management Portal",
+              "description": "A dedicated interface for vendors to manage their store presence, inventory, and fulfillment operations.",
+              "features": [
+                "Seller onboarding and verification",
+                "Inventory bulk upload/edit",
+                "Seller-specific order processing",
+                "Storefront customization"
+              ],
+              "dependencies": [
+                "Authentication and Identity Service",
+                "Product Catalog and Search Engine",
+                "Order Management System (OMS)"
+              ]
+            },
+            {
+              "module_name": "Analytics and Reporting Engine",
+              "description": "Aggregates transactional and behavioral data to provide insights for both sellers and platform administrators.",
+              "features": [
+                "Sales performance reports for sellers",
+                "Platform-wide GMV and user growth metrics",
+                "Conversion rate tracking",
+                "Customer behavior and traffic heatmaps"
+              ],
+              "dependencies": [
+                "Order Management System (OMS)",
+                "Product Catalog and Search Engine"
+              ]
+            }
+          ]
+        },
+        "mode": "real",
+        "executedSteps": [
+          "Requirement Analysis",
+          "Module Breakdown"
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "suggestion-basic",
+      "category": "functional",
+      "mode": "suggestion",
+      "qaMode": "real",
+      "durationMs": 8447.63,
+      "success": true,
+      "score": 2,
+      "details": {
+        "team": {
+          "total_headcount": 4,
+          "roles": [
+            {
+              "title": "Lead Full-stack Engineer",
+              "focus": "System architecture, authentication workflows, and CI/CD pipeline management."
+            },
+            {
+              "title": "Frontend Engineer",
+              "focus": "Developing interactive dashboards, data visualization components, and responsive UI."
+            },
+            {
+              "title": "Backend/Data Engineer",
+              "focus": "API development, database schema design, and optimizing analytical queries."
+            },
+            {
+              "title": "Product Designer (UI/UX)",
+              "focus": "User flow optimization, wireframing, and design system creation."
+            }
+          ]
+        },
+        "stack": {
+          "frontend": "Next.js (React)",
+          "styling": "Tailwind CSS",
+          "data_visualization": "Recharts or Tremor",
+          "backend": "Node.js (TypeScript)",
+          "api_layer": "tRPC or GraphQL",
+          "database": "PostgreSQL (via Supabase or Neon)",
+          "orm": "Prisma",
+          "authentication": "Clerk or NextAuth.js",
+          "caching": "Redis",
+          "infrastructure": "Vercel",
+          "reporting_engine": "Puppeteer (for PDF exports) or Resend (for email reports)"
+        }
+      },
+      "error": null
+    }
+  ]
+}

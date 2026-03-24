@@ -1,0 +1,12 @@
+{
+  "name": "multiple-ai-agent-documentation",
+  "version": "1.0.0",
+  "description": "> An intelligent, multi-agent AI system that transforms raw client requirements into **enterprise-grade software documentation** — complete with architecture diagrams, cost estimation in INR, tech stack recommendations, and exportable PDF reports.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,1506 @@
+{
+  "generatedAt": "2026-03-24T09:14:56.850Z",
+  "config": {
+    "mode": "real",
+    "iterations": 3,
+    "consistencyRuns": 5,
+    "categories": null,
+    "delayMs": 2000,
+    "iterationCooldownMs": 5000,
+    "retries": 3
+  },
+  "totals": {
+    "totalResults": 33,
+    "executed": 22,
+    "skipped": 11,
+    "successCount": 21,
+    "failureCount": 1,
+    "errorCount": 0,
+    "successRate": 95.45,
+    "averageDurationMs": 3703.41
+  },
+  "commonErrors": [
+    {
+      "message": "Project type did not match expectation",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "id": "functional-food-delivery",
+      "category": "functional",
+      "mode": "pipeline",
+      "qaMode": "real",
+      "durationMs": 10399.11,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "requirementAnalysis": {
+          "summary": [
+            "The client wants to build a food delivery application.",
+            "The application should include features for users, restaurants, delivery tracking, payments, ratings, and an admin dashboard."
+          ],
+          "project_type": "Mobile Application Development",
+          "explicit_requirements": [
+            "User accounts (registration, login, profile management)",
+            "Restaurant onboarding (registration, menu management, order handling)",
+            "Live delivery tracking (real-time updates for users and potentially restaurants/admins)",
+            "Payment gateway integration (processing orders)",
+            "Ratings and reviews system (for users to rate restaurants/dishes, and potentially for drivers)",
+            "Admin dashboard (for managing users, restaurants, orders, content, etc.)"
+          ],
+          "assumptions": [
+            "The client has a clear vision for the user interface (UI) and user experience (UX).",
+            "The client has defined or will define the target platforms (iOS, Android, Web).",
+            "The client understands the need for backend infrastructure to support the application.",
+            "The client has a budget allocated for the development, testing, and deployment of the application.",
+            "The client will provide necessary branding assets (logos, color schemes)."
+          ],
+          "missing_information": [
+            "Specific details on user roles and permissions (e.g., customer, restaurant owner, delivery driver, admin).",
+            "Payment gateway preferences or existing relationships.",
+            "Detailed requirements for the admin dashboard functionality.",
+            "Scope and features for the live delivery tracking (e.g., GPS integration, driver app requirements).",
+            "Technology stack preferences (if any).",
+            "Target launch date and any phased rollout plans.",
+            "Definition of 'restaurant onboarding' - what specific fields and information are needed?",
+            "Any specific analytics or reporting requirements."
+          ]
+        },
+        "modules": {
+          "modules": [
+            {
+              "module_name": "User Management",
+              "description": "Handles all aspects of user accounts, authentication, and profile management for customers.",
+              "features": [
+                "User registration",
+                "User login/logout",
+                "Password reset",
+                "Profile editing",
+                "Account deletion"
+              ],
+              "dependencies": []
+            },
+            {
+              "module_name": "Restaurant Management",
+              "description": "Enables restaurants to manage their profiles, menus, and incoming orders.",
+              "features": [
+                "Restaurant registration",
+                "Profile management",
+                "Menu creation and management",
+                "Order acceptance/rejection",
+                "Order status updates"
+              ],
+              "dependencies": []
+            },
+            {
+              "module_name": "Order Processing",
+              "description": "Manages the lifecycle of an order from placement to completion.",
+              "features": [
+                "Order placement",
+                "Order validation",
+                "Order confirmation",
+                "Order history"
+              ],
+              "dependencies": [
+                "User Management",
+                "Restaurant Management",
+                "Payment Gateway Integration"
+              ]
+            },
+            {
+              "module_name": "Delivery Tracking",
+              "description": "Provides real-time tracking of delivery personnel and order status for users, restaurants, and admins.",
+              "features": [
+                "Live location updates for delivery drivers",
+                "Real-time order status tracking for users",
+                "Estimated Time of Arrival (ETA) calculation"
+              ],
+              "dependencies": [
+                "Order Processing"
+              ]
+            },
+            {
+              "module_name": "Payment Gateway Integration",
+              "description": "Handles secure processing of payments for orders.",
+              "features": [
+                "Payment method selection",
+                "Credit/debit card processing",
+                "Other payment methods (e.g., digital wallets)",
+                "Refund processing"
+              ],
+              "dependencies": [
+                "Order Processing"
+              ]
+            },
+            {
+              "module_name": "Ratings and Reviews",
+              "description": "Allows users to rate and review restaurants, dishes, and potentially delivery drivers.",
+              "features": [
+                "Submit ratings and reviews",
+                "View ratings and reviews",
+                "Moderation of reviews"
+              ],
+              "dependencies": [
+                "User Management",
+                "Restaurant Management",
+                "Order Processing"
+              ]
+            },
+            {
+              "module_name": "Admin Dashboard",
+              "description": "A backend interface for administrators to manage the entire application ecosystem.",
+              "features": [
+                "User management (view, ban, etc.)",
+                "Restaurant management (approve, disable, etc.)",
+                "Order management and monitoring",
+                "Content management",
+                "Reporting and analytics dashboard"
+              ],
+              "dependencies": [
+                "User Management",
+                "Restaurant Management",
+                "Order Processing",
+                "Delivery Tracking",
+                "Ratings and Reviews",
+                "Payment Gateway Integration"
+              ]
+            },
+            {
+              "module_name": "Notifications",
+              "description": "Manages and sends notifications to users, restaurants, and potentially delivery drivers for various events.",
+              "features": [
+                "Order status updates notifications",
+                "Promotional notifications",
+                "New order alerts for restaurants",
+                "Delivery assignment notifications"
+              ],
+              "dependencies": [
+                "User Management",
+                "Restaurant Management",
+                "Order Processing",
+                "Delivery Tracking"
+              ]
+            }
+          ]
+        },
+        "mode": "real",
+        "executedSteps": [
+          "Requirement Analysis",
+          "Module Breakdown"
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "functional-ecommerce",
+      "category": "functional",
+      "mode": "pipeline",
+      "qaMode": "real",
+      "durationMs": 8768.84,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "requirementAnalysis": {
+          "summary": [
+            "The client wants to develop an e-commerce web platform.",
+            "The platform should include core e-commerce functionalities such as catalog search, shopping carts, and checkout.",
+            "Additional features required are order tracking for customers, seller management capabilities, and an analytics dashboard."
+          ],
+          "project_type": "E-commerce Web Platform Development",
+          "explicit_requirements": [
+            "E-commerce web platform",
+            "Catalog search functionality",
+            "Shopping cart functionality",
+            "Checkout process",
+            "Order tracking feature",
+            "Seller management tools",
+            "Analytics dashboard"
+          ],
+          "assumptions": [
+            "The client has a defined target audience for the e-commerce platform.",
+            "The client has existing products or a plan to source products for the catalog.",
+            "There is a need for user roles (customer, seller, administrator) within the platform.",
+            "Payment gateway integration will be required for the checkout process.",
+            "Security measures for handling customer and payment data will be necessary."
+          ],
+          "missing_information": [
+            "Specific technologies or frameworks preferred for development.",
+            "Detailed requirements for the catalog search (e.g., filtering, sorting options).",
+            "User interface (UI) and user experience (UX) design preferences.",
+            "Scalability requirements for the platform.",
+            "Integration needs with existing systems (e.g., CRM, ERP).",
+            "Budget and timeline for the project.",
+            "Specific metrics to be tracked in the analytics dashboard.",
+            "Details on seller management features (e.g., product upload, commission structure, payout management)."
+          ]
+        },
+        "modules": {
+          "modules": [
+            {
+              "module_name": "User Management and Authentication",
+              "description": "Handles user registration, login, roles (customer, seller, administrator), and access control.",
+              "features": [
+                "User Registration",
+                "User Login/Logout",
+                "Role-Based Access Control",
+                "Password Management",
+                "Profile Management"
+              ],
+              "dependencies": []
+            },
+            {
+              "module_name": "Product Catalog Management",
+              "description": "Manages product information, categories, inventory, and provides search and filtering capabilities.",
+              "features": [
+                "Product Listing",
+                "Product Details Display",
+                "Category Management",
+                "Inventory Management",
+                "Catalog Search (with filtering and sorting)",
+                "Product Creation/Editing (for sellers/admins)"
+              ],
+              "dependencies": [
+                "User Management and Authentication"
+              ]
+            },
+            {
+              "module_name": "Shopping Cart",
+              "description": "Allows customers to add, remove, and manage items in their shopping cart before checkout.",
+              "features": [
+                "Add to Cart",
+                "Remove from Cart",
+                "Update Item Quantity",
+                "View Cart Summary",
+                "Save Cart for Later"
+              ],
+              "dependencies": [
+                "Product Catalog Management"
+              ]
+            },
+            {
+              "module_name": "Checkout and Payment Processing",
+              "description": "Facilitates the checkout process, including shipping information, payment selection, and integration with payment gateways.",
+              "features": [
+                "Shipping Address Management",
+                "Shipping Method Selection",
+                "Payment Method Selection",
+                "Payment Gateway Integration",
+                "Order Confirmation"
+              ],
+              "dependencies": [
+                "Shopping Cart",
+                "User Management and Authentication"
+              ]
+            },
+            {
+              "module_name": "Order Management",
+              "description": "Handles order processing, tracking, and history for both customers and administrators.",
+              "features": [
+                "Order Placement",
+                "Order Status Updates",
+                "Order History (Customer View)",
+                "Order Tracking (Customer View)",
+                "Order Management (Admin/Seller View)"
+              ],
+              "dependencies": [
+                "Checkout and Payment Processing",
+                "Product Catalog Management"
+              ]
+            },
+            {
+              "module_name": "Seller Management",
+              "description": "Provides tools and interfaces for sellers to manage their products, orders, and performance.",
+              "features": [
+                "Seller Dashboard",
+                "Product Upload and Management (Seller)",
+                "View Assigned Orders",
+                "Commission Tracking",
+                "Payout Management (requires further definition)"
+              ],
+              "dependencies": [
+                "User Management and Authentication",
+                "Product Catalog Management",
+                "Order Management"
+              ]
+            },
+            {
+              "module_name": "Analytics and Reporting",
+              "description": "Collects and presents data on sales, customer behavior, and platform performance.",
+              "features": [
+                "Sales Reports",
+                "Customer Behavior Analytics",
+                "Product Performance Reports",
+                "Seller Performance Reports",
+                "Customizable Dashboard Views"
+              ],
+              "dependencies": [
+                "Order Management",
+                "Product Catalog Management",
+                "User Management and Authentication"
+              ]
+            },
+            {
+              "module_name": "Infrastructure and Security",
+              "description": "Underlying services for platform deployment, scaling, and data security.",
+              "features": [
+                "Database Management",
+                "API Gateway",
+                "Server Deployment and Management",
+                "Security Auditing",
+                "Data Encryption"
+              ],
+              "dependencies": []
+            }
+          ]
+        },
+        "mode": "real",
+        "executedSteps": [
+          "Requirement Analysis",
+          "Module Breakdown"
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-empty-input",
+      "category": "edge",
+      "mode": "validation",
+      "qaMode": "real",
+      "durationMs": 0.19,
+      "status": "PASS",
+      "success": true,
+      "score": 1,
+      "details": {
+        "valid": false,
+        "errors": [
+          "Project requirements are too short. Please provide more details."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-random-text",
+      "category": "edge",
+      "mode": "analysis",
+      "qaMode": "real",
+      "durationMs": 3423.57,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "summary": [
+          "The client has provided a very unstructured and unclear requirement.",
+          "The client is exploring potential ideas for an application or AI solution, but is unsure of the direction.",
+          "The input contains random characters and phrases, making it difficult to interpret a specific need."
+        ],
+        "project_type": "Unclear - Exploration Phase",
+        "explicit_requirements": [],
+        "assumptions": [
+          "The client is in the very early stages of brainstorming.",
+          "The client is open to suggestions and needs help defining their project."
+        ],
+        "missing_information": [
+          "What is the core problem the client wants to solve?",
+          "What are the business objectives for a potential app or AI solution?",
+          "What are the client's priorities and constraints?",
+          "What is the desired outcome or success metric?",
+          "Is there a specific industry or domain in mind?",
+          "What is the budget and timeline?"
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-mixed-language",
+      "category": "edge",
+      "mode": "analysis",
+      "qaMode": "real",
+      "durationMs": 3394.69,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "summary": [
+          "The client wants a hospital management application.",
+          "Key features include patient records, doctor scheduling, billing, and HIPAA-style security."
+        ],
+        "project_type": "Hospital Management Application Development",
+        "explicit_requirements": [
+          "Patient records management",
+          "Doctor scheduling system",
+          "Billing and invoicing functionality",
+          "HIPAA-compliant security features"
+        ],
+        "assumptions": [
+          "The client expects the application to be accessible by authorized hospital staff.",
+          "The billing system should handle various payment methods and insurance claims.",
+          "HIPAA compliance implies robust data encryption, access controls, and audit trails."
+        ],
+        "missing_information": [
+          "Specific details on the scope of patient records (e.g., medical history, demographics, contact info).",
+          "Requirements for doctor scheduling (e.g., real-time availability, shift management, on-call scheduling).",
+          "Detailed billing requirements (e.g., insurance integration, payment gateway, reporting needs).",
+          "Specific security protocols and certifications required for HIPAA compliance.",
+          "User roles and permissions (e.g., administrator, doctor, nurse, billing staff, patient portal).",
+          "Integration needs with existing hospital systems.",
+          "Platform preference (web, mobile - iOS, Android, or both).",
+          "Timeline and budget constraints."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-typos",
+      "category": "edge",
+      "mode": "analysis",
+      "qaMode": "real",
+      "durationMs": 3760.24,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "summary": [
+          "The client wants to build a CRM platform for their sales team."
+        ],
+        "project_type": "CRM Platform Development",
+        "explicit_requirements": [
+          "Lead management functionality",
+          "Follow-up features",
+          "Dashboard for sales team",
+          "Role-based access control"
+        ],
+        "assumptions": [
+          "The platform will be used by a sales team.",
+          "The client expects standard CRM functionalities beyond what's explicitly listed."
+        ],
+        "missing_information": [
+          "Specific details about lead management features (e.g., lead scoring, lead assignment).",
+          "Details on follow-up mechanisms (e.g., automated reminders, email integration).",
+          "Types of dashboards and key metrics required.",
+          "Specific roles and permissions to be configured.",
+          "Integration requirements with other systems.",
+          "Technology stack preferences.",
+          "Deployment environment (cloud, on-premise).",
+          "Budget and timeline."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-very-long",
+      "category": "edge",
+      "mode": "analysis",
+      "qaMode": "real",
+      "durationMs": 4237.04,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "summary": [
+          "Develop an enterprise operations platform for a logistics company.",
+          "The platform should encompass a wide range of functionalities including shipment planning, route optimization, warehouse operations, vendor management, and billing.",
+          "It needs to include analytics dashboards, mobile access for field staff, audit logging, and document management.",
+          "Key technical requirements include Single Sign-On (SSO), configurable permissions, API integrations, and Service Level Agreement (SLA) monitoring with alerting.",
+          "Reporting capabilities should include region-wise data.",
+          "The system must also address non-functional requirements such as high concurrency, disaster recovery, data retention policies, and support for a phased rollout strategy."
+        ],
+        "project_type": "Enterprise Operations Platform Development",
+        "explicit_requirements": [
+          "Shipment planning",
+          "Route optimization",
+          "Warehouse operations",
+          "Vendor management",
+          "Billing workflows",
+          "Analytics dashboards",
+          "Mobile field access",
+          "Audit logs",
+          "Document uploads",
+          "SSO (Single Sign-On)",
+          "Configurable permissions",
+          "API integrations",
+          "SLA monitoring",
+          "Alerting",
+          "Region-wise reporting",
+          "High concurrency support",
+          "Disaster recovery capabilities",
+          "Data retention policies",
+          "Phased rollout support"
+        ],
+        "assumptions": [
+          "The client has a defined logistics business process that needs to be digitized and optimized.",
+          "Existing systems may need integration, hence the requirement for API integrations.",
+          "There is a need for secure access and user role management, indicated by SSO and configurable permissions.",
+          "Real-time or near real-time data is crucial for operations and analytics.",
+          "The company operates in multiple regions, requiring specific reporting capabilities.",
+          "The platform is intended for internal use and potentially external partners or field agents.",
+          "Compliance with data retention policies is a business or legal requirement."
+        ],
+        "missing_information": [
+          "Specific details on the scale of operations (e.g., number of users, daily shipments, warehouse size).",
+          "Current technology stack or existing infrastructure for integration assessment.",
+          "Detailed workflows for each functional area (shipment planning, warehouse ops, billing, etc.).",
+          "Specific performance metrics for high concurrency and SLA monitoring.",
+          "Disaster recovery objectives (RTO/RPO - Recovery Time Objective/Recovery Point Objective).",
+          "Data retention policy specifics (e.g., how long data must be retained, archival strategy).",
+          "Security standards and compliance requirements beyond SSO.",
+          "User interface/user experience (UI/UX) expectations for different user roles.",
+          "Budget and timeline constraints.",
+          "Details on the 'vendor management' module (e.g., types of vendors, tracking needs).",
+          "Specific analytics to be displayed on dashboards.",
+          "Nature of API integrations required (inbound/outbound, specific systems)."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "routing-gdpr-placeholder",
+      "category": "routing",
+      "mode": "routing",
+      "qaMode": "real",
+      "durationMs": 1.09,
+      "status": "PASS",
+      "success": true,
+      "skipped": false,
+      "score": 2,
+      "details": {
+        "expectedRoute": "compliance_core",
+        "detectedRoute": "compliance_core",
+        "evaluator": "qa-contract-router"
+      },
+      "error": null
+    },
+    {
+      "id": "routing-architecture-placeholder",
+      "category": "routing",
+      "mode": "routing",
+      "qaMode": "real",
+      "durationMs": 0.06,
+      "status": "PASS",
+      "success": true,
+      "skipped": false,
+      "score": 2,
+      "details": {
+        "expectedRoute": "architecture_core",
+        "detectedRoute": "architecture_core",
+        "evaluator": "qa-contract-router"
+      },
+      "error": null
+    },
+    {
+      "id": "consistency-food-delivery",
+      "category": "consistency",
+      "mode": "consistency",
+      "qaMode": "real",
+      "durationMs": 20303.67,
+      "success": false,
+      "skipped": true,
+      "status": "SKIPPED",
+      "score": 0,
+      "error": "RATE_LIMIT",
+      "details": {
+        "retry": true,
+        "message": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 10, model: gemini-2.5-flash-lite\nPlease retry in 31.936942552s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-2.5-flash-lite\"},\"quotaValue\":\"10\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"31s\"}]"
+      }
+    },
+    {
+      "id": "suggestion-basic",
+      "category": "functional",
+      "mode": "suggestion",
+      "qaMode": "real",
+      "durationMs": 11028.21,
+      "status": "PASS",
+      "success": true,
+      "score": 2,
+      "details": {
+        "team": {
+          "roles": [
+            {
+              "title": "Lead Backend Engineer",
+              "description": "Responsible for server-side logic, API development, database management, and authentication implementation.",
+              "skills": [
+                "Node.js",
+                "Python",
+                "RESTful APIs",
+                "SQL",
+                "NoSQL",
+                "Authentication (OAuth, JWT)",
+                "Cloud Services (AWS/GCP/Azure)"
+              ]
+            },
+            {
+              "title": "Frontend Engineer",
+              "description": "Develops the user interface, ensures a responsive and interactive dashboard experience, and integrates with backend APIs.",
+              "skills": [
+                "React",
+                "Vue.js",
+                "Angular",
+                "HTML5",
+                "CSS3",
+                "JavaScript",
+                "State Management (Redux/Vuex)",
+                "UI/UX Principles"
+              ]
+            },
+            {
+              "title": "DevOps Engineer",
+              "description": "Manages infrastructure, CI/CD pipelines, deployment, monitoring, and scaling of the application.",
+              "skills": [
+                "Docker",
+                "Kubernetes",
+                "CI/CD (Jenkins/GitLab CI/GitHub Actions)",
+                "Cloud Infrastructure (AWS/GCP/Azure)",
+                "Monitoring (Prometheus/Grafana)",
+                "Scripting (Bash/Python)"
+              ]
+            },
+            {
+              "title": "UI/UX Designer",
+              "description": "Designs the user experience and interface for the dashboard, focusing on usability, clarity, and data visualization.",
+              "skills": [
+                "Figma",
+                "Sketch",
+                "Adobe XD",
+                "User Research",
+                "Wireframing",
+                "Prototyping",
+                "Data Visualization Design"
+              ]
+            },
+            {
+              "title": "Product Manager",
+              "description": "Defines product vision, prioritizes features, gathers user feedback, and ensures the product meets market needs.",
+              "skills": [
+                "Product Strategy",
+                "Roadmapping",
+                "Agile Methodologies",
+                "Market Research",
+                "User Story Mapping"
+              ]
+            }
+          ],
+          "size_recommendation": "Start with a lean team of 3-5 engineers plus a designer and product manager. Roles can be combined in the early stages (e.g., a full-stack engineer).",
+          "scaling_plan": "As the product grows, consider adding specialized roles like dedicated QA engineers, data scientists, and more frontend/backend developers."
+        },
+        "stack": {
+          "backend": {
+            "language": "Node.js or Python",
+            "framework": "Express.js (Node.js) or Django/Flask (Python)",
+            "database": "PostgreSQL (relational) and/or MongoDB (NoSQL) for flexibility",
+            "authentication": "JWT (JSON Web Tokens) for stateless authentication, OAuth for third-party integrations",
+            "orm": "Sequelize/TypeORM (Node.js) or SQLAlchemy (Python)"
+          },
+          "frontend": {
+            "framework": "React or Vue.js",
+            "language": "JavaScript/TypeScript",
+            "state_management": "Redux (React) or Vuex (Vue.js)",
+            "ui_library": "Material-UI (React) or Vuetify (Vue.js) for pre-built components",
+            "data_visualization": "Chart.js, D3.js, or Recharts for interactive charts and graphs"
+          },
+          "devops": {
+            "cloud_provider": "AWS, Google Cloud Platform, or Azure",
+            "containerization": "Docker",
+            "orchestration": "Kubernetes (optional for early stages, consider serverless/PaaS)",
+            "ci_cd": "GitHub Actions, GitLab CI, or Jenkins",
+            "monitoring": "Prometheus & Grafana, or cloud-native monitoring services (CloudWatch, Stackdriver)"
+          },
+          "reporting": {
+            "generation": "Backend service with PDF/CSV generation libraries",
+            "delivery": "Email services (SendGrid, AWS SES) or in-app download options",
+            "scheduling": "Cron jobs or background task queues (Celery, BullMQ)"
+          },
+          "collaboration_tools": [
+            "Slack",
+            "Jira",
+            "Confluence",
+            "GitHub/GitLab"
+          ]
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "functional-food-delivery",
+      "category": "functional",
+      "mode": "pipeline",
+      "qaMode": "real",
+      "durationMs": 11039.26,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "requirementAnalysis": {
+          "summary": [
+            "Develop a comprehensive food delivery application.",
+            "The app should cater to users ordering food, restaurants managing their presence, and administrators overseeing operations."
+          ],
+          "project_type": "Food Delivery Application",
+          "explicit_requirements": [
+            "User Account Management: Users should be able to create and manage their accounts.",
+            "Restaurant Onboarding: A system for restaurants to register and manage their profiles.",
+            "Live Delivery Tracking: Real-time tracking of food delivery progress.",
+            "Payment Gateway Integration: Secure payment processing for orders.",
+            "Ratings and Reviews: Functionality for users to rate and review restaurants and dishes.",
+            "Admin Dashboard: An interface for administrators to manage the platform, users, restaurants, orders, etc."
+          ],
+          "assumptions": [
+            "The platform will support multiple restaurants.",
+            "There will be a need for delivery personnel management (though not explicitly stated, it's implied by 'live delivery tracking').",
+            "Standard e-commerce workflows for ordering and payment will be followed.",
+            "The app will be available on major mobile platforms (iOS/Android) and potentially a web interface for restaurants/admins."
+          ],
+          "missing_information": [
+            "Specific technology stack preferences (e.g., native, hybrid, web frameworks).",
+            "Scalability requirements and expected user/restaurant volume.",
+            "Detailed features for the admin dashboard (e.g., analytics, reporting, dispute resolution).",
+            "Specific payment gateway requirements or preferred providers.",
+            "User interface (UI) and user experience (UX) design guidelines or preferences.",
+            "Integration points with third-party services (e.g., mapping services, SMS notifications).",
+            "Budget and timeline constraints.",
+            "Details on delivery personnel management (registration, assignment, tracking capabilities).",
+            "Support for different user roles within restaurants (e.g., owner, manager, staff).",
+            "Geographic region of operation."
+          ]
+        },
+        "modules": {
+          "modules": [
+            {
+              "module_name": "User Management",
+              "description": "Handles all aspects of user accounts, including registration, authentication, profile management, and authorization.",
+              "features": [
+                "User registration (email/password, social login)",
+                "User login and authentication",
+                "Password reset and recovery",
+                "User profile management (personal details, addresses)",
+                "Role-based access control (user, restaurant staff, admin)",
+                "Account deactivation/deletion"
+              ],
+              "dependencies": []
+            },
+            {
+              "module_name": "Restaurant Management",
+              "description": "Enables restaurants to manage their presence on the platform, including profile information, menus, and operational settings.",
+              "features": [
+                "Restaurant onboarding and registration",
+                "Restaurant profile management (name, description, cuisine, hours)",
+                "Menu management (categories, dishes, prices, availability)",
+                "Order acceptance/rejection",
+                "Operational status (open/closed)",
+                "Support for multiple restaurant staff roles"
+              ],
+              "dependencies": [
+                "User Management"
+              ]
+            },
+            {
+              "module_name": "Order Processing",
+              "description": "Manages the entire lifecycle of a customer's order, from placement to fulfillment.",
+              "features": [
+                "Browsing restaurants and menus",
+                "Adding items to cart",
+                "Placing an order",
+                "Order history and status tracking",
+                "Order cancellation (within defined limits)",
+                "Notifications for order status changes"
+              ],
+              "dependencies": [
+                "User Management",
+                "Restaurant Management"
+              ]
+            },
+            {
+              "module_name": "Payment Gateway Integration",
+              "description": "Handles secure processing of payments for customer orders.",
+              "features": [
+                "Integration with selected payment gateways (e.g., Stripe, PayPal)",
+                "Secure handling of payment information",
+                "Transaction processing and management",
+                "Refund processing"
+              ],
+              "dependencies": [
+                "Order Processing"
+              ]
+            },
+            {
+              "module_name": "Delivery Management",
+              "description": "Facilitates the management and tracking of delivery personnel and their assignments.",
+              "features": [
+                "Delivery personnel registration and profile management",
+                "Delivery assignment to available personnel",
+                "Real-time location tracking of delivery personnel",
+                "Delivery status updates (picked up, en route, delivered)",
+                "Integration with mapping services for route optimization and tracking"
+              ],
+              "dependencies": [
+                "Order Processing",
+                "User Management"
+              ]
+            },
+            {
+              "module_name": "Ratings and Reviews",
+              "description": "Allows users to provide feedback on restaurants and dishes, and view existing reviews.",
+              "features": [
+                "User ability to rate restaurants and dishes",
+                "User ability to write reviews",
+                "Display of ratings and reviews for restaurants and dishes",
+                "Moderation of reviews (potential admin feature)"
+              ],
+              "dependencies": [
+                "User Management",
+                "Restaurant Management",
+                "Order Processing"
+              ]
+            },
+            {
+              "module_name": "Admin Dashboard",
+              "description": "Provides administrators with tools to oversee and manage the entire food delivery platform.",
+              "features": [
+                "Platform oversight and configuration",
+                "User management (view, suspend, delete users)",
+                "Restaurant management (approve, reject, manage restaurant details)",
+                "Order management (view, troubleshoot, issue refunds)",
+                "Delivery personnel management",
+                "Content management (e.g., promotional banners)",
+                "Reporting and analytics"
+              ],
+              "dependencies": [
+                "User Management",
+                "Restaurant Management",
+                "Order Processing",
+                "Delivery Management",
+                "Ratings and Reviews"
+              ]
+            },
+            {
+              "module_name": "Notifications",
+              "description": "Manages the sending of timely notifications to users, restaurants, and delivery personnel.",
+              "features": [
+                "Push notifications for mobile apps",
+                "Email notifications",
+                "SMS notifications (optional)",
+                "Notifications for order status, delivery updates, promotions, etc."
+              ],
+              "dependencies": [
+                "User Management",
+                "Restaurant Management",
+                "Order Processing",
+                "Delivery Management"
+              ]
+            }
+          ]
+        },
+        "mode": "real",
+        "executedSteps": [
+          "Requirement Analysis",
+          "Module Breakdown"
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "functional-ecommerce",
+      "category": "functional",
+      "mode": "pipeline",
+      "qaMode": "real",
+      "durationMs": 8777.62,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "requirementAnalysis": {
+          "summary": [
+            "Develop an e-commerce web platform."
+          ],
+          "project_type": "E-commerce Web Platform",
+          "explicit_requirements": [
+            "Catalog search functionality",
+            "Shopping cart management",
+            "Checkout process",
+            "Order tracking capabilities",
+            "Seller management features",
+            "Analytics dashboard"
+          ],
+          "assumptions": [
+            "The platform will support multiple sellers.",
+            "Users will be able to browse products, add them to a cart, and complete a purchase.",
+            "Sellers will have tools to manage their products and view orders.",
+            "Data for analytics will be collected and displayed."
+          ],
+          "missing_information": [
+            "Specific technologies or tech stack preferences.",
+            "Payment gateway integrations required.",
+            "Shipping and tax calculation logic.",
+            "User roles and permissions (customer, seller, admin).",
+            "Details on the analytics metrics and reporting needs.",
+            "Scalability requirements.",
+            "Design and UI/UX considerations."
+          ]
+        },
+        "modules": {
+          "modules": [
+            {
+              "module_name": "Product Catalog",
+              "description": "Manages product information, categories, and search functionality.",
+              "features": [
+                "Product listing and display",
+                "Product search and filtering",
+                "Category management",
+                "Product detail pages",
+                "Inventory management (basic)"
+              ],
+              "dependencies": []
+            },
+            {
+              "module_name": "User Management",
+              "description": "Handles user registration, authentication, profiles, and roles.",
+              "features": [
+                "User registration and login",
+                "User profile management",
+                "Role-based access control (Customer, Seller, Admin)",
+                "Password management"
+              ],
+              "dependencies": []
+            },
+            {
+              "module_name": "Shopping Cart",
+              "description": "Manages the user's shopping cart before checkout.",
+              "features": [
+                "Add items to cart",
+                "Remove items from cart",
+                "Update item quantities",
+                "View cart contents"
+              ],
+              "dependencies": [
+                "Product Catalog"
+              ]
+            },
+            {
+              "module_name": "Checkout Process",
+              "description": "Facilitates the entire checkout flow from cart to order placement.",
+              "features": [
+                "Shipping address selection",
+                "Payment method selection",
+                "Order summary review",
+                "Order placement"
+              ],
+              "dependencies": [
+                "Shopping Cart",
+                "User Management",
+                "Payment Gateway Integration"
+              ]
+            },
+            {
+              "module_name": "Order Management",
+              "description": "Handles order processing, tracking, and history for both customers and sellers.",
+              "features": [
+                "Order creation and confirmation",
+                "Order status updates",
+                "Order tracking for customers",
+                "Order history for customers",
+                "Order fulfillment for sellers"
+              ],
+              "dependencies": [
+                "Checkout Process",
+                "User Management"
+              ]
+            },
+            {
+              "module_name": "Seller Management",
+              "description": "Provides tools for sellers to manage their products, orders, and storefront.",
+              "features": [
+                "Product listing and management (for sellers)",
+                "Order view and management (for sellers)",
+                "Seller profile management",
+                "Storefront customization (basic)"
+              ],
+              "dependencies": [
+                "User Management",
+                "Product Catalog",
+                "Order Management"
+              ]
+            },
+            {
+              "module_name": "Payment Gateway Integration",
+              "description": "Integrates with external payment providers to process transactions.",
+              "features": [
+                "Payment authorization",
+                "Payment capture",
+                "Refund processing"
+              ],
+              "dependencies": []
+            },
+            {
+              "module_name": "Analytics Dashboard",
+              "description": "Collects and visualizes key business metrics for administrators and sellers.",
+              "features": [
+                "Sales reporting",
+                "Product performance metrics",
+                "Customer behavior analysis",
+                "Seller performance metrics"
+              ],
+              "dependencies": [
+                "Order Management",
+                "Product Catalog",
+                "User Management"
+              ]
+            },
+            {
+              "module_name": "Notifications",
+              "description": "Handles sending out various notifications to users and sellers.",
+              "features": [
+                "Order confirmation emails",
+                "Shipping updates",
+                "New order alerts for sellers",
+                "Password reset emails"
+              ],
+              "dependencies": [
+                "User Management",
+                "Order Management"
+              ]
+            }
+          ]
+        },
+        "mode": "real",
+        "executedSteps": [
+          "Requirement Analysis",
+          "Module Breakdown"
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-empty-input",
+      "category": "edge",
+      "mode": "validation",
+      "qaMode": "real",
+      "durationMs": 0.03,
+      "status": "PASS",
+      "success": true,
+      "score": 1,
+      "details": {
+        "valid": false,
+        "errors": [
+          "Project requirements are too short. Please provide more details."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-random-text",
+      "category": "edge",
+      "mode": "analysis",
+      "qaMode": "real",
+      "durationMs": 3615.82,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "summary": [
+          "Client expressed random ideas, including the possibility of an app or an AI project, but is also uncertain about pursuing anything.",
+          "The input contains significant noise and unclear intent."
+        ],
+        "project_type": "Uncertain (potentially App or AI)",
+        "explicit_requirements": [],
+        "assumptions": [
+          "The client is in the early stages of ideation.",
+          "The client's current input is highly speculative and not a firm commitment."
+        ],
+        "missing_information": [
+          "Clarification on any specific business problem or opportunity.",
+          "Definition of project goals or desired outcomes.",
+          "Preference between app development or AI implementation.",
+          "Budget or timeline considerations.",
+          "Any constraints or key stakeholders."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-mixed-language",
+      "category": "edge",
+      "mode": "analysis",
+      "qaMode": "real",
+      "durationMs": 4067.05,
+      "status": "FAIL",
+      "success": false,
+      "score": 4,
+      "details": {
+        "summary": [
+          "Create a hospital management application.",
+          "The application should include modules for patient records, doctor scheduling, and billing.",
+          "Implement HIPAA-level security."
+        ],
+        "project_type": "Software Development",
+        "explicit_requirements": [
+          "Patient records management",
+          "Doctor scheduling functionality",
+          "Billing system integration",
+          "HIPAA compliant security features"
+        ],
+        "assumptions": [
+          "The client wants a new application, not an upgrade to an existing one.",
+          "HIPAA compliance is a critical requirement for the application's security.",
+          "The target audience includes patients, doctors, and administrative staff."
+        ],
+        "missing_information": [
+          "Specific details on the patient record fields required.",
+          "Detailed workflow for doctor scheduling (e.g., appointment booking, cancellations, reschedules).",
+          "Payment methods to be supported in the billing module.",
+          "Specific HIPAA security measures to be implemented (e.g., encryption standards, access controls, audit trails).",
+          "Integration requirements with any existing hospital systems.",
+          "User roles and permissions within the application.",
+          "Platform requirements (web, mobile - iOS/Android, or both)."
+        ]
+      },
+      "error": "Project type did not match expectation"
+    },
+    {
+      "id": "edge-typos",
+      "category": "edge",
+      "mode": "analysis",
+      "qaMode": "real",
+      "durationMs": 3805.08,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "summary": [
+          "Build a CRM platform for the sales team."
+        ],
+        "project_type": "CRM Platform Development",
+        "explicit_requirements": [
+          "Lead management features",
+          "Follow-up functionality",
+          "Dashboards for sales data visualization",
+          "Role-based access control"
+        ],
+        "assumptions": [
+          "The client has a defined sales process that the CRM should support.",
+          "The sales team requires specific reporting and analytics capabilities.",
+          "User roles and their corresponding permissions need to be defined."
+        ],
+        "missing_information": [
+          "Specific details about the sales process.",
+          "Required dashboard metrics and KPIs.",
+          "Definition of user roles and their permissions.",
+          "Integration requirements with other systems (e.g., email, calendar, marketing automation).",
+          "Data migration strategy from existing systems (if any).",
+          "Scalability and performance expectations.",
+          "Technology stack preferences or constraints."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-very-long",
+      "category": "edge",
+      "mode": "analysis",
+      "qaMode": "real",
+      "durationMs": 5156.83,
+      "status": "PASS",
+      "success": true,
+      "score": 4,
+      "details": {
+        "summary": [
+          "Develop an enterprise operations platform for a logistics company.",
+          "The platform needs to encompass a wide range of functionalities including shipment planning, route optimization, warehouse operations, vendor management, and billing workflows.",
+          "It should also feature analytics dashboards and provide mobile access for field operations.",
+          "Key technical and operational requirements include audit logs, document uploads, Single Sign-On (SSO), configurable permissions, API integrations, Service Level Agreement (SLA) monitoring, alerting, and region-wise reporting.",
+          "Furthermore, the system must be designed for high concurrency, disaster recovery, adherence to data retention policies, and support for a phased rollout."
+        ],
+        "project_type": "Enterprise Operations Platform Development",
+        "explicit_requirements": [
+          "Shipment planning",
+          "Route optimization",
+          "Warehouse operations management",
+          "Vendor management",
+          "Billing workflows",
+          "Analytics dashboards",
+          "Mobile field access",
+          "Audit logs",
+          "Document uploads",
+          "Single Sign-On (SSO)",
+          "Configurable permissions",
+          "API integrations",
+          "SLA monitoring",
+          "Alerting",
+          "Region-wise reporting",
+          "High concurrency support",
+          "Disaster recovery capabilities",
+          "Data retention policies enforcement",
+          "Phased rollout support"
+        ],
+        "assumptions": [
+          "The client has existing logistics operations that require streamlining.",
+          "The logistics company has a defined user base for the platform (e.g., operations managers, warehouse staff, drivers, vendors, finance personnel).",
+          "The client has existing IT infrastructure and systems with which API integrations might be necessary.",
+          "Security and compliance are important considerations for an enterprise logistics platform."
+        ],
+        "missing_information": [
+          "Specific details on the scale of operations (e.g., number of shipments, warehouses, users, geographic regions).",
+          "Detailed workflows for each functional area (shipment planning, route optimization, warehouse ops, billing, vendor management).",
+          "Specific requirements for analytics dashboards (key metrics, visualizations).",
+          "Technical specifications for mobile field access (platform - iOS/Android, offline capabilities).",
+          "Details on required API integrations (e.g., ERP, TMS, WMS, carrier systems).",
+          "Definition of Service Level Agreements (SLAs) to be monitored.",
+          "Specific alerting scenarios and notification methods.",
+          "Geographic scope for region-wise reporting.",
+          "Technical architecture preferences or constraints.",
+          "Data retention policy specifics (duration, archival strategy).",
+          "Details on the desired phased rollout strategy and timelines.",
+          "Budget and timeline expectations.",
+          "Existing systems and technology stack.",
+          "User roles and their specific permissions."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "routing-gdpr-placeholder",
+      "category": "routing",
+      "mode": "routing",
+      "qaMode": "real",
+      "durationMs": 0.05,
+      "status": "PASS",
+      "success": true,
+      "skipped": false,
+      "score": 2,
+      "details": {
+        "expectedRoute": "compliance_core",
+        "detectedRoute": "compliance_core",
+        "evaluator": "qa-contract-router"
+      },
+      "error": null
+    },
+    {
+      "id": "routing-architecture-placeholder",
+      "category": "routing",
+      "mode": "routing",
+      "qaMode": "real",
+      "durationMs": 0.01,
+      "status": "PASS",
+      "success": true,
+      "skipped": false,
+      "score": 2,
+      "details": {
+        "expectedRoute": "architecture_core",
+        "detectedRoute": "architecture_core",
+        "evaluator": "qa-contract-router"
+      },
+      "error": null
+    },
+    {
+      "id": "consistency-food-delivery",
+      "category": "consistency",
+      "mode": "consistency",
+      "qaMode": "real",
+      "durationMs": 15288.89,
+      "success": false,
+      "skipped": true,
+      "status": "SKIPPED",
+      "score": 0,
+      "error": "RATE_LIMIT",
+      "details": {
+        "retry": true,
+        "message": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 10, model: gemini-2.5-flash-lite\nPlease retry in 24.1365144s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"model\":\"gemini-2.5-flash-lite\",\"location\":\"global\"},\"quotaValue\":\"10\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"24s\"}]"
+      }
+    },
+    {
+      "id": "suggestion-basic",
+      "category": "functional",
+      "mode": "suggestion",
+      "qaMode": "real",
+      "durationMs": 8393.57,
+      "success": false,
+      "skipped": true,
+      "status": "SKIPPED",
+      "score": 0,
+      "error": "RATE_LIMIT",
+      "details": {
+        "retry": true,
+        "message": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash-lite\nPlease retry in 15.730662082s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerDayPerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-2.5-flash-lite\"},\"quotaValue\":\"20\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"15s\"}]"
+      }
+    },
+    {
+      "id": "functional-food-delivery",
+      "category": "functional",
+      "mode": "pipeline",
+      "qaMode": "real",
+      "durationMs": 8620.26,
+      "success": false,
+      "skipped": true,
+      "status": "SKIPPED",
+      "score": 0,
+      "error": "RATE_LIMIT",
+      "details": {
+        "retry": true,
+        "message": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash-lite\nPlease retry in 2.107477193s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerDayPerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-2.5-flash-lite\"},\"quotaValue\":\"20\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"2s\"}]"
+      }
+    },
+    {
+      "id": "functional-ecommerce",
+      "category": "functional",
+      "mode": "pipeline",
+      "qaMode": "real",
+      "durationMs": 8447.63,
+      "success": false,
+      "skipped": true,
+      "status": "SKIPPED",
+      "score": 0,
+      "error": "RATE_LIMIT",
+      "details": {
+        "retry": true,
+        "message": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash-lite\nPlease retry in 53.673415733s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerDayPerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-2.5-flash-lite\"},\"quotaValue\":\"20\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"53s\"}]"
+      }
+    },
+    {
+      "id": "edge-empty-input",
+      "category": "edge",
+      "mode": "validation",
+      "qaMode": "real",
+      "durationMs": 0.03,
+      "status": "PASS",
+      "success": true,
+      "score": 1,
+      "details": {
+        "valid": false,
+        "errors": [
+          "Project requirements are too short. Please provide more details."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-random-text",
+      "category": "edge",
+      "mode": "analysis",
+      "qaMode": "real",
+      "durationMs": 8408.79,
+      "success": false,
+      "skipped": true,
+      "status": "SKIPPED",
+      "score": 0,
+      "error": "RATE_LIMIT",
+      "details": {
+        "retry": true,
+        "message": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash-lite\nPlease retry in 45.247044603s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerDayPerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"model\":\"gemini-2.5-flash-lite\",\"location\":\"global\"},\"quotaValue\":\"20\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"45s\"}]"
+      }
+    },
+    {
+      "id": "edge-mixed-language",
+      "category": "edge",
+      "mode": "analysis",
+      "qaMode": "real",
+      "durationMs": 8409.21,
+      "success": false,
+      "skipped": true,
+      "status": "SKIPPED",
+      "score": 0,
+      "error": "RATE_LIMIT",
+      "details": {
+        "retry": true,
+        "message": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash-lite\nPlease retry in 36.845349711s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerDayPerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"model\":\"gemini-2.5-flash-lite\",\"location\":\"global\"},\"quotaValue\":\"20\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"36s\"}]"
+      }
+    },
+    {
+      "id": "edge-typos",
+      "category": "edge",
+      "mode": "analysis",
+      "qaMode": "real",
+      "durationMs": 8440.44,
+      "success": false,
+      "skipped": true,
+      "status": "SKIPPED",
+      "score": 0,
+      "error": "RATE_LIMIT",
+      "details": {
+        "retry": true,
+        "message": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash-lite\nPlease retry in 28.409004744s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerDayPerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-2.5-flash-lite\"},\"quotaValue\":\"20\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"28s\"}]"
+      }
+    },
+    {
+      "id": "edge-very-long",
+      "category": "edge",
+      "mode": "analysis",
+      "qaMode": "real",
+      "durationMs": 8399.95,
+      "success": false,
+      "skipped": true,
+      "status": "SKIPPED",
+      "score": 0,
+      "error": "RATE_LIMIT",
+      "details": {
+        "retry": true,
+        "message": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash-lite\nPlease retry in 20.003745189s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerDayPerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"model\":\"gemini-2.5-flash-lite\",\"location\":\"global\"},\"quotaValue\":\"20\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"20s\"}]"
+      }
+    },
+    {
+      "id": "routing-gdpr-placeholder",
+      "category": "routing",
+      "mode": "routing",
+      "qaMode": "real",
+      "durationMs": 0.03,
+      "status": "PASS",
+      "success": true,
+      "skipped": false,
+      "score": 2,
+      "details": {
+        "expectedRoute": "compliance_core",
+        "detectedRoute": "compliance_core",
+        "evaluator": "qa-contract-router"
+      },
+      "error": null
+    },
+    {
+      "id": "routing-architecture-placeholder",
+      "category": "routing",
+      "mode": "routing",
+      "qaMode": "real",
+      "durationMs": 0.11,
+      "status": "PASS",
+      "success": true,
+      "skipped": false,
+      "score": 2,
+      "details": {
+        "expectedRoute": "architecture_core",
+        "detectedRoute": "architecture_core",
+        "evaluator": "qa-contract-router"
+      },
+      "error": null
+    },
+    {
+      "id": "consistency-food-delivery",
+      "category": "consistency",
+      "mode": "consistency",
+      "qaMode": "real",
+      "durationMs": 8413.67,
+      "success": false,
+      "skipped": true,
+      "status": "SKIPPED",
+      "score": 0,
+      "error": "RATE_LIMIT",
+      "details": {
+        "retry": true,
+        "message": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash-lite\nPlease retry in 11.586524991s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerDayPerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-2.5-flash-lite\"},\"quotaValue\":\"20\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"11s\"}]"
+      }
+    },
+    {
+      "id": "suggestion-basic",
+      "category": "functional",
+      "mode": "suggestion",
+      "qaMode": "real",
+      "durationMs": 8397.14,
+      "success": false,
+      "skipped": true,
+      "status": "SKIPPED",
+      "score": 0,
+      "error": "RATE_LIMIT",
+      "details": {
+        "retry": true,
+        "message": "All models failed. Last error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash-lite\nPlease retry in 3.193570871s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerDayPerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"location\":\"global\",\"model\":\"gemini-2.5-flash-lite\"},\"quotaValue\":\"20\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"3s\"}]"
+      }
+    }
+  ]
+}

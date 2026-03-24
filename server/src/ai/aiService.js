@@ -4,17 +4,34 @@ require('dotenv').config();
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
-// Model Priority Chain
-const MODELS = [
+// Default model priority chain
+const DEFAULT_MODELS = [
   'gemini-2.5-flash',
   'gemini-2.5-flash-lite',
   'gemini-3-flash-preview'
 ];
 
-async function generateWithFallback(projectId, stepName, systemPrompt, userPrompt, jsonMode = true) {
-  let lastError = null;
+function resolveModels(preferredModels) {
+  if (Array.isArray(preferredModels) && preferredModels.length > 0) {
+    return preferredModels;
+  }
 
-  for (const modelName of MODELS) {
+  return DEFAULT_MODELS;
+}
+
+function isRecoverableError(error) {
+  return error?.status === 429 ||
+    error?.status === 503 ||
+    error?.message?.includes('429') ||
+    error?.message?.includes('503') ||
+    error?.message?.includes('FOREIGN KEY');
+}
+
+async function generateWithFallback(projectId, stepName, systemPrompt, userPrompt, jsonMode = true, preferredModels = null) {
+  let lastError = null;
+  const models = resolveModels(preferredModels);
+
+  for (const modelName of models) {
     try {
       console.log(`[AI Service] Attempting step '${stepName}' with model: ${modelName}`);
 
@@ -40,7 +57,7 @@ async function generateWithFallback(projectId, stepName, systemPrompt, userPromp
     } catch (error) {
       console.error(`[AI Service] Error with ${modelName}:`, error.message);
 
-      if (error.status === 429 || error.message.includes('429') || error.status === 503 || error.message.includes('FOREIGN KEY')) {
+      if (isRecoverableError(error)) {
         console.warn(`[AI Service] Rate limit or temporary error for ${modelName}. Switching to next model...`);
         lastError = error;
         continue;
@@ -50,12 +67,18 @@ async function generateWithFallback(projectId, stepName, systemPrompt, userPromp
     }
   }
 
-  throw new Error(`All models failed. Last error: ${lastError ? lastError.message : 'Unknown'}`);
+  const finalError = new Error(`All models failed. Last error: ${lastError ? lastError.message : 'Unknown'}`);
+  finalError.status = lastError?.status || 500;
+  finalError.code = lastError?.status === 429 || lastError?.message?.includes('429') ? 'RATE_LIMIT' : 'MODEL_FALLBACK_FAILED';
+  finalError.retry = finalError.code === 'RATE_LIMIT';
+  throw finalError;
 }
 
 // --- 1. Requirement Analyzer Agent ---
-async function analyzeRequirements(projectId, rawRequirements) {
+async function analyzeRequirements(projectId, rawRequirements, options = {}) {
   const systemPrompt = `You are a Senior Business Analyst. Turn messy client text into structured understanding.
+    Handle multilingual input gracefully.
+    Normalize and interpret intent even when the text mixes languages, contains typos, or is noisy.
     
     Output format (JSON only):
     {
@@ -67,11 +90,11 @@ async function analyzeRequirements(projectId, rawRequirements) {
     }`;
 
   const userPrompt = `Client Requirement:\n${rawRequirements}`;
-  return generateWithFallback(projectId, 'Requirement Analysis', systemPrompt, userPrompt);
+  return generateWithFallback(projectId, 'Requirement Analysis', systemPrompt, userPrompt, true, options.preferredModels);
 }
 
 // --- 2. Research Agent ---
-async function researchTechStack(projectId, reqAnalysis) {
+async function researchTechStack(projectId, reqAnalysis, options = {}) {
   const systemPrompt = `You are a Research Agent. Research the best technical solution for the project.
     
     Output format (JSON only):
@@ -93,11 +116,11 @@ async function researchTechStack(projectId, reqAnalysis) {
     }`;
 
   const userPrompt = `Project Data:\n${JSON.stringify(reqAnalysis)}`;
-  return generateWithFallback(projectId, 'Research Tech Stack', systemPrompt, userPrompt);
+  return generateWithFallback(projectId, 'Research Tech Stack', systemPrompt, userPrompt, true, options.preferredModels);
 }
 
 // --- 3. Cost & Timeline Estimation Agent ---
-async function estimateCostAndTimeline(projectId, reqAnalysis, researchData) {
+async function estimateCostAndTimeline(projectId, reqAnalysis, researchData, options = {}) {
   const systemPrompt = `You are a Financial Planner & Project Manager. Estimate cost and timeline (India-based market).
     
     CRITICAL: Use the following specific developer salary rates for your cost calculation (Implied Annual Rates in INR):
@@ -118,11 +141,11 @@ async function estimateCostAndTimeline(projectId, reqAnalysis, researchData) {
     IMPORTANT: Provide costs strictly in Indian Rupees (INR) using Lakhs/Crores where appropriate. Do NOT use USD.`;
 
   const userPrompt = `Project Details:\n${JSON.stringify({ ...reqAnalysis, ...researchData })}`;
-  return generateWithFallback(projectId, 'Cost & Timeline', systemPrompt, userPrompt);
+  return generateWithFallback(projectId, 'Cost & Timeline', systemPrompt, userPrompt, true, options.preferredModels);
 }
 
 // --- 4. Module Breakdown Agent ---
-async function breakdownModules(projectId, reqAnalysis) {
+async function breakdownModules(projectId, reqAnalysis, options = {}) {
   const systemPrompt = `You are a System Architect. Break the project into clear functional modules.
     
     Output format (JSON only):
@@ -138,11 +161,11 @@ async function breakdownModules(projectId, reqAnalysis) {
     }`;
 
   const userPrompt = `Project Context:\n${JSON.stringify(reqAnalysis)}`;
-  return generateWithFallback(projectId, 'Module Breakdown', systemPrompt, userPrompt);
+  return generateWithFallback(projectId, 'Module Breakdown', systemPrompt, userPrompt, true, options.preferredModels);
 }
 
 // --- 5. Final Documentation Generator ---
-async function generateFinalDoc(projectId, allData) {
+async function generateFinalDoc(projectId, allData, options = {}) {
   const systemPrompt = `You are a Technical Writer. Generate professional software project documentation.
     
     Documentation Sections:
@@ -265,15 +288,15 @@ async function generateFinalDoc(projectId, allData) {
     Output Markdown. Ensure all cost figures are in INR (₹).`;
 
   const userPrompt = `Input Data:\n${JSON.stringify(allData)}`;
-  return generateWithFallback(projectId, 'Final Doc Gen', systemPrompt, userPrompt, false);
+  return generateWithFallback(projectId, 'Final Doc Gen', systemPrompt, userPrompt, false, options.preferredModels);
 }
 
 // --- Auto-Fill Helper ---
-async function suggestTeamAndStack(projectId, requirements) {
+async function suggestTeamAndStack(projectId, requirements, options = {}) {
   const systemPrompt = `You are a CTO. Analyze requirements and suggest Team & Stack. 
     Output JSON: { "team": {...}, "stack": {...} }`;
   const userPrompt = `Requirements: ${requirements}`;
-  return generateWithFallback(projectId, 'Team & Stack Suggestion', systemPrompt, userPrompt);
+  return generateWithFallback(projectId, 'Team & Stack Suggestion', systemPrompt, userPrompt, true, options.preferredModels);
 }
 
 module.exports = {

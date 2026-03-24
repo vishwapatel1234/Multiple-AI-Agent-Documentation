@@ -1,0 +1,367 @@
+{
+  "generatedAt": "2026-03-24T07:12:52.221Z",
+  "config": {
+    "mode": "mock",
+    "iterations": 1,
+    "consistencyRuns": 5,
+    "categories": [
+      "functional",
+      "edge",
+      "routing"
+    ],
+    "delayMs": 2000,
+    "iterationCooldownMs": 5000,
+    "retries": 3
+  },
+  "totals": {
+    "totalResults": 10,
+    "executed": 10,
+    "skipped": 0,
+    "successCount": 9,
+    "failureCount": 1,
+    "successRate": 90,
+    "averageDurationMs": 1.14
+  },
+  "commonErrors": [
+    {
+      "message": "Cannot read properties of undefined (reading '_zod')",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "id": "functional-food-delivery",
+      "category": "functional",
+      "mode": "pipeline",
+      "qaMode": "mock",
+      "durationMs": 3.08,
+      "success": true,
+      "score": 4,
+      "details": {
+        "requirementAnalysis": {
+          "summary": [
+            "Build a food delivery app with user accounts",
+            "restaurant onboarding",
+            "live delivery tracking"
+          ],
+          "project_type": "web application",
+          "explicit_requirements": [
+            "Build a food delivery app with user accounts",
+            "restaurant onboarding",
+            "live delivery tracking",
+            "payments",
+            "ratings"
+          ],
+          "assumptions": [
+            "Assumed standard authentication and admin workflows."
+          ],
+          "missing_information": [
+            "Detailed non-functional requirements are not fully specified."
+          ]
+        },
+        "modules": {
+          "modules": [
+            {
+              "module_name": "Authentication & Access Control",
+              "description": "Handles login, identity, and role-based access.",
+              "features": [
+                "User authentication",
+                "Role management",
+                "Session handling"
+              ],
+              "dependencies": [
+                "Database"
+              ]
+            },
+            {
+              "module_name": "Core Business Workflows",
+              "description": "Supports the main user-facing workflows for the requested system.",
+              "features": [
+                "Primary business flows",
+                "Dashboards",
+                "Operational reporting"
+              ],
+              "dependencies": [
+                "Authentication & Access Control",
+                "Database"
+              ]
+            },
+            {
+              "module_name": "Integration Layer",
+              "description": "Manages third-party APIs and internal service communication.",
+              "features": [
+                "API adapters",
+                "Data sync",
+                "Error handling"
+              ],
+              "dependencies": [
+                "Core Business Workflows"
+              ]
+            }
+          ]
+        },
+        "mode": "mock",
+        "executedSteps": [
+          "Requirement Analysis",
+          "Module Breakdown"
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "functional-ecommerce",
+      "category": "functional",
+      "mode": "pipeline",
+      "qaMode": "mock",
+      "durationMs": 1.35,
+      "success": true,
+      "score": 4,
+      "details": {
+        "requirementAnalysis": {
+          "summary": [
+            "Create an e-commerce web platform with catalog search",
+            "carts",
+            "checkout"
+          ],
+          "project_type": "platform",
+          "explicit_requirements": [
+            "Create an e-commerce web platform with catalog search",
+            "carts",
+            "checkout",
+            "order tracking",
+            "seller management"
+          ],
+          "assumptions": [
+            "Assumed standard authentication and admin workflows."
+          ],
+          "missing_information": [
+            "Detailed non-functional requirements are not fully specified."
+          ]
+        },
+        "modules": {
+          "modules": [
+            {
+              "module_name": "Authentication & Access Control",
+              "description": "Handles login, identity, and role-based access.",
+              "features": [
+                "User authentication",
+                "Role management",
+                "Session handling"
+              ],
+              "dependencies": [
+                "Database"
+              ]
+            },
+            {
+              "module_name": "Analytics & Reporting",
+              "description": "Supports the main user-facing workflows for the requested system.",
+              "features": [
+                "Primary business flows",
+                "Dashboards",
+                "Operational reporting"
+              ],
+              "dependencies": [
+                "Authentication & Access Control",
+                "Database"
+              ]
+            },
+            {
+              "module_name": "Integration Layer",
+              "description": "Manages third-party APIs and internal service communication.",
+              "features": [
+                "API adapters",
+                "Data sync",
+                "Error handling"
+              ],
+              "dependencies": [
+                "Core Business Workflows"
+              ]
+            }
+          ]
+        },
+        "mode": "mock",
+        "executedSteps": [
+          "Requirement Analysis",
+          "Module Breakdown"
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-empty-input",
+      "category": "edge",
+      "mode": "validation",
+      "qaMode": "mock",
+      "durationMs": 0.05,
+      "success": true,
+      "score": 1,
+      "details": {
+        "valid": false,
+        "errors": [
+          "Project requirements are too short. Please provide more details."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-random-text",
+      "category": "edge",
+      "mode": "analysis",
+      "qaMode": "mock",
+      "durationMs": 1.33,
+      "success": true,
+      "score": 4,
+      "details": {
+        "summary": [
+          "asdkjashdkajshd qweoiu zxcmn random idea maybe app maybe ai maybe nothing"
+        ],
+        "project_type": "web application",
+        "explicit_requirements": [
+          "asdkjashdkajshd qweoiu zxcmn random idea maybe app maybe ai maybe nothing"
+        ],
+        "assumptions": [
+          "Assumed standard authentication and admin workflows."
+        ],
+        "missing_information": [
+          "Detailed non-functional requirements are not fully specified."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-mixed-language",
+      "category": "edge",
+      "mode": "analysis",
+      "qaMode": "mock",
+      "durationMs": 1.49,
+      "success": true,
+      "score": 4,
+      "details": {
+        "summary": [
+          "Banaye ek hospital management app with patient records",
+          "doctor scheduling",
+          "billing"
+        ],
+        "project_type": "web application",
+        "explicit_requirements": [
+          "Banaye ek hospital management app with patient records",
+          "doctor scheduling",
+          "billing",
+          "and HIPAA style security"
+        ],
+        "assumptions": [
+          "Assumed standard authentication and admin workflows."
+        ],
+        "missing_information": [
+          "Detailed non-functional requirements are not fully specified."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-typos",
+      "category": "edge",
+      "mode": "analysis",
+      "qaMode": "mock",
+      "durationMs": 1.12,
+      "success": true,
+      "score": 4,
+      "details": {
+        "summary": [
+          "Bulid a crm platfrom for salez team with lead mangement",
+          "followups",
+          "dashbords"
+        ],
+        "project_type": "software system",
+        "explicit_requirements": [
+          "Bulid a crm platfrom for salez team with lead mangement",
+          "followups",
+          "dashbords",
+          "and role base acces"
+        ],
+        "assumptions": [
+          "Assumed standard authentication and admin workflows."
+        ],
+        "missing_information": [
+          "Detailed non-functional requirements are not fully specified."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "edge-very-long",
+      "category": "edge",
+      "mode": "analysis",
+      "qaMode": "mock",
+      "durationMs": 1.16,
+      "success": true,
+      "score": 4,
+      "details": {
+        "summary": [
+          "Build an enterprise operations platform for a logistics company",
+          "It should support shipment planning",
+          "route optimization"
+        ],
+        "project_type": "platform",
+        "explicit_requirements": [
+          "Build an enterprise operations platform for a logistics company",
+          "It should support shipment planning",
+          "route optimization",
+          "warehouse operations",
+          "vendor management"
+        ],
+        "assumptions": [
+          "Assumed standard authentication and admin workflows."
+        ],
+        "missing_information": [
+          "Detailed non-functional requirements are not fully specified."
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "routing-gdpr-placeholder",
+      "category": "routing",
+      "mode": "routing",
+      "qaMode": "mock",
+      "durationMs": 0.05,
+      "success": true,
+      "skipped": false,
+      "score": 2,
+      "details": {
+        "expectedRoute": "compliance_core",
+        "detectedRoute": "compliance_core",
+        "evaluator": "qa-mock-router"
+      },
+      "error": null
+    },
+    {
+      "id": "routing-architecture-placeholder",
+      "category": "routing",
+      "mode": "routing",
+      "qaMode": "mock",
+      "durationMs": 0.01,
+      "success": true,
+      "skipped": false,
+      "score": 2,
+      "details": {
+        "expectedRoute": "architecture_core",
+        "detectedRoute": "architecture_core",
+        "evaluator": "qa-mock-router"
+      },
+      "error": null
+    },
+    {
+      "id": "suggestion-basic",
+      "category": "functional",
+      "mode": "suggestion",
+      "qaMode": "mock",
+      "durationMs": 1.74,
+      "success": false,
+      "skipped": false,
+      "score": 0,
+      "error": "Cannot read properties of undefined (reading '_zod')",
+      "details": null
+    }
+  ]
+}

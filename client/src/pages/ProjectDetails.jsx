@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { ArrowLeft, Download, ReceiptText, Trash2 } from 'lucide-react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { api } from '../api';
-import { ArrowLeft, Trash2 } from 'lucide-react';
 import EnhancedDocViewer from '../components/EnhancedDocViewer';
 
 const ProjectDetails = () => {
@@ -9,90 +9,112 @@ const ProjectDetails = () => {
     const navigate = useNavigate();
     const [project, setProject] = useState(null);
     const [loading, setLoading] = useState(true);
-
-    const handleDelete = async () => {
-        if (window.confirm('Are you sure you want to delete this project? This cannot be undone.')) {
-            try {
-                await api.deleteProject(id);
-                navigate('/');
-            } catch (err) {
-                console.error("Failed to delete", err);
-                alert("Failed to delete project");
-            }
-        }
-    };
+    const [downloading, setDownloading] = useState(false);
 
     useEffect(() => {
-        api.getProject(id).then(data => {
-            setProject(data);
-            setLoading(false);
-        });
+        api.getProject(id)
+            .then((data) => setProject(data))
+            .finally(() => setLoading(false));
     }, [id]);
 
-    const [downloading, setDownloading] = useState(false);
+    const handleDelete = async () => {
+        if (!window.confirm('Are you sure you want to delete this project? This cannot be undone.')) {
+            return;
+        }
+
+        try {
+            await api.deleteProject(id);
+            navigate('/');
+        } catch (error) {
+            console.error('Failed to delete', error);
+            alert('Failed to delete project');
+        }
+    };
 
     const handleDownload = async () => {
         try {
             setDownloading(true);
             const { blob, filename } = await api.downloadPdf(project.id);
             const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = filename;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
             window.setTimeout(() => window.URL.revokeObjectURL(url), 1000);
-        } catch (err) {
-            console.error("Download failed", err);
-            alert("Failed to download PDF");
+        } catch (error) {
+            console.error('Download failed', error);
+            alert('Failed to download PDF');
         } finally {
             setDownloading(false);
         }
     };
 
-    if (loading) return <div>Loading details...</div>;
-    if (!project) return <div>Project not found</div>;
-
-    return (
-        <div>
-            <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', color: 'var(--text-secondary)' }}>
-                <ArrowLeft size={16} /> Back to Dashboard
-            </Link>
-
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                <div>
-                    <h1>Project Documentation</h1>
-                    <p style={{ color: 'var(--text-secondary)' }}>ID: {project.id}</p>
-                </div>
-                <div className="card" style={{ padding: '1rem' }}>
-                    <div style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Estimated Cost</div>
-                    <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'var(--success-color)' }}>
-                        ₹{project.cost_inr ? project.cost_inr.toFixed(2) : '0.00'}
+    if (loading) {
+        return (
+            <section className="card loading-state">
+                <div className="status-card">
+                    <div className="spinner" />
+                    <div>
+                        <strong>Loading project details</strong>
+                        <p>Preparing the generated documentation view.</p>
                     </div>
                 </div>
-                <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
-                    <button
-                        className="btn"
-                        style={{ backgroundColor: 'var(--error-color)', color: 'white', width: 'auto' }}
-                        onClick={handleDelete}
-                    >
-                        <Trash2 size={18} style={{ marginRight: '0.5rem' }} /> Delete
+            </section>
+        );
+    }
+
+    if (!project) {
+        return (
+            <section className="card empty-state">
+                <strong>Project not found</strong>
+                <p>This record may have been deleted or never finished generating.</p>
+            </section>
+        );
+    }
+
+    return (
+        <div className="page-stack">
+            <Link to="/" className="back-link">
+                <ArrowLeft size={16} />
+                Back to Dashboard
+            </Link>
+
+            <section className="page-hero compact">
+                <div className="hero-copy">
+                    <span className="hero-kicker">Project Output</span>
+                    <h1 className="hero-title">Generated project documentation</h1>
+                    <p className="hero-description">
+                        Review the final output, export a PDF, or remove the project from your workspace.
+                    </p>
+                    <div className="hero-actions">
+                        <span className="badge">
+                            <ReceiptText size={16} />
+                            ID: {project.id}
+                        </span>
+                    </div>
+                </div>
+
+                <div className="hero-actions">
+                    <div className="card panel">
+                        <div className="metric-label">Recorded API cost</div>
+                        <div className="metric-value">₹{project.cost_inr ? Number(project.cost_inr).toFixed(2) : '0.00'}</div>
+                    </div>
+                    <button className="btn btn-danger" onClick={handleDelete}>
+                        <Trash2 size={18} />
+                        Delete
                     </button>
-                    <button
-                        className="btn btn-primary"
-                        style={{ width: '200px' }}
-                        onClick={handleDownload}
-                        disabled={downloading || !project?.id}
-                    >
+                    <button className="btn btn-primary" onClick={handleDownload} disabled={downloading || !project.id}>
+                        <Download size={18} />
                         {downloading ? 'Downloading...' : 'Download PDF'}
                     </button>
                 </div>
-            </div>
+            </section>
 
-            <div className="card" style={{ marginTop: '2rem', minHeight: '500px' }}>
+            <section className="card doc-shell">
                 <EnhancedDocViewer content={project.documentation_md} />
-            </div>
+            </section>
         </div>
     );
 };
